@@ -1,0 +1,4 @@
+dependencies: \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRAVLTreeNode.m \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRAVLTreeNode.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRBinaryTreeNode.h

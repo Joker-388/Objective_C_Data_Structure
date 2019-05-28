@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/main.m \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRBaseList.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRArrayList.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/Person.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRSingleLinkedList.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRSingleLinkedListNode.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRSingleCircleLinkedList.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRLinkedList.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRLinkedListNode.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRLinkedCircleList.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRStack.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRQueue.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRBinarySearchTree.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRBinaryTree.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRAVLTree.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRRedBlackTree.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRTimeTool.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRHashMap.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRHashSet.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRTreeMap.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRTreeSet.h

@@ -1,0 +1,721 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F3A6FB28229D004500B9A4E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB27229D004500B9A4E8 /* main.m */; };
+		F3A6FB6F229D011300B9A4E8 /* JKRArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB6D229D011300B9A4E8 /* JKRArray.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F3A6FB7B229D01FD00B9A4E8 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB71229D01FC00B9A4E8 /* Student.m */; };
+		F3A6FB7C229D01FD00B9A4E8 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB72229D01FC00B9A4E8 /* Person.m */; };
+		F3A6FB7D229D01FD00B9A4E8 /* SubKey2.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB73229D01FC00B9A4E8 /* SubKey2.m */; };
+		F3A6FB7E229D01FD00B9A4E8 /* SubKey1.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB77229D01FD00B9A4E8 /* SubKey1.m */; };
+		F3A6FB7F229D01FD00B9A4E8 /* Key.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB7A229D01FD00B9A4E8 /* Key.m */; };
+		F3A6FB83229D024D00B9A4E8 /* JKRArrayList.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB82229D024D00B9A4E8 /* JKRArrayList.m */; };
+		F3A6FB96229D05D500B9A4E8 /* JKRBaseList.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB95229D05D500B9A4E8 /* JKRBaseList.m */; };
+		F3A6FB99229D17C300B9A4E8 /* JKRSingleLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB98229D17C300B9A4E8 /* JKRSingleLinkedList.m */; };
+		F3A6FB9E229D1FF300B9A4E8 /* JKRSingleLinkedListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB9D229D1FF300B9A4E8 /* JKRSingleLinkedListNode.m */; };
+		F3A6FBA1229D200A00B9A4E8 /* JKRLinkedListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBA0229D200A00B9A4E8 /* JKRLinkedListNode.m */; };
+		F3A6FBA8229D269500B9A4E8 /* JKRSingleCircleLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBA7229D269500B9A4E8 /* JKRSingleCircleLinkedList.m */; };
+		F3A6FBAC229D2B3000B9A4E8 /* JKRLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBAB229D2B3000B9A4E8 /* JKRLinkedList.m */; };
+		F3A6FBB2229D334C00B9A4E8 /* JKRLinkedCircleList.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBB1229D334C00B9A4E8 /* JKRLinkedCircleList.m */; };
+		F3A6FBB6229D354E00B9A4E8 /* JKRStack.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBB5229D354E00B9A4E8 /* JKRStack.m */; };
+		F3A6FBBA229D39AB00B9A4E8 /* JKRQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBB9229D39AB00B9A4E8 /* JKRQueue.m */; };
+		F3A6FBC0229D3CBE00B9A4E8 /* Deque.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBBF229D3CBE00B9A4E8 /* Deque.m */; };
+		F3A6FBC6229D3FE500B9A4E8 /* JKRBinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBC2229D3FE500B9A4E8 /* JKRBinaryTree.m */; };
+		F3A6FBC7229D3FE500B9A4E8 /* JKRBinaryTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBC3229D3FE500B9A4E8 /* JKRBinaryTreeNode.m */; };
+		F3A6FBCC229D401B00B9A4E8 /* JKRBinarySearchTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBCA229D401B00B9A4E8 /* JKRBinarySearchTree.m */; };
+		F3A6FBD2229D402D00B9A4E8 /* JKRAVLTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBCE229D402D00B9A4E8 /* JKRAVLTreeNode.m */; };
+		F3A6FBD3229D402D00B9A4E8 /* JKRAVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBD1229D402D00B9A4E8 /* JKRAVLTree.m */; };
+		F3A6FBD9229D404700B9A4E8 /* JKRRedBlackTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBD5229D404700B9A4E8 /* JKRRedBlackTree.m */; };
+		F3A6FBDA229D404700B9A4E8 /* JKRRedBlackTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBD7229D404700B9A4E8 /* JKRRedBlackTreeNode.m */; };
+		F3A6FBE1229D40B900B9A4E8 /* LevelOrderPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBE0229D40B900B9A4E8 /* LevelOrderPrinter.m */; };
+		F3A6FBE4229D416700B9A4E8 /* JKRTimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBE2229D416700B9A4E8 /* JKRTimeTool.m */; };
+		F3A6FBED229D481100B9A4E8 /* JKRHashSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBE7229D481100B9A4E8 /* JKRHashSet.m */; };
+		F3A6FBEE229D481100B9A4E8 /* NSObject+JKRDataStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBE8229D481100B9A4E8 /* NSObject+JKRDataStructure.m */; };
+		F3A6FBEF229D481100B9A4E8 /* JKRHashMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBEA229D481100B9A4E8 /* JKRHashMap.m */; };
+		F3A6FBF5229D486700B9A4E8 /* JKRTreeMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBF1229D486600B9A4E8 /* JKRTreeMap.m */; };
+		F3A6FBF6229D486700B9A4E8 /* JKRTreeSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBF4229D486700B9A4E8 /* JKRTreeSet.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F3A6FB22229D004500B9A4E8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F3A6FB24229D004500B9A4E8 /* JKRObjevtive_C_Data_Structure */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JKRObjevtive_C_Data_Structure; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3A6FB27229D004500B9A4E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F3A6FB6D229D011300B9A4E8 /* JKRArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JKRArray.mm; sourceTree = "<group>"; };
+		F3A6FB6E229D011300B9A4E8 /* JKRArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRArray.h; sourceTree = "<group>"; };
+		F3A6FB71229D01FC00B9A4E8 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		F3A6FB72229D01FC00B9A4E8 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		F3A6FB73229D01FC00B9A4E8 /* SubKey2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubKey2.m; sourceTree = "<group>"; };
+		F3A6FB74229D01FC00B9A4E8 /* SubKey2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubKey2.h; sourceTree = "<group>"; };
+		F3A6FB75229D01FD00B9A4E8 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		F3A6FB76229D01FD00B9A4E8 /* Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Key.h; sourceTree = "<group>"; };
+		F3A6FB77229D01FD00B9A4E8 /* SubKey1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubKey1.m; sourceTree = "<group>"; };
+		F3A6FB78229D01FD00B9A4E8 /* SubKey1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubKey1.h; sourceTree = "<group>"; };
+		F3A6FB79229D01FD00B9A4E8 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		F3A6FB7A229D01FD00B9A4E8 /* Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Key.m; sourceTree = "<group>"; };
+		F3A6FB81229D024D00B9A4E8 /* JKRArrayList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRArrayList.h; sourceTree = "<group>"; };
+		F3A6FB82229D024D00B9A4E8 /* JKRArrayList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRArrayList.m; sourceTree = "<group>"; };
+		F3A6FB94229D05D500B9A4E8 /* JKRBaseList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRBaseList.h; sourceTree = "<group>"; };
+		F3A6FB95229D05D500B9A4E8 /* JKRBaseList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRBaseList.m; sourceTree = "<group>"; };
+		F3A6FB97229D17C300B9A4E8 /* JKRSingleLinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRSingleLinkedList.h; sourceTree = "<group>"; };
+		F3A6FB98229D17C300B9A4E8 /* JKRSingleLinkedList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRSingleLinkedList.m; sourceTree = "<group>"; };
+		F3A6FB9C229D1FF300B9A4E8 /* JKRSingleLinkedListNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRSingleLinkedListNode.h; sourceTree = "<group>"; };
+		F3A6FB9D229D1FF300B9A4E8 /* JKRSingleLinkedListNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRSingleLinkedListNode.m; sourceTree = "<group>"; };
+		F3A6FB9F229D200A00B9A4E8 /* JKRLinkedListNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRLinkedListNode.h; sourceTree = "<group>"; };
+		F3A6FBA0229D200A00B9A4E8 /* JKRLinkedListNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRLinkedListNode.m; sourceTree = "<group>"; };
+		F3A6FBA6229D269500B9A4E8 /* JKRSingleCircleLinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRSingleCircleLinkedList.h; sourceTree = "<group>"; };
+		F3A6FBA7229D269500B9A4E8 /* JKRSingleCircleLinkedList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRSingleCircleLinkedList.m; sourceTree = "<group>"; };
+		F3A6FBAA229D2B3000B9A4E8 /* JKRLinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRLinkedList.h; sourceTree = "<group>"; };
+		F3A6FBAB229D2B3000B9A4E8 /* JKRLinkedList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRLinkedList.m; sourceTree = "<group>"; };
+		F3A6FBB0229D334C00B9A4E8 /* JKRLinkedCircleList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRLinkedCircleList.h; sourceTree = "<group>"; };
+		F3A6FBB1229D334C00B9A4E8 /* JKRLinkedCircleList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRLinkedCircleList.m; sourceTree = "<group>"; };
+		F3A6FBB4229D354E00B9A4E8 /* JKRStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRStack.h; sourceTree = "<group>"; };
+		F3A6FBB5229D354E00B9A4E8 /* JKRStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRStack.m; sourceTree = "<group>"; };
+		F3A6FBB8229D39AB00B9A4E8 /* JKRQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRQueue.h; sourceTree = "<group>"; };
+		F3A6FBB9229D39AB00B9A4E8 /* JKRQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRQueue.m; sourceTree = "<group>"; };
+		F3A6FBBE229D3CBE00B9A4E8 /* Deque.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deque.h; sourceTree = "<group>"; };
+		F3A6FBBF229D3CBE00B9A4E8 /* Deque.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Deque.m; sourceTree = "<group>"; };
+		F3A6FBC2229D3FE500B9A4E8 /* JKRBinaryTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRBinaryTree.m; sourceTree = "<group>"; };
+		F3A6FBC3229D3FE500B9A4E8 /* JKRBinaryTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRBinaryTreeNode.m; sourceTree = "<group>"; };
+		F3A6FBC4229D3FE500B9A4E8 /* JKRBinaryTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRBinaryTreeNode.h; sourceTree = "<group>"; };
+		F3A6FBC5229D3FE500B9A4E8 /* JKRBinaryTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRBinaryTree.h; sourceTree = "<group>"; };
+		F3A6FBCA229D401B00B9A4E8 /* JKRBinarySearchTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRBinarySearchTree.m; sourceTree = "<group>"; };
+		F3A6FBCB229D401B00B9A4E8 /* JKRBinarySearchTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRBinarySearchTree.h; sourceTree = "<group>"; };
+		F3A6FBCE229D402D00B9A4E8 /* JKRAVLTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAVLTreeNode.m; sourceTree = "<group>"; };
+		F3A6FBCF229D402D00B9A4E8 /* JKRAVLTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAVLTreeNode.h; sourceTree = "<group>"; };
+		F3A6FBD0229D402D00B9A4E8 /* JKRAVLTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAVLTree.h; sourceTree = "<group>"; };
+		F3A6FBD1229D402D00B9A4E8 /* JKRAVLTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAVLTree.m; sourceTree = "<group>"; };
+		F3A6FBD5229D404700B9A4E8 /* JKRRedBlackTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRRedBlackTree.m; sourceTree = "<group>"; };
+		F3A6FBD6229D404700B9A4E8 /* JKRRedBlackTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRRedBlackTreeNode.h; sourceTree = "<group>"; };
+		F3A6FBD7229D404700B9A4E8 /* JKRRedBlackTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRRedBlackTreeNode.m; sourceTree = "<group>"; };
+		F3A6FBD8229D404700B9A4E8 /* JKRRedBlackTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRRedBlackTree.h; sourceTree = "<group>"; };
+		F3A6FBDF229D40B900B9A4E8 /* LevelOrderPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelOrderPrinter.h; sourceTree = "<group>"; };
+		F3A6FBE0229D40B900B9A4E8 /* LevelOrderPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelOrderPrinter.m; sourceTree = "<group>"; };
+		F3A6FBE2229D416700B9A4E8 /* JKRTimeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRTimeTool.m; sourceTree = "<group>"; };
+		F3A6FBE3229D416700B9A4E8 /* JKRTimeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRTimeTool.h; sourceTree = "<group>"; };
+		F3A6FBE7229D481100B9A4E8 /* JKRHashSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRHashSet.m; sourceTree = "<group>"; };
+		F3A6FBE8229D481100B9A4E8 /* NSObject+JKRDataStructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JKRDataStructure.m"; sourceTree = "<group>"; };
+		F3A6FBE9229D481100B9A4E8 /* JKRHashSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRHashSet.h; sourceTree = "<group>"; };
+		F3A6FBEA229D481100B9A4E8 /* JKRHashMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRHashMap.m; sourceTree = "<group>"; };
+		F3A6FBEB229D481100B9A4E8 /* NSObject+JKRDataStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JKRDataStructure.h"; sourceTree = "<group>"; };
+		F3A6FBEC229D481100B9A4E8 /* JKRHashMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRHashMap.h; sourceTree = "<group>"; };
+		F3A6FBF1229D486600B9A4E8 /* JKRTreeMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRTreeMap.m; sourceTree = "<group>"; };
+		F3A6FBF2229D486600B9A4E8 /* JKRTreeMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRTreeMap.h; sourceTree = "<group>"; };
+		F3A6FBF3229D486700B9A4E8 /* JKRTreeSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRTreeSet.h; sourceTree = "<group>"; };
+		F3A6FBF4229D486700B9A4E8 /* JKRTreeSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRTreeSet.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F3A6FB21229D004500B9A4E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F3A6FB1B229D004500B9A4E8 = {
+			isa = PBXGroup;
+			children = (
+				F3A6FB26229D004500B9A4E8 /* JKRObjevtive_C_Data_Structure */,
+				F3A6FB25229D004500B9A4E8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F3A6FB25229D004500B9A4E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FB24229D004500B9A4E8 /* JKRObjevtive_C_Data_Structure */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F3A6FB26229D004500B9A4E8 /* JKRObjevtive_C_Data_Structure */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FB27229D004500B9A4E8 /* main.m */,
+				F3A6FBE5229D416C00B9A4E8 /* 测试 */,
+				F3A6FBBC229D3C7400B9A4E8 /* 自定义数据结构 */,
+			);
+			path = JKRObjevtive_C_Data_Structure;
+			sourceTree = "<group>";
+		};
+		F3A6FB70229D011C00B9A4E8 /* 静态数组 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FB6E229D011300B9A4E8 /* JKRArray.h */,
+				F3A6FB6D229D011300B9A4E8 /* JKRArray.mm */,
+			);
+			name = "静态数组";
+			sourceTree = "<group>";
+		};
+		F3A6FB80229D020A00B9A4E8 /* 测试对象 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FB76229D01FD00B9A4E8 /* Key.h */,
+				F3A6FB7A229D01FD00B9A4E8 /* Key.m */,
+				F3A6FB75229D01FD00B9A4E8 /* Person.h */,
+				F3A6FB72229D01FC00B9A4E8 /* Person.m */,
+				F3A6FB79229D01FD00B9A4E8 /* Student.h */,
+				F3A6FB71229D01FC00B9A4E8 /* Student.m */,
+				F3A6FB78229D01FD00B9A4E8 /* SubKey1.h */,
+				F3A6FB77229D01FD00B9A4E8 /* SubKey1.m */,
+				F3A6FB74229D01FC00B9A4E8 /* SubKey2.h */,
+				F3A6FB73229D01FC00B9A4E8 /* SubKey2.m */,
+			);
+			name = "测试对象";
+			sourceTree = "<group>";
+		};
+		F3A6FB84229D025300B9A4E8 /* 动态数组 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FB81229D024D00B9A4E8 /* JKRArrayList.h */,
+				F3A6FB82229D024D00B9A4E8 /* JKRArrayList.m */,
+			);
+			name = "动态数组";
+			sourceTree = "<group>";
+		};
+		F3A6FB9A229D17C900B9A4E8 /* 单向链表 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FB97229D17C300B9A4E8 /* JKRSingleLinkedList.h */,
+				F3A6FB98229D17C300B9A4E8 /* JKRSingleLinkedList.m */,
+			);
+			name = "单向链表";
+			sourceTree = "<group>";
+		};
+		F3A6FB9B229D1BCC00B9A4E8 /* 链表 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBA3229D201D00B9A4E8 /* 链表节点 */,
+				F3A6FB9A229D17C900B9A4E8 /* 单向链表 */,
+				F3A6FBA9229D26A300B9A4E8 /* 单向循环链表 */,
+				F3A6FBAD229D2B3800B9A4E8 /* 双向链表 */,
+				F3A6FBB3229D334F00B9A4E8 /* 双向循环链表 */,
+			);
+			name = "链表";
+			sourceTree = "<group>";
+		};
+		F3A6FBA3229D201D00B9A4E8 /* 链表节点 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBA4229D202800B9A4E8 /* 单向链表节点 */,
+				F3A6FBA5229D203100B9A4E8 /* 双向链表节点 */,
+			);
+			name = "链表节点";
+			sourceTree = "<group>";
+		};
+		F3A6FBA4229D202800B9A4E8 /* 单向链表节点 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FB9C229D1FF300B9A4E8 /* JKRSingleLinkedListNode.h */,
+				F3A6FB9D229D1FF300B9A4E8 /* JKRSingleLinkedListNode.m */,
+			);
+			name = "单向链表节点";
+			sourceTree = "<group>";
+		};
+		F3A6FBA5229D203100B9A4E8 /* 双向链表节点 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FB9F229D200A00B9A4E8 /* JKRLinkedListNode.h */,
+				F3A6FBA0229D200A00B9A4E8 /* JKRLinkedListNode.m */,
+			);
+			name = "双向链表节点";
+			sourceTree = "<group>";
+		};
+		F3A6FBA9229D26A300B9A4E8 /* 单向循环链表 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBA6229D269500B9A4E8 /* JKRSingleCircleLinkedList.h */,
+				F3A6FBA7229D269500B9A4E8 /* JKRSingleCircleLinkedList.m */,
+			);
+			name = "单向循环链表";
+			sourceTree = "<group>";
+		};
+		F3A6FBAD229D2B3800B9A4E8 /* 双向链表 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBAA229D2B3000B9A4E8 /* JKRLinkedList.h */,
+				F3A6FBAB229D2B3000B9A4E8 /* JKRLinkedList.m */,
+			);
+			name = "双向链表";
+			sourceTree = "<group>";
+		};
+		F3A6FBAE229D2BAD00B9A4E8 /* 链表和动态数组基类 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FB94229D05D500B9A4E8 /* JKRBaseList.h */,
+				F3A6FB95229D05D500B9A4E8 /* JKRBaseList.m */,
+			);
+			name = "链表和动态数组基类";
+			sourceTree = "<group>";
+		};
+		F3A6FBAF229D2BE100B9A4E8 /* 数组 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FB70229D011C00B9A4E8 /* 静态数组 */,
+				F3A6FB84229D025300B9A4E8 /* 动态数组 */,
+			);
+			name = "数组";
+			sourceTree = "<group>";
+		};
+		F3A6FBB3229D334F00B9A4E8 /* 双向循环链表 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBB0229D334C00B9A4E8 /* JKRLinkedCircleList.h */,
+				F3A6FBB1229D334C00B9A4E8 /* JKRLinkedCircleList.m */,
+			);
+			name = "双向循环链表";
+			sourceTree = "<group>";
+		};
+		F3A6FBB7229D355900B9A4E8 /* 栈 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBB4229D354E00B9A4E8 /* JKRStack.h */,
+				F3A6FBB5229D354E00B9A4E8 /* JKRStack.m */,
+			);
+			name = "栈";
+			sourceTree = "<group>";
+		};
+		F3A6FBBB229D39B000B9A4E8 /* 队列 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBB8229D39AB00B9A4E8 /* JKRQueue.h */,
+				F3A6FBB9229D39AB00B9A4E8 /* JKRQueue.m */,
+			);
+			name = "队列";
+			sourceTree = "<group>";
+		};
+		F3A6FBBC229D3C7400B9A4E8 /* 自定义数据结构 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBFC229D489800B9A4E8 /* Category */,
+				F3A6FBAE229D2BAD00B9A4E8 /* 链表和动态数组基类 */,
+				F3A6FBAF229D2BE100B9A4E8 /* 数组 */,
+				F3A6FB9B229D1BCC00B9A4E8 /* 链表 */,
+				F3A6FBBD229D3C8E00B9A4E8 /* 栈和队列 */,
+				F3A6FBC8229D3FEC00B9A4E8 /* 二叉树 */,
+				F3A6FBF7229D486A00B9A4E8 /* TreeMap&Set */,
+				F3A6FBF0229D481700B9A4E8 /* 哈希表 */,
+			);
+			name = "自定义数据结构";
+			sourceTree = "<group>";
+		};
+		F3A6FBBD229D3C8E00B9A4E8 /* 栈和队列 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBB7229D355900B9A4E8 /* 栈 */,
+				F3A6FBBB229D39B000B9A4E8 /* 队列 */,
+				F3A6FBC1229D3CC500B9A4E8 /* 双端队列 */,
+			);
+			name = "栈和队列";
+			sourceTree = "<group>";
+		};
+		F3A6FBC1229D3CC500B9A4E8 /* 双端队列 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBBE229D3CBE00B9A4E8 /* Deque.h */,
+				F3A6FBBF229D3CBE00B9A4E8 /* Deque.m */,
+			);
+			name = "双端队列";
+			sourceTree = "<group>";
+		};
+		F3A6FBC8229D3FEC00B9A4E8 /* 二叉树 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBC9229D400C00B9A4E8 /* 基本二叉树 */,
+				F3A6FBCD229D401F00B9A4E8 /* 二叉搜索树 */,
+				F3A6FBD4229D403100B9A4E8 /* AVL树 */,
+				F3A6FBDB229D404A00B9A4E8 /* 红黑树 */,
+			);
+			name = "二叉树";
+			sourceTree = "<group>";
+		};
+		F3A6FBC9229D400C00B9A4E8 /* 基本二叉树 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBC5229D3FE500B9A4E8 /* JKRBinaryTree.h */,
+				F3A6FBC2229D3FE500B9A4E8 /* JKRBinaryTree.m */,
+				F3A6FBC4229D3FE500B9A4E8 /* JKRBinaryTreeNode.h */,
+				F3A6FBC3229D3FE500B9A4E8 /* JKRBinaryTreeNode.m */,
+				F3A6FBDF229D40B900B9A4E8 /* LevelOrderPrinter.h */,
+				F3A6FBE0229D40B900B9A4E8 /* LevelOrderPrinter.m */,
+			);
+			name = "基本二叉树";
+			sourceTree = "<group>";
+		};
+		F3A6FBCD229D401F00B9A4E8 /* 二叉搜索树 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBCB229D401B00B9A4E8 /* JKRBinarySearchTree.h */,
+				F3A6FBCA229D401B00B9A4E8 /* JKRBinarySearchTree.m */,
+			);
+			name = "二叉搜索树";
+			sourceTree = "<group>";
+		};
+		F3A6FBD4229D403100B9A4E8 /* AVL树 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBD0229D402D00B9A4E8 /* JKRAVLTree.h */,
+				F3A6FBD1229D402D00B9A4E8 /* JKRAVLTree.m */,
+				F3A6FBCF229D402D00B9A4E8 /* JKRAVLTreeNode.h */,
+				F3A6FBCE229D402D00B9A4E8 /* JKRAVLTreeNode.m */,
+			);
+			name = "AVL树";
+			sourceTree = "<group>";
+		};
+		F3A6FBDB229D404A00B9A4E8 /* 红黑树 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBD8229D404700B9A4E8 /* JKRRedBlackTree.h */,
+				F3A6FBD5229D404700B9A4E8 /* JKRRedBlackTree.m */,
+				F3A6FBD6229D404700B9A4E8 /* JKRRedBlackTreeNode.h */,
+				F3A6FBD7229D404700B9A4E8 /* JKRRedBlackTreeNode.m */,
+			);
+			name = "红黑树";
+			sourceTree = "<group>";
+		};
+		F3A6FBE5229D416C00B9A4E8 /* 测试 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FB80229D020A00B9A4E8 /* 测试对象 */,
+				F3A6FBE6229D417A00B9A4E8 /* 工具 */,
+			);
+			name = "测试";
+			sourceTree = "<group>";
+		};
+		F3A6FBE6229D417A00B9A4E8 /* 工具 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBE3229D416700B9A4E8 /* JKRTimeTool.h */,
+				F3A6FBE2229D416700B9A4E8 /* JKRTimeTool.m */,
+			);
+			name = "工具";
+			sourceTree = "<group>";
+		};
+		F3A6FBF0229D481700B9A4E8 /* 哈希表 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBFA229D488B00B9A4E8 /* HashMap */,
+				F3A6FBFB229D489200B9A4E8 /* HashSet */,
+			);
+			name = "哈希表";
+			sourceTree = "<group>";
+		};
+		F3A6FBF7229D486A00B9A4E8 /* TreeMap&Set */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBF8229D487D00B9A4E8 /* TreeMap */,
+				F3A6FBF9229D488300B9A4E8 /* TreeSet */,
+			);
+			name = "TreeMap&Set";
+			sourceTree = "<group>";
+		};
+		F3A6FBF8229D487D00B9A4E8 /* TreeMap */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBF2229D486600B9A4E8 /* JKRTreeMap.h */,
+				F3A6FBF1229D486600B9A4E8 /* JKRTreeMap.m */,
+			);
+			name = TreeMap;
+			sourceTree = "<group>";
+		};
+		F3A6FBF9229D488300B9A4E8 /* TreeSet */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBF3229D486700B9A4E8 /* JKRTreeSet.h */,
+				F3A6FBF4229D486700B9A4E8 /* JKRTreeSet.m */,
+			);
+			name = TreeSet;
+			sourceTree = "<group>";
+		};
+		F3A6FBFA229D488B00B9A4E8 /* HashMap */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBEC229D481100B9A4E8 /* JKRHashMap.h */,
+				F3A6FBEA229D481100B9A4E8 /* JKRHashMap.m */,
+			);
+			name = HashMap;
+			sourceTree = "<group>";
+		};
+		F3A6FBFB229D489200B9A4E8 /* HashSet */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBE9229D481100B9A4E8 /* JKRHashSet.h */,
+				F3A6FBE7229D481100B9A4E8 /* JKRHashSet.m */,
+			);
+			name = HashSet;
+			sourceTree = "<group>";
+		};
+		F3A6FBFC229D489800B9A4E8 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBEB229D481100B9A4E8 /* NSObject+JKRDataStructure.h */,
+				F3A6FBE8229D481100B9A4E8 /* NSObject+JKRDataStructure.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F3A6FB23229D004500B9A4E8 /* JKRObjevtive_C_Data_Structure */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3A6FB2B229D004500B9A4E8 /* Build configuration list for PBXNativeTarget "JKRObjevtive_C_Data_Structure" */;
+			buildPhases = (
+				F3A6FB20229D004500B9A4E8 /* Sources */,
+				F3A6FB21229D004500B9A4E8 /* Frameworks */,
+				F3A6FB22229D004500B9A4E8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JKRObjevtive_C_Data_Structure;
+			productName = JKRObjevtive_C_Data_Structure;
+			productReference = F3A6FB24229D004500B9A4E8 /* JKRObjevtive_C_Data_Structure */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F3A6FB1C229D004500B9A4E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Joker;
+				TargetAttributes = {
+					F3A6FB23229D004500B9A4E8 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = F3A6FB1F229D004500B9A4E8 /* Build configuration list for PBXProject "JKRObjevtive_C_Data_Structure" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F3A6FB1B229D004500B9A4E8;
+			productRefGroup = F3A6FB25229D004500B9A4E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F3A6FB23229D004500B9A4E8 /* JKRObjevtive_C_Data_Structure */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F3A6FB20229D004500B9A4E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3A6FBAC229D2B3000B9A4E8 /* JKRLinkedList.m in Sources */,
+				F3A6FBD2229D402D00B9A4E8 /* JKRAVLTreeNode.m in Sources */,
+				F3A6FB28229D004500B9A4E8 /* main.m in Sources */,
+				F3A6FBB6229D354E00B9A4E8 /* JKRStack.m in Sources */,
+				F3A6FBEF229D481100B9A4E8 /* JKRHashMap.m in Sources */,
+				F3A6FBD3229D402D00B9A4E8 /* JKRAVLTree.m in Sources */,
+				F3A6FBF5229D486700B9A4E8 /* JKRTreeMap.m in Sources */,
+				F3A6FB7F229D01FD00B9A4E8 /* Key.m in Sources */,
+				F3A6FBE4229D416700B9A4E8 /* JKRTimeTool.m in Sources */,
+				F3A6FBA1229D200A00B9A4E8 /* JKRLinkedListNode.m in Sources */,
+				F3A6FBF6229D486700B9A4E8 /* JKRTreeSet.m in Sources */,
+				F3A6FBB2229D334C00B9A4E8 /* JKRLinkedCircleList.m in Sources */,
+				F3A6FBCC229D401B00B9A4E8 /* JKRBinarySearchTree.m in Sources */,
+				F3A6FB6F229D011300B9A4E8 /* JKRArray.mm in Sources */,
+				F3A6FB83229D024D00B9A4E8 /* JKRArrayList.m in Sources */,
+				F3A6FBD9229D404700B9A4E8 /* JKRRedBlackTree.m in Sources */,
+				F3A6FBC7229D3FE500B9A4E8 /* JKRBinaryTreeNode.m in Sources */,
+				F3A6FB7E229D01FD00B9A4E8 /* SubKey1.m in Sources */,
+				F3A6FBE1229D40B900B9A4E8 /* LevelOrderPrinter.m in Sources */,
+				F3A6FBC6229D3FE500B9A4E8 /* JKRBinaryTree.m in Sources */,
+				F3A6FB96229D05D500B9A4E8 /* JKRBaseList.m in Sources */,
+				F3A6FBED229D481100B9A4E8 /* JKRHashSet.m in Sources */,
+				F3A6FBBA229D39AB00B9A4E8 /* JKRQueue.m in Sources */,
+				F3A6FB7C229D01FD00B9A4E8 /* Person.m in Sources */,
+				F3A6FBC0229D3CBE00B9A4E8 /* Deque.m in Sources */,
+				F3A6FBDA229D404700B9A4E8 /* JKRRedBlackTreeNode.m in Sources */,
+				F3A6FB7B229D01FD00B9A4E8 /* Student.m in Sources */,
+				F3A6FB99229D17C300B9A4E8 /* JKRSingleLinkedList.m in Sources */,
+				F3A6FBA8229D269500B9A4E8 /* JKRSingleCircleLinkedList.m in Sources */,
+				F3A6FB7D229D01FD00B9A4E8 /* SubKey2.m in Sources */,
+				F3A6FB9E229D1FF300B9A4E8 /* JKRSingleLinkedListNode.m in Sources */,
+				F3A6FBEE229D481100B9A4E8 /* NSObject+JKRDataStructure.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F3A6FB29229D004500B9A4E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F3A6FB2A229D004500B9A4E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F3A6FB2C229D004500B9A4E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F3A6FB2D229D004500B9A4E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F3A6FB1F229D004500B9A4E8 /* Build configuration list for PBXProject "JKRObjevtive_C_Data_Structure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3A6FB29229D004500B9A4E8 /* Debug */,
+				F3A6FB2A229D004500B9A4E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3A6FB2B229D004500B9A4E8 /* Build configuration list for PBXNativeTarget "JKRObjevtive_C_Data_Structure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3A6FB2C229D004500B9A4E8 /* Debug */,
+				F3A6FB2D229D004500B9A4E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F3A6FB1C229D004500B9A4E8 /* Project object */;
+}
