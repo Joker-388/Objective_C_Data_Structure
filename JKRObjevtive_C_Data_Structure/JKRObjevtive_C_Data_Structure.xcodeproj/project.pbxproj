@@ -26,12 +26,9 @@
 		F3A6FBBA229D39AB00B9A4E8 /* JKRQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBB9229D39AB00B9A4E8 /* JKRQueue.m */; };
 		F3A6FBC0229D3CBE00B9A4E8 /* Deque.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBBF229D3CBE00B9A4E8 /* Deque.m */; };
 		F3A6FBC6229D3FE500B9A4E8 /* JKRBinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBC2229D3FE500B9A4E8 /* JKRBinaryTree.m */; };
-		F3A6FBC7229D3FE500B9A4E8 /* JKRBinaryTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBC3229D3FE500B9A4E8 /* JKRBinaryTreeNode.m */; };
 		F3A6FBCC229D401B00B9A4E8 /* JKRBinarySearchTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBCA229D401B00B9A4E8 /* JKRBinarySearchTree.m */; };
-		F3A6FBD2229D402D00B9A4E8 /* JKRAVLTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBCE229D402D00B9A4E8 /* JKRAVLTreeNode.m */; };
 		F3A6FBD3229D402D00B9A4E8 /* JKRAVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBD1229D402D00B9A4E8 /* JKRAVLTree.m */; };
 		F3A6FBD9229D404700B9A4E8 /* JKRRedBlackTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBD5229D404700B9A4E8 /* JKRRedBlackTree.m */; };
-		F3A6FBDA229D404700B9A4E8 /* JKRRedBlackTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBD7229D404700B9A4E8 /* JKRRedBlackTreeNode.m */; };
 		F3A6FBE1229D40B900B9A4E8 /* LevelOrderPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBE0229D40B900B9A4E8 /* LevelOrderPrinter.m */; };
 		F3A6FBE4229D416700B9A4E8 /* JKRTimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBE2229D416700B9A4E8 /* JKRTimeTool.m */; };
 		F3A6FBED229D481100B9A4E8 /* JKRHashSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBE7229D481100B9A4E8 /* JKRHashSet.m */; };
@@ -93,18 +90,12 @@
 		F3A6FBBE229D3CBE00B9A4E8 /* Deque.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deque.h; sourceTree = "<group>"; };
 		F3A6FBBF229D3CBE00B9A4E8 /* Deque.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Deque.m; sourceTree = "<group>"; };
 		F3A6FBC2229D3FE500B9A4E8 /* JKRBinaryTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRBinaryTree.m; sourceTree = "<group>"; };
-		F3A6FBC3229D3FE500B9A4E8 /* JKRBinaryTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRBinaryTreeNode.m; sourceTree = "<group>"; };
-		F3A6FBC4229D3FE500B9A4E8 /* JKRBinaryTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRBinaryTreeNode.h; sourceTree = "<group>"; };
 		F3A6FBC5229D3FE500B9A4E8 /* JKRBinaryTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRBinaryTree.h; sourceTree = "<group>"; };
 		F3A6FBCA229D401B00B9A4E8 /* JKRBinarySearchTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRBinarySearchTree.m; sourceTree = "<group>"; };
 		F3A6FBCB229D401B00B9A4E8 /* JKRBinarySearchTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRBinarySearchTree.h; sourceTree = "<group>"; };
-		F3A6FBCE229D402D00B9A4E8 /* JKRAVLTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAVLTreeNode.m; sourceTree = "<group>"; };
-		F3A6FBCF229D402D00B9A4E8 /* JKRAVLTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAVLTreeNode.h; sourceTree = "<group>"; };
 		F3A6FBD0229D402D00B9A4E8 /* JKRAVLTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRAVLTree.h; sourceTree = "<group>"; };
 		F3A6FBD1229D402D00B9A4E8 /* JKRAVLTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRAVLTree.m; sourceTree = "<group>"; };
 		F3A6FBD5229D404700B9A4E8 /* JKRRedBlackTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRRedBlackTree.m; sourceTree = "<group>"; };
-		F3A6FBD6229D404700B9A4E8 /* JKRRedBlackTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRRedBlackTreeNode.h; sourceTree = "<group>"; };
-		F3A6FBD7229D404700B9A4E8 /* JKRRedBlackTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRRedBlackTreeNode.m; sourceTree = "<group>"; };
 		F3A6FBD8229D404700B9A4E8 /* JKRRedBlackTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRRedBlackTree.h; sourceTree = "<group>"; };
 		F3A6FBDF229D40B900B9A4E8 /* LevelOrderPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelOrderPrinter.h; sourceTree = "<group>"; };
 		F3A6FBE0229D40B900B9A4E8 /* LevelOrderPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelOrderPrinter.m; sourceTree = "<group>"; };
@@ -352,8 +343,6 @@
 			children = (
 				F3A6FBC5229D3FE500B9A4E8 /* JKRBinaryTree.h */,
 				F3A6FBC2229D3FE500B9A4E8 /* JKRBinaryTree.m */,
-				F3A6FBC4229D3FE500B9A4E8 /* JKRBinaryTreeNode.h */,
-				F3A6FBC3229D3FE500B9A4E8 /* JKRBinaryTreeNode.m */,
 				F3A6FBDF229D40B900B9A4E8 /* LevelOrderPrinter.h */,
 				F3A6FBE0229D40B900B9A4E8 /* LevelOrderPrinter.m */,
 			);
@@ -374,8 +363,6 @@
 			children = (
 				F3A6FBD0229D402D00B9A4E8 /* JKRAVLTree.h */,
 				F3A6FBD1229D402D00B9A4E8 /* JKRAVLTree.m */,
-				F3A6FBCF229D402D00B9A4E8 /* JKRAVLTreeNode.h */,
-				F3A6FBCE229D402D00B9A4E8 /* JKRAVLTreeNode.m */,
 			);
 			name = "AVL树";
 			sourceTree = "<group>";
@@ -385,8 +372,6 @@
 			children = (
 				F3A6FBD8229D404700B9A4E8 /* JKRRedBlackTree.h */,
 				F3A6FBD5229D404700B9A4E8 /* JKRRedBlackTree.m */,
-				F3A6FBD6229D404700B9A4E8 /* JKRRedBlackTreeNode.h */,
-				F3A6FBD7229D404700B9A4E8 /* JKRRedBlackTreeNode.m */,
 			);
 			name = "红黑树";
 			sourceTree = "<group>";
@@ -556,7 +541,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3A6FBAC229D2B3000B9A4E8 /* JKRLinkedList.m in Sources */,
-				F3A6FBD2229D402D00B9A4E8 /* JKRAVLTreeNode.m in Sources */,
 				F3A6FB28229D004500B9A4E8 /* main.m in Sources */,
 				F3A6FBB6229D354E00B9A4E8 /* JKRStack.m in Sources */,
 				F3A6FBEF229D481100B9A4E8 /* JKRHashMap.m in Sources */,
@@ -572,7 +556,6 @@
 				F3A6FB6F229D011300B9A4E8 /* JKRArray.mm in Sources */,
 				F3A6FB83229D024D00B9A4E8 /* JKRArrayList.m in Sources */,
 				F3A6FBD9229D404700B9A4E8 /* JKRRedBlackTree.m in Sources */,
-				F3A6FBC7229D3FE500B9A4E8 /* JKRBinaryTreeNode.m in Sources */,
 				F3A6FB7E229D01FD00B9A4E8 /* SubKey1.m in Sources */,
 				F3A6FBE1229D40B900B9A4E8 /* LevelOrderPrinter.m in Sources */,
 				F3A6FBC6229D3FE500B9A4E8 /* JKRBinaryTree.m in Sources */,
@@ -582,7 +565,6 @@
 				F3A6FBBA229D39AB00B9A4E8 /* JKRQueue.m in Sources */,
 				F3A6FB7C229D01FD00B9A4E8 /* Person.m in Sources */,
 				F3A6FBC0229D3CBE00B9A4E8 /* Deque.m in Sources */,
-				F3A6FBDA229D404700B9A4E8 /* JKRRedBlackTreeNode.m in Sources */,
 				F3A6FB7B229D01FD00B9A4E8 /* Student.m in Sources */,
 				F3A6FB99229D17C300B9A4E8 /* JKRSingleLinkedList.m in Sources */,
 				F3A6FBA8229D269500B9A4E8 /* JKRSingleCircleLinkedList.m in Sources */,

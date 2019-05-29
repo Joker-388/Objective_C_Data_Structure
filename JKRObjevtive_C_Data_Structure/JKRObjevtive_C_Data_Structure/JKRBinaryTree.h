@@ -60,6 +60,27 @@ typedef NS_ENUM(NSUInteger, JKRBinaryTreeTraversalType) {
 /// Print打印
 - (void)debugPrintTree;
 
+@end
+
+@interface JKRBinaryTreeNode : NSObject
+
+@property (nonatomic, strong, nonnull) id object;
+@property (nonatomic, strong, nullable) JKRBinaryTreeNode *left;
+@property (nonatomic, strong, nullable) JKRBinaryTreeNode *right;
+@property (nonatomic, weak, nullable) JKRBinaryTreeNode *parent;
+
+- (instancetype)initWithObject:(id)object parent:(JKRBinaryTreeNode *)parent;
+
+/// 是否是叶子节点
+- (BOOL)isLeaf;
+/// 是否有度为2
+- (BOOL)hasTwoChildren;
+/// 是否是父节点的左子树
+- (BOOL)isLeftChild;
+/// 是否是父节点的右子树
+- (BOOL)isRightChild;
+/// 返回兄弟节点
+- (JKRBinaryTreeNode *)sibling;
 
 @end
 

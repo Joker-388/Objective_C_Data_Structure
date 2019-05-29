@@ -7,7 +7,6 @@
 //
 
 #import "JKRBinarySearchTree.h"
-#import "JKRBinaryTreeNode.h"
 
 @interface JKRBinarySearchTree ()
 

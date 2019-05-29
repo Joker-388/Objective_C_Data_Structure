@@ -8,9 +8,20 @@
 
 #import "JKRBinarySearchTree.h"
 
+#define RBT_Color_RED false
+#define RBT_Color_BLACK true
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JKRRedBlackTree : JKRBinarySearchTree
+
+@end
+
+@interface JKRRedBlackTreeNode : JKRBinaryTreeNode
+
+@property (nonatomic, assign) BOOL color;
+
+- (instancetype)initWithObject:(id)object parent:(JKRBinaryTreeNode *)parent;
 
 @end
 

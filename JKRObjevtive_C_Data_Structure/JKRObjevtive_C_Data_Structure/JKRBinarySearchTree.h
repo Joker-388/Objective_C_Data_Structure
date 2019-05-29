@@ -33,8 +33,6 @@ typedef NSInteger(^jkrbinarytree_compareBlock)(id e1, id e2);
  */
 - (instancetype)initWithCompare:(_Nonnull jkrbinarytree_compareBlock)compare;
 
-@property (nonatomic, strong) void(^rotateBlock)(void);
-
 /// 添加元素
 - (void)addObject:(nonnull ObjectType)object;
 /// 删除元素

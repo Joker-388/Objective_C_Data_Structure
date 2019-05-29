@@ -418,10 +418,10 @@ int main(int argc, const char * argv[]) {
 //        testAVLTree();
 //        testRedBlackTree();
 //        compareTrees();
-//
+
 //        testHashMapAndTreeMap();
  
-        testBinaryHeap();
+//        testBinaryHeap();
     }
     return 0;
 }

@@ -2,6 +2,4 @@ dependencies: \
   /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRRedBlackTree.m \
   /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRRedBlackTree.h \
   /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRBinarySearchTree.h \
-  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRBinaryTree.h \
-  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRRedBlackTreeNode.h \
-  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRBinaryTreeNode.h
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRBinaryTree.h
