@@ -54,7 +54,7 @@ typedef NS_ENUM(NSUInteger, JKRBinaryTreeTraversalType) {
 /// 后继节点
 - (JKRBinaryTreeNode *)successorWithNode:(JKRBinaryTreeNode *)node;
 /// 创建一个节点
-- (JKRBinaryTreeNode *)createNodeWithObject:(nonnull id)object parent:(nullable JKRBinaryTreeNode *)parent;
+- (JKRBinaryTreeNode *)createNodeWithObject:(nonnull ObjectType)object parent:(nullable JKRBinaryTreeNode *)parent;
 /// Log打印
 - (void)printTree;
 /// Print打印

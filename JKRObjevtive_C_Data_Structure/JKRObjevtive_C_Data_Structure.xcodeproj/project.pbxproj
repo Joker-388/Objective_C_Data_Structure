@@ -39,6 +39,8 @@
 		F3A6FBEF229D481100B9A4E8 /* JKRHashMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBEA229D481100B9A4E8 /* JKRHashMap.m */; };
 		F3A6FBF5229D486700B9A4E8 /* JKRTreeMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBF1229D486600B9A4E8 /* JKRTreeMap.m */; };
 		F3A6FBF6229D486700B9A4E8 /* JKRTreeSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBF4229D486700B9A4E8 /* JKRTreeSet.m */; };
+		F3A6FBFF229E16FC00B9A4E8 /* JKRBaseHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBFE229E16FC00B9A4E8 /* JKRBaseHeap.m */; };
+		F3A6FC04229E1A0500B9A4E8 /* JKRBinaryHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FC03229E1A0500B9A4E8 /* JKRBinaryHeap.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -118,6 +120,10 @@
 		F3A6FBF2229D486600B9A4E8 /* JKRTreeMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRTreeMap.h; sourceTree = "<group>"; };
 		F3A6FBF3229D486700B9A4E8 /* JKRTreeSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRTreeSet.h; sourceTree = "<group>"; };
 		F3A6FBF4229D486700B9A4E8 /* JKRTreeSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRTreeSet.m; sourceTree = "<group>"; };
+		F3A6FBFD229E16FC00B9A4E8 /* JKRBaseHeap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRBaseHeap.h; sourceTree = "<group>"; };
+		F3A6FBFE229E16FC00B9A4E8 /* JKRBaseHeap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRBaseHeap.m; sourceTree = "<group>"; };
+		F3A6FC02229E1A0500B9A4E8 /* JKRBinaryHeap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRBinaryHeap.h; sourceTree = "<group>"; };
+		F3A6FC03229E1A0500B9A4E8 /* JKRBinaryHeap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRBinaryHeap.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +172,7 @@
 			name = "静态数组";
 			sourceTree = "<group>";
 		};
-		F3A6FB80229D020A00B9A4E8 /* 测试对象 */ = {
+		F3A6FB80229D020A00B9A4E8 /* 测试模型 */ = {
 			isa = PBXGroup;
 			children = (
 				F3A6FB76229D01FD00B9A4E8 /* Key.h */,
@@ -180,7 +186,7 @@
 				F3A6FB74229D01FC00B9A4E8 /* SubKey2.h */,
 				F3A6FB73229D01FC00B9A4E8 /* SubKey2.m */,
 			);
-			name = "测试对象";
+			name = "测试模型";
 			sourceTree = "<group>";
 		};
 		F3A6FB84229D025300B9A4E8 /* 动态数组 */ = {
@@ -199,18 +205,6 @@
 				F3A6FB98229D17C300B9A4E8 /* JKRSingleLinkedList.m */,
 			);
 			name = "单向链表";
-			sourceTree = "<group>";
-		};
-		F3A6FB9B229D1BCC00B9A4E8 /* 链表 */ = {
-			isa = PBXGroup;
-			children = (
-				F3A6FBA3229D201D00B9A4E8 /* 链表节点 */,
-				F3A6FB9A229D17C900B9A4E8 /* 单向链表 */,
-				F3A6FBA9229D26A300B9A4E8 /* 单向循环链表 */,
-				F3A6FBAD229D2B3800B9A4E8 /* 双向链表 */,
-				F3A6FBB3229D334F00B9A4E8 /* 双向循环链表 */,
-			);
-			name = "链表";
 			sourceTree = "<group>";
 		};
 		F3A6FBA3229D201D00B9A4E8 /* 链表节点 */ = {
@@ -263,17 +257,23 @@
 			children = (
 				F3A6FB94229D05D500B9A4E8 /* JKRBaseList.h */,
 				F3A6FB95229D05D500B9A4E8 /* JKRBaseList.m */,
+				F3A6FBA3229D201D00B9A4E8 /* 链表节点 */,
 			);
 			name = "链表和动态数组基类";
 			sourceTree = "<group>";
 		};
-		F3A6FBAF229D2BE100B9A4E8 /* 数组 */ = {
+		F3A6FBAF229D2BE100B9A4E8 /* 数组和链表 */ = {
 			isa = PBXGroup;
 			children = (
+				F3A6FBAE229D2BAD00B9A4E8 /* 链表和动态数组基类 */,
 				F3A6FB70229D011C00B9A4E8 /* 静态数组 */,
 				F3A6FB84229D025300B9A4E8 /* 动态数组 */,
+				F3A6FB9A229D17C900B9A4E8 /* 单向链表 */,
+				F3A6FBA9229D26A300B9A4E8 /* 单向循环链表 */,
+				F3A6FBAD229D2B3800B9A4E8 /* 双向链表 */,
+				F3A6FBB3229D334F00B9A4E8 /* 双向循环链表 */,
 			);
-			name = "数组";
+			name = "数组和链表";
 			sourceTree = "<group>";
 		};
 		F3A6FBB3229D334F00B9A4E8 /* 双向循环链表 */ = {
@@ -307,13 +307,12 @@
 			isa = PBXGroup;
 			children = (
 				F3A6FBFC229D489800B9A4E8 /* Category */,
-				F3A6FBAE229D2BAD00B9A4E8 /* 链表和动态数组基类 */,
-				F3A6FBAF229D2BE100B9A4E8 /* 数组 */,
-				F3A6FB9B229D1BCC00B9A4E8 /* 链表 */,
+				F3A6FBAF229D2BE100B9A4E8 /* 数组和链表 */,
 				F3A6FBBD229D3C8E00B9A4E8 /* 栈和队列 */,
 				F3A6FBC8229D3FEC00B9A4E8 /* 二叉树 */,
 				F3A6FBF7229D486A00B9A4E8 /* TreeMap&Set */,
 				F3A6FBF0229D481700B9A4E8 /* 哈希表 */,
+				F3A6FC00229E170000B9A4E8 /* 堆 */,
 			);
 			name = "自定义数据结构";
 			sourceTree = "<group>";
@@ -340,7 +339,7 @@
 		F3A6FBC8229D3FEC00B9A4E8 /* 二叉树 */ = {
 			isa = PBXGroup;
 			children = (
-				F3A6FBC9229D400C00B9A4E8 /* 基本二叉树 */,
+				F3A6FBC9229D400C00B9A4E8 /* 二叉树 */,
 				F3A6FBCD229D401F00B9A4E8 /* 二叉搜索树 */,
 				F3A6FBD4229D403100B9A4E8 /* AVL树 */,
 				F3A6FBDB229D404A00B9A4E8 /* 红黑树 */,
@@ -348,7 +347,7 @@
 			name = "二叉树";
 			sourceTree = "<group>";
 		};
-		F3A6FBC9229D400C00B9A4E8 /* 基本二叉树 */ = {
+		F3A6FBC9229D400C00B9A4E8 /* 二叉树 */ = {
 			isa = PBXGroup;
 			children = (
 				F3A6FBC5229D3FE500B9A4E8 /* JKRBinaryTree.h */,
@@ -358,7 +357,7 @@
 				F3A6FBDF229D40B900B9A4E8 /* LevelOrderPrinter.h */,
 				F3A6FBE0229D40B900B9A4E8 /* LevelOrderPrinter.m */,
 			);
-			name = "基本二叉树";
+			name = "二叉树";
 			sourceTree = "<group>";
 		};
 		F3A6FBCD229D401F00B9A4E8 /* 二叉搜索树 */ = {
@@ -395,7 +394,7 @@
 		F3A6FBE5229D416C00B9A4E8 /* 测试 */ = {
 			isa = PBXGroup;
 			children = (
-				F3A6FB80229D020A00B9A4E8 /* 测试对象 */,
+				F3A6FB80229D020A00B9A4E8 /* 测试模型 */,
 				F3A6FBE6229D417A00B9A4E8 /* 工具 */,
 			);
 			name = "测试";
@@ -473,6 +472,33 @@
 			name = Category;
 			sourceTree = "<group>";
 		};
+		F3A6FC00229E170000B9A4E8 /* 堆 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FC01229E170900B9A4E8 /* 堆基类 */,
+				F3A6FC05229E1A1500B9A4E8 /* 二叉堆 */,
+			);
+			name = "堆";
+			sourceTree = "<group>";
+		};
+		F3A6FC01229E170900B9A4E8 /* 堆基类 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FBFD229E16FC00B9A4E8 /* JKRBaseHeap.h */,
+				F3A6FBFE229E16FC00B9A4E8 /* JKRBaseHeap.m */,
+			);
+			name = "堆基类";
+			sourceTree = "<group>";
+		};
+		F3A6FC05229E1A1500B9A4E8 /* 二叉堆 */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6FC02229E1A0500B9A4E8 /* JKRBinaryHeap.h */,
+				F3A6FC03229E1A0500B9A4E8 /* JKRBinaryHeap.m */,
+			);
+			name = "二叉堆";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -537,6 +563,7 @@
 				F3A6FBD3229D402D00B9A4E8 /* JKRAVLTree.m in Sources */,
 				F3A6FBF5229D486700B9A4E8 /* JKRTreeMap.m in Sources */,
 				F3A6FB7F229D01FD00B9A4E8 /* Key.m in Sources */,
+				F3A6FBFF229E16FC00B9A4E8 /* JKRBaseHeap.m in Sources */,
 				F3A6FBE4229D416700B9A4E8 /* JKRTimeTool.m in Sources */,
 				F3A6FBA1229D200A00B9A4E8 /* JKRLinkedListNode.m in Sources */,
 				F3A6FBF6229D486700B9A4E8 /* JKRTreeSet.m in Sources */,
@@ -550,6 +577,7 @@
 				F3A6FBE1229D40B900B9A4E8 /* LevelOrderPrinter.m in Sources */,
 				F3A6FBC6229D3FE500B9A4E8 /* JKRBinaryTree.m in Sources */,
 				F3A6FB96229D05D500B9A4E8 /* JKRBaseList.m in Sources */,
+				F3A6FC04229E1A0500B9A4E8 /* JKRBinaryHeap.m in Sources */,
 				F3A6FBED229D481100B9A4E8 /* JKRHashSet.m in Sources */,
 				F3A6FBBA229D39AB00B9A4E8 /* JKRQueue.m in Sources */,
 				F3A6FB7C229D01FD00B9A4E8 /* Person.m in Sources */,

@@ -39,7 +39,7 @@
     if (self.debugPrint) {
         printf("添加元素: %s\n\n", [[NSString stringWithFormat:@"%@", object] UTF8String]);
     }
-    [self elementNotNullCheck:object];
+    [self objectNotNullCheck:object];
     
     if (!_root) {
         JKRBinaryTreeNode *newNode = [self createNodeWithObject:object parent:nil];
@@ -86,8 +86,8 @@
     
 }
 
-- (void)elementNotNullCheck:(id)element {
-    if (!element) {
+- (void)objectNotNullCheck:(id)object {
+    if (!object) {
         NSAssert(NO, @"object must not be null!");
     }
 }

@@ -24,6 +24,7 @@
 #import "JKRHashSet.h"
 #import "JKRTreeMap.h"
 #import "JKRTreeSet.h"
+#import "JKRBinaryHeap.h"
 
 NSString * getRandomStr() {
     char data[6];
@@ -353,6 +354,20 @@ void testHashMapAndTreeMap() {
 //    check(map.count == 0, @"哈希表没有清空！");
 }
 
+void testBinaryHeap() {
+    JKRBaseHeap<NSNumber *> *heap = [[JKRBinaryHeap alloc] initWithCompare:^NSInteger(NSNumber *  _Nonnull e1, NSNumber *  _Nonnull e2) {
+        return e1.integerValue - e2.integerValue;
+    }];
+    
+    for (NSUInteger i = 10; i < 20; i++) {
+        [heap addObject:[NSNumber numberWithInteger:i]];
+    }
+    NSLog(@"Max: %@", heap.top);
+    NSLog(@"%@", heap);
+    [heap replaceTop:@9];
+    NSLog(@"Max: %@", heap.top);
+    NSLog(@"%@", heap);
+}
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -399,12 +414,14 @@ int main(int argc, const char * argv[]) {
 //
 //        NSLog(@"%zd", stack.count);
         
-        testBinarySearchTree();
-        testAVLTree();
-        testRedBlackTree();
-        compareTrees();
-        
-        testHashMapAndTreeMap();
+//        testBinarySearchTree();
+//        testAVLTree();
+//        testRedBlackTree();
+//        compareTrees();
+//
+//        testHashMapAndTreeMap();
+ 
+        testBinaryHeap();
     }
     return 0;
 }

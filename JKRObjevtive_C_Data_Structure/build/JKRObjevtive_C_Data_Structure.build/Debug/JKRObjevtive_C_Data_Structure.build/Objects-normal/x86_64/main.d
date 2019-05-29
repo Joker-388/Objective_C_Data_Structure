@@ -19,4 +19,6 @@ dependencies: \
   /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRHashMap.h \
   /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRHashSet.h \
   /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRTreeMap.h \
-  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRTreeSet.h
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRTreeSet.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRBinaryHeap.h \
+  /Users/joker/Documents/Objective_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRObjevtive_C_Data_Structure/JKRBaseHeap.h

@@ -36,17 +36,17 @@ typedef NSInteger(^jkrbinarytree_compareBlock)(id e1, id e2);
 @property (nonatomic, strong) void(^rotateBlock)(void);
 
 /// 添加元素
-- (void)addObject:(ObjectType)object;
+- (void)addObject:(nonnull ObjectType)object;
 /// 删除元素
-- (void)removeObject:(ObjectType)object;
+- (void)removeObject:(nonnull ObjectType)object;
 /// 是否包含元素
-- (BOOL)containsObject:(ObjectType)object;
+- (BOOL)containsObject:(nonnull ObjectType)object;
 /// 添加节点后的处理
 - (void)afterAddWithNewNode:(JKRBinaryTreeNode *)node;
 /// 删除节点后的处理
 - (void)afterRemoveWithNode:(JKRBinaryTreeNode *)node;
 /// 通过元素获取对应节点
-- (JKRBinaryTreeNode *)nodeWithObject:(ObjectType)object;
+- (JKRBinaryTreeNode *)nodeWithObject:(nonnull ObjectType)object;
 /// 删除节点
 - (void)removeWithNode:(JKRBinaryTreeNode *)node;
 /// 左旋转一个节点
