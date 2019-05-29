@@ -355,7 +355,6 @@ void testHashMapAndTreeMap() {
 }
 
 void testBinaryHeap() {
-    
     [JKRTimeTool teskCodeWithBlock:^{
         NSMutableArray *array = [NSMutableArray array];
         for (NSUInteger i = 10; i < 1000000; i++) {
@@ -433,7 +432,7 @@ int main(int argc, const char * argv[]) {
 
 //        testHashMapAndTreeMap();
  
-        testBinaryHeap();
+//        testBinaryHeap();
         
     }
     return 0;
