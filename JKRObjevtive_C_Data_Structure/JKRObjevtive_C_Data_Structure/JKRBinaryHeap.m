@@ -20,15 +20,31 @@
 
 @implementation JKRBinaryHeap
 
-- (instancetype)initWithCompare:(jkrbinaryheap_compareBlock)compare {
-    self = [self init];
-    _compareBlock = compare;
-    return self;
+- (instancetype)init {
+    return [self initWithArray:nil compare:nil];
 }
 
-- (instancetype)init {
+- (instancetype)initWithCompare:(jkrbinaryheap_compareBlock)compare {
+    return [self initWithArray:nil compare:compare];
+}
+
+- (instancetype)initWithArray:(NSArray *)array {
+    return [self initWithArray:array compare:nil];
+}
+
+- (instancetype)initWithArray:(NSArray *)array compare:(jkrbinaryheap_compareBlock)compare {
     self = [super init];
-    self.array = [JKRArray arrayWithLength:BINARY_HEAP_DEAFULT_CAPACITY];
+    if (!array || array.count == 0) {
+        self.array = [JKRArray arrayWithLength:BINARY_HEAP_DEAFULT_CAPACITY];
+    } else {
+        self.array = [JKRArray arrayWithLength:array.count > BINARY_HEAP_DEAFULT_CAPACITY ? array.count : BINARY_HEAP_DEAFULT_CAPACITY];
+        for (NSUInteger i = 0; i < array.count; i++) {
+            self.array[i] = array[i];
+        }
+        _size = array.count;
+        [self heapity];
+    }
+    _compareBlock = compare;
     return self;
 }
 
@@ -86,7 +102,7 @@
     self.array[index] = object;
 }
 
-// 下l滤
+// 下滤
 - (void)siftDownWithIndex:(NSUInteger)index {
     id object = self.array[index];
     while (index < _size >> 1) {
@@ -99,6 +115,13 @@
         index = maxChildIndex;
     }
     self.array[index] = object;
+}
+
+// 自下而上的下滤 O(n)
+- (void)heapity {
+    for (NSInteger i = (_size >> 1) - 1; i >= 0; i--) {
+        [self siftDownWithIndex:i];
+    }
 }
 
 - (NSInteger)compareValue1:(id)value1 value2:(id)value2 {
@@ -125,7 +148,6 @@
         return;
     }
     NSUInteger newCapacity = oldCapacity + (oldCapacity >> 1);
-    NSLog(@"--- 扩容: %zd -> %zd ---", oldCapacity, newCapacity);
     JKRArray *newArray = [JKRArray arrayWithLength:newCapacity];
     for (NSUInteger i = 0; i < _size; i++) {
         newArray[i] = self.array[i];

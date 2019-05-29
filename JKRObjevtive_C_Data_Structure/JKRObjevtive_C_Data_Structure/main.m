@@ -355,18 +355,30 @@ void testHashMapAndTreeMap() {
 }
 
 void testBinaryHeap() {
-    JKRBaseHeap<NSNumber *> *heap = [[JKRBinaryHeap alloc] initWithCompare:^NSInteger(NSNumber *  _Nonnull e1, NSNumber *  _Nonnull e2) {
-        return e1.integerValue - e2.integerValue;
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+        NSMutableArray *array = [NSMutableArray array];
+        for (NSUInteger i = 10; i < 1000000; i++) {
+            [array addObject:[NSNumber numberWithInteger:i]];
+        }
+        JKRBaseHeap<NSNumber *> *heap = [[JKRBinaryHeap alloc] initWithArray:array];
+        NSLog(@"批量建堆求最大值: %@", heap.top);
     }];
     
-    for (NSUInteger i = 10; i < 20; i++) {
-        [heap addObject:[NSNumber numberWithInteger:i]];
-    }
-    NSLog(@"Max: %@", heap.top);
-    NSLog(@"%@", heap);
-    [heap replaceTop:@9];
-    NSLog(@"Max: %@", heap.top);
-    NSLog(@"%@", heap);
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseHeap<NSNumber *> *heap = [[JKRBinaryHeap alloc] init];
+        for (NSUInteger i = 10; i < 1000000; i++) {
+            [heap addObject:[NSNumber numberWithInteger:i]];
+        }
+        NSLog(@"依次添加到二叉堆求最大值: %@", heap.top);
+    }];
+    
+    /*
+     批量建堆求最大值: 999999
+     耗时: 0.439 s
+     依次添加到二叉堆求最大值: 999999
+     耗时: 3.724 s
+     */
 }
 
 int main(int argc, const char * argv[]) {
@@ -421,7 +433,8 @@ int main(int argc, const char * argv[]) {
 
 //        testHashMapAndTreeMap();
  
-//        testBinaryHeap();
+        testBinaryHeap();
+        
     }
     return 0;
 }
