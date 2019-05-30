@@ -25,6 +25,7 @@
 #import "JKRTreeMap.h"
 #import "JKRTreeSet.h"
 #import "JKRBinaryHeap.h"
+#import "JKRArray.h"
 
 NSString * getRandomStr() {
     char data[6];
@@ -424,61 +425,37 @@ void testTopN() {
     }];
 }
 
+void testArray() {
+    JKRArray *array = [JKRArray arrayWithLength:6];
+    NSLog(@"%@", array);
+    
+    array[2] = [Person new];
+    NSLog(@"%@", array);
+    
+    array[2] = nil;
+    NSLog(@"%@", array);
+}
+
+void testDynamicArray() {
+    JKRArrayList *array = [JKRArrayList new];
+    for (NSUInteger i = 0; i < 3; i++) {
+        [array insertObject:[Person personWithAge:i] atIndex:0];
+    }
+    NSLog(@"添加后 %@", array);
+    
+    [array removeAllObjects];
+    NSLog(@"清空后 %@", array);
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-    
-//        JKRBaseList *array = [JKRLinkedCircleList new];
-//        for (NSUInteger i = 0; i < 5; i++) {
-//            Person *p = [Person new];
-//            p.age = i;
-//            array[i] = p;
-//        }
-//        NSLog(@"%@", array);
-//
-//        array[5] = @"Jack";
-//        array[3] = @"Mac";
-//
-//        NSLog(@"%zd", [array indexOfObject:@"Mac"]);
-//        NSLog(@"%d", [array containsObject:@"Jack"]);
-//        NSLog(@"%d", [array containsObject:@"OPD"]);
-//
-//        array[0] = nil;
-//        NSLog(@"%d", [array containsObject:nil]);
-//        array[2] = @"2";
-//        array[4] = @"4";
-//        [array removeObjectAtIndex:3];
-//        [array removeFirstObject];
-//        [array removeLastObject];
-//        [array removeLastObject];
-//        [array removeLastObject];
-//        [array removeAllObjects];
-        
-//        JKRQueue *stack = [JKRQueue new];
-//        for (NSUInteger i = 0; i < 100; i++) {
-//            [stack enQueue:[NSNumber numberWithInteger:i]];
-//        }
-//
-//        NSLog(@"%zd", stack.count);
-//
-//        for (NSUInteger i = 0; i < 100; i++) {
-//            NSLog(@"%@", [stack deQueue]);
-//            if (stack.count) {
-//                NSLog(@"%@", [stack front]);
-//            }
-//        }
-//
-//        NSLog(@"%zd", stack.count);
-        
 //        testBinarySearchTree();
 //        testAVLTree();
 //        testRedBlackTree();
 //        compareTrees();
-
 //        testHashMapAndTreeMap();
- 
 //        testBinaryHeap();
-        
-        testTopN();
+//        testTopN();
     }
     return 0;
 }

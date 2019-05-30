@@ -28,7 +28,8 @@
         id object = [self objectAtIndex:i];
         if (object) [object release];
     }
-//    NSLog(@"<%@, %p> dealloc", self.class, self); 
+    delete _array;
+//    NSLog(@"<%@, %p> dealloc", self.class, self);
     [super dealloc];
 }
 

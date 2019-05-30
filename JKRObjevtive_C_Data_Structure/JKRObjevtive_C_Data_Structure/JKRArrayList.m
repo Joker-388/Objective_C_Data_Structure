@@ -19,9 +19,21 @@
 
 @implementation JKRArrayList
 
++ (instancetype)array {
+    return [[self alloc] initWithCapacity:JKRARRAY_LIST_DEFAULT_CAPACITY];
+}
+
++ (instancetype)arrayWithCapacity:(NSUInteger)capacity {
+    return [[self alloc] initWithCapacity:JKRARRAY_LIST_DEFAULT_CAPACITY];
+}
+
 - (instancetype)init {
+    return [self initWithCapacity:JKRARRAY_LIST_DEFAULT_CAPACITY];
+}
+
+- (instancetype)initWithCapacity:(NSUInteger)capacity {
     self = [super init];
-    self.array = [JKRArray arrayWithLength:JKRARRAY_LIST_DEFAULT_CAPACITY];
+    self.array = [JKRArray arrayWithLength:capacity > JKRARRAY_LIST_DEFAULT_CAPACITY ? capacity : JKRARRAY_LIST_DEFAULT_CAPACITY];
     return self;
 }
 

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JKRArray<ObjectType> : NSObject<NSFastEnumeration>  {
-@protected
+@private
     void ** _array;
     NSUInteger _length;
 }

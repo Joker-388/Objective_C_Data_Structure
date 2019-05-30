@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JKRArrayList : JKRBaseList
 
++ (instancetype)array;
++ (instancetype)arrayWithCapacity:(NSUInteger)capacity;
+- (instancetype)initWithCapacity:(NSUInteger)capacity;
+
 @end
 
 NS_ASSUME_NONNULL_END
