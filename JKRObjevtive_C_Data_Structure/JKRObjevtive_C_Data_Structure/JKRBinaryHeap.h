@@ -26,7 +26,7 @@ typedef NSInteger(^jkrbinaryheap_compareBlock)(id e1, id e2);
 
 - (instancetype)initWithArray:(nullable NSArray *)array;
 
-- (instancetype)initWithArray:(nullable NSArray *)array compare:(nullable jkrbinaryheap_compareBlock)compare;;
+- (instancetype)initWithArray:(nullable NSArray *)array compare:(nullable jkrbinaryheap_compareBlock)compare;
 
 @end
 

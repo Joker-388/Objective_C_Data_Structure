@@ -380,6 +380,50 @@ void testBinaryHeap() {
      */
 }
 
+void testTopN() {
+    NSMutableArray *allStrings = allFileStrings();
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRHashMap *map = [JKRHashMap new];
+        [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSNumber *count = map[obj];
+            if (count) {
+                count = [NSNumber numberWithInteger:count.integerValue+1];
+            } else {
+                count = [NSNumber numberWithInteger:1];
+            }
+            map[obj] = count;
+        }];
+        NSLog(@"JKRHashMap 计算不重复单词数量和出现次数 %zd", map.count);
+        
+        JKRBinaryHeap *heap = [[JKRBinaryHeap alloc] initWithCompare:^NSInteger(NSDictionary *  _Nonnull e1, NSDictionary *  _Nonnull e2) {
+            return [e2[@"value"] compare:e1[@"value"]];
+        }];
+        
+        // 时间复杂度 nlog(10)
+        [map enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            if (heap.count < 10) {
+                [heap addObject:@{
+                                  @"key": key,
+                                  @"value": obj
+                                  }];
+            } else if ([obj compare:heap.top[@"value"]] > 0) {
+                [heap replaceTop:@{
+                                   @"key": key,
+                                   @"value": obj
+                                   }];
+            }
+        }];
+
+        NSLog(@"求所有单词中，出现频率最高的10个单词");
+        NSMutableArray *result = [NSMutableArray array];
+        while (heap.count) {
+            [result addObject:[NSString stringWithFormat:@"%@: %@", heap.top[@"key"], heap.top[@"value"]]];
+            [heap removeTop];
+        }
+        NSLog(@"%@", result);
+    }];
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
     
@@ -434,6 +478,7 @@ int main(int argc, const char * argv[]) {
  
 //        testBinaryHeap();
         
+        testTopN();
     }
     return 0;
 }
