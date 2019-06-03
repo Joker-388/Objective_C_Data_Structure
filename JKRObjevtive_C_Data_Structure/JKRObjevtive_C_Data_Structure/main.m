@@ -494,6 +494,71 @@ void compareArrayListAndSingleLinkedList() {
     }];
 }
 
+void compareSingleLinkedListAndSingleCircleLinkedList() {
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRSingleLinkedList new];
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:0];
+        }
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array removeFirstObject];
+        }
+        NSLog(@"单向链表操作头节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRSingleCircleLinkedList new];
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:0];
+        }
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array removeFirstObject];
+        }
+        NSLog(@"单向循环链表操作头节点");
+    }];
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRSingleLinkedList new];
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array addObject:[NSNumber numberWithInteger:i]];
+        }
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array removeLastObject];
+        }
+        NSLog(@"单向链表操作尾节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRSingleCircleLinkedList new];
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array addObject:[NSNumber numberWithInteger:i]];
+        }
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array removeLastObject];
+        }
+        NSLog(@"单向循环链表操作尾节点");
+    }];
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRSingleLinkedList new];
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count >> 1];
+        }
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array removeObjectAtIndex:array.count >> 1];
+        }
+        NSLog(@"单向链表操作中间节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRSingleCircleLinkedList new];
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count >> 1];
+        }
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array removeObjectAtIndex:array.count >> 1];
+        }
+        NSLog(@"单向循环链表操作中间节点");
+    }];
+}
+
 void testSingleCirleList() {
     JKRBaseList *list = [JKRSingleCircleLinkedList new];
     [list addObject:[Person personWithAge:1]];
@@ -567,7 +632,8 @@ int main(int argc, const char * argv[]) {
 //        compareArrayListAndSingleLinkedList();
         
 //        testSingleCirleList();
-        useSingleCircleList();
+//        compareSingleLinkedListAndSingleCircleLinkedList();
+//        useSingleCircleList();
 //        testCirleList();
     }
     return 0;
