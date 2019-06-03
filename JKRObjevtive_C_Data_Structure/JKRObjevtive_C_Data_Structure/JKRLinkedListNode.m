@@ -29,7 +29,14 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"(%@) -> %@ -> (%@)", self.prev.object, self.object, self.next.object];
+    NSString *tipString = @"";
+    if (_next && _weakNext) {
+        tipString = @"E ";
+    } else if (_weakNext) {
+        tipString = @"W ";
+    }
+    
+    return [NSString stringWithFormat:@"(W %@) -> %@ -> (%@%@)", self.prev.object, self.object, tipString, self.next.object];
 }
 
 - (void)dealloc {

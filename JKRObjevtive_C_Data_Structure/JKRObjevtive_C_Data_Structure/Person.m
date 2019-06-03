@@ -45,11 +45,11 @@
 }
 
 - (void)dealloc {
-    NSLog(@"%@ dealloc", self);
+//    NSLog(@"%@ dealloc", self);
 }
 
-//- (NSString *)description {
-//    return [NSString stringWithFormat:@"%zd", self.age];
-//}
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%zd", self.age];
+}
 
 @end

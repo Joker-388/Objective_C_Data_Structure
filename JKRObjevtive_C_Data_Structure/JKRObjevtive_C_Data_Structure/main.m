@@ -443,8 +443,113 @@ void testDynamicArray() {
     }
     NSLog(@"添加后 %@", array);
     
+    array[1] = nil;
+    NSLog(@"%@", array);
+    
     [array removeAllObjects];
     NSLog(@"清空后 %@", array);
+}
+
+void compareArrayListAndSingleLinkedList() {
+//    [JKRTimeTool teskCodeWithBlock:^{
+//        JKRBaseList *array = [JKRArrayList new];
+//        for (NSUInteger i = 0; i < 10000; i++) {
+//            [array insertObject:[NSNumber numberWithInteger:0] atIndex:0];
+//         }
+//        for (NSUInteger i = 0; i < 10000; i++) {
+//            [array removeFirstObject];
+//        }
+//        NSLog(@"动态数组");
+//    }];
+//    [JKRTimeTool teskCodeWithBlock:^{
+//        JKRBaseList *array = [JKRSingleLinkedList new];
+//        for (NSUInteger i = 0; i < 10000; i++) {
+//            [array insertObject:[NSNumber numberWithInteger:0] atIndex:0];
+//        }
+//        for (NSUInteger i = 0; i < 10000; i++) {
+//            [array removeFirstObject];
+//        }
+//        NSLog(@"单向链表");
+//    }];
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRArrayList new];
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array addObject:[NSNumber numberWithInteger:0]];
+        }
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array removeLastObject];
+        }
+        NSLog(@"动态数组");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRSingleLinkedList new];
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array addObject:[NSNumber numberWithInteger:0]];
+        }
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [array removeLastObject];
+        }
+        NSLog(@"单向链表");
+    }];
+}
+
+void testSingleCirleList() {
+    JKRBaseList *list = [JKRSingleCircleLinkedList new];
+    [list addObject:[Person personWithAge:1]];
+    NSLog(@"Add 1 \n%@", list);
+    [list addObject:[Person personWithAge:3]];
+    NSLog(@"Add 3 \n%@", list);
+    [list insertObject:[Person personWithAge:2] atIndex:1];
+    NSLog(@"Insert 2 atIndex 1 \n%@", list);
+    [list insertObject:[Person personWithAge:0] atIndex:0];
+    NSLog(@"Insert 0 atIndex 0 \n%@", list);
+    [list removeFirstObject];
+    NSLog(@"Remove first \n%@", list);
+    [list removeLastObject];
+    NSLog(@"Remove last \n%@", list);
+    [list addObject:[Person personWithAge:3]];
+    NSLog(@"Add 3 \n%@", list);
+    [list removeObjectAtIndex:1];
+    NSLog(@"Remove atIndex 1 \n%@", list);
+    [list removeAllObjects];
+    NSLog(@"Remove all \n%@", list);
+}
+
+void useSingleCircleList() {
+    JKRSingleCircleLinkedList *list = [JKRSingleCircleLinkedList new];
+    for (NSUInteger i = 1; i <= 41; i++) {
+        [list addObject:[Person personWithAge:i]];
+    }
+    NSLog(@"%@", list);
+    
+    JKRSingleLinkedListNode *node = list->_first;
+    while (list.count) {
+        node = node.next;
+        node = node.next;
+        printf("%s ", [[NSString stringWithFormat:@"%@", node.object] UTF8String]);
+        [list removeObject:node.object];
+        node = node.next;
+    }
+    printf("\n");
+}
+
+void testCirleList() {
+    JKRBaseList *list = [JKRLinkedCircleList new];
+    [list addObject:[Person personWithAge:1]];
+    NSLog(@"Add 1 \n%@", list);
+    [list addObject:[Person personWithAge:3]];
+    NSLog(@"Add 3 \n%@", list);
+    [list insertObject:[Person personWithAge:2] atIndex:1];
+    NSLog(@"Insert 2 atIndex 1 \n%@", list);
+    [list insertObject:[Person personWithAge:0] atIndex:0];
+    NSLog(@"Insert 0 atIndex 0 \n%@", list);
+    [list removeFirstObject];
+    NSLog(@"Remove first \n%@", list);
+    [list removeLastObject];
+    NSLog(@"Remove last \n%@", list);
+    [list removeAllObjects];
+    NSLog(@"Remove all \n%@", list);
 }
 
 int main(int argc, const char * argv[]) {
@@ -456,6 +561,14 @@ int main(int argc, const char * argv[]) {
 //        testHashMapAndTreeMap();
 //        testBinaryHeap();
 //        testTopN();
+        
+//        testArray();
+//        testDynamicArray();
+//        compareArrayListAndSingleLinkedList();
+        
+//        testSingleCirleList();
+        useSingleCircleList();
+//        testCirleList();
     }
     return 0;
 }

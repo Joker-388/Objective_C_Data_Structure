@@ -103,7 +103,7 @@
         return;
     }
     NSUInteger newCapacity = oldCapacity + (oldCapacity >> 1);
-    NSLog(@"--- 扩容: %zd -> %zd ---", oldCapacity, newCapacity);
+//    NSLog(@"--- 扩容: %zd -> %zd ---", oldCapacity, newCapacity);
     JKRArray *newArray = [JKRArray arrayWithLength:newCapacity];
     for (NSUInteger i = 0; i < _size; i++) {
         newArray[i] = self.array[i];

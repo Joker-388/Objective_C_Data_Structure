@@ -42,25 +42,30 @@
         if (!oldLast) { // 添加链表第一个元素
             _first = _last;
             _first.prev = _first;
-            _first.next = _first;
+            _first.next = nil;
+            _first.weakNext = _first;
         } else { // 插入到表尾
             oldLast.next = _last;
+            oldLast.weakNext = nil;
             _first.prev = _last;
+            _last.next = nil;
+            _last.weakNext = _first;
         }
     } else { // 插入到表的非空节点的位置上
         JKRLinkedListNode *next = [self nodeWithIndex:index];
         JKRLinkedListNode *prev = next.prev;
         JKRLinkedListNode *node = [[JKRLinkedListNode alloc] initWithPrev:prev object:anObject next:next];
         next.prev = node;
-        prev.next = node;
         if (next == _first) {
             _first = node;
+            prev.next = nil;
+            prev.weakNext = node;
+        } else {
+            prev.next = node;
+            prev.weakNext = nil;
         }
     }
-    if (_first.next == _first) {
-        _first.next = nil;
-        _first.weakNext = _first;
-    }
+
     _size++;
 }
 
@@ -72,23 +77,30 @@
         _first = nil;
         _last = nil;
     } else {
+        // 被删除的节点
         node = [self nodeWithIndex:index];
+        // 被删除的节点的上一个节点
         JKRLinkedListNode *prev = node.prev;
+        // 被删除的节点的下一个节点
         JKRLinkedListNode *next = node.next;
-        prev.next = next;
-        next.prev = prev;
+        
+        // 删除的是头节点
         if (node == _first) {
+            prev.next = nil;
+            prev.weakNext = next;
+            next.prev = prev;
             _first = next;
-        }
-        if (node == _last) {
+        } else if (node == _last) { // 删除的是尾节点
+            prev.next = nil;
+            prev.weakNext = next;
+            next.prev = prev;
             _last = prev;
+        } else { // 删除的是中间的节点
+            prev.next = next;
+            next.prev = prev;
         }
     }
-    if (_first.next == _first) {
-        _first.next = nil;
-        _first.weakNext = _first;
-    }
-    
+
     _size--;
 }
 
@@ -103,8 +115,6 @@
 
 - (void)removeAllObjects {
     _size = 0;
-    // 防止循环引用造成无法清空
-    _last.next = nil;
     _first = nil;
     _last = nil;
 }

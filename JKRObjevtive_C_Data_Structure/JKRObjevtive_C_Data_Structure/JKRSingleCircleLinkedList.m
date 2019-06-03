@@ -33,25 +33,22 @@
 
 - (void)insertObject:(id)anObject atIndex:(NSUInteger)index {
     [self rangeCheckForAdd:index];
-    
-    if (index == 0) {
+    if (index == 0) { // 插入链表头部或添加第一个节点
         JKRSingleLinkedListNode *node = [[JKRSingleLinkedListNode alloc] initWithObject:anObject next:_first];
         JKRSingleLinkedListNode *last = (_size == 0) ? node : [self nodeWithIndex:_size - 1];
-        last.next = node;
-        last.weakNext = nil;
+        last.next = nil;
+        last.weakNext = node;
         _first = node;
-    } else {
+    } else { // 插入到链表尾部或链表中间
         JKRSingleLinkedListNode *prev = [self nodeWithIndex:index - 1];
         JKRSingleLinkedListNode *node = [[JKRSingleLinkedListNode alloc] initWithObject:anObject next:prev.next];
         prev.next = node;
         prev.weakNext = nil;
+        if (node.next == _first) { // 插入到链表尾部
+            node.next = nil;
+            node.weakNext = _first;
+        }
     }
-    
-    if (_first.next == _first) {
-        _first.next = nil;
-        _first.weakNext = _first;
-    }
-    
     _size++;
 }
 
@@ -59,25 +56,25 @@
     [self rangeCheckForExceptAdd:index];
     
     JKRSingleLinkedListNode *node = _first;
-    if (index == 0) {
-        if (_size == 1) {
+    if (index == 0) { // 删除头节点或者唯一的节点
+        if (_size == 1) { // 删除唯一的节点
             _first = nil;
-        } else {
+        } else { // 删除头节点
             JKRSingleLinkedListNode *last = [self nodeWithIndex:_size - 1];
             _first = _first.next;
-            last.next = _first;
-            last.weakNext = nil;
+            last.next = nil;
+            last.weakNext = _first;
         }
-    } else {
+    } else { // 删除尾节点或中间的节点
         JKRSingleLinkedListNode *prev = [self nodeWithIndex:index - 1];
         node = prev.next;
-        prev.next = node.next;
-        prev.weakNext = nil;
-    }
-    
-    if (_first.next == _first) {
-        _first.next = nil;
-        _first.weakNext = _first;
+        if (node.next == _first) { // 删除尾节点
+            prev.next = nil;
+            prev.weakNext = _first;
+        } else { // 删除中间节点
+            prev.next = node.next;
+            prev.weakNext = nil;
+        }
     }
     _size--;
 }
@@ -92,11 +89,7 @@
 }
 
 - (void)removeAllObjects {
-    // 防止循环引用造成无法清空
-    if(_size > 1) {
-        JKRSingleLinkedListNode *lastNode = [self nodeWithIndex:_size - 1];
-        lastNode.next = nil;
-    }
+    if (_size == 0) return;
     _size = 0;
     _first = nil;
 }
@@ -135,7 +128,7 @@
 }
 
 - (void)dealloc {
-//    NSLog(@"<%@: %p>: dealloc", self.class, self);
+    NSLog(@"<%@: %p>: dealloc", self.class, self);
 }
 
 @end

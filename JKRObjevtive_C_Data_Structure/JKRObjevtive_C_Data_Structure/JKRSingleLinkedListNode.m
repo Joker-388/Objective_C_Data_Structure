@@ -30,7 +30,13 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@ -> (%@)", self.object, self.next.object];
+    NSString *tipString = @"";
+    if (_next && _weakNext) {
+        tipString = @"E ";
+    } else if (_weakNext) {
+        tipString = @"W ";
+    }
+    return [NSString stringWithFormat:@"%@ -> (%@%@)", self.object, tipString, self.next.object];
 }
 
 @end
