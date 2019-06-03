@@ -34,23 +34,25 @@
 - (void)insertObject:(id)anObject atIndex:(NSUInteger)index {
     [self rangeCheckForAdd:index];
     
-    if (index == _size) {
+    if (index == _size) { // index == size 相当于 插入到表尾 或者 空链表添加第一个节点
         JKRLinkedListNode *oldLast = _last;
         JKRLinkedListNode *node = [[JKRLinkedListNode alloc] initWithPrev:_last object:anObject next:nil];
         _last = node;
-        if (!oldLast) {
+        // 还可以用 !oldLast 、 !_first 判断
+        if (_size == 0) { // 空链表添加第一个节点
             _first = _last;
-        } else {
+        } else { // 添加到表尾
             oldLast.next = _last;
         }
-    } else {
+    } else { // 插入到表的非空节点的位置上
         JKRLinkedListNode *next = [self nodeWithIndex:index];
         JKRLinkedListNode *prev = next.prev;
         JKRLinkedListNode *node = [[JKRLinkedListNode alloc] initWithPrev:prev object:anObject next:next];
         next.prev = node;
-        if (!prev) {
+        // 还可以用 !prev 、 next == _first 判断
+        if (index == 0) { // 插入到表头
             _first = node;
-        } else {
+        } else { // 插入到表中间
             prev.next = node;
         }
     }
@@ -102,13 +104,13 @@
 
 - (JKRLinkedListNode *)nodeWithIndex:(NSInteger)index {
     [self rangeCheckForExceptAdd:index];
-    if (index < (_size >> 1)) {
+    if (index < (_size >> 1)) { // 当index位于链表的前半，从头节点向后查找
         JKRLinkedListNode *node = _first;
         for (NSUInteger i = 0; i < index; i++) {
             node = node.next;
         }
         return node;
-    } else {
+    } else { // 当index位于链表的后半，从尾节点向前查找
         JKRLinkedListNode *node = _last;
         for (NSUInteger i = _size - 1; i > index; i--) {
             node = node.prev;

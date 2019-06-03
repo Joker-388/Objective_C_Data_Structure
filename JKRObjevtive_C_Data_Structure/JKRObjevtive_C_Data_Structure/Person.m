@@ -45,7 +45,7 @@
 }
 
 - (void)dealloc {
-//    NSLog(@"%@ dealloc", self);
+    NSLog(@"%@ dealloc", self);
 }
 
 - (NSString *)description {

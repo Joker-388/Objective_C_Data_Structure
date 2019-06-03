@@ -599,6 +599,24 @@ void useSingleCircleList() {
     printf("\n");
 }
 
+void testLinkedList() {
+    JKRBaseList *list = [JKRLinkedList new];
+    [list addObject:[Person personWithAge:1]];
+    NSLog(@"Add 1 \n%@", list);
+    [list addObject:[Person personWithAge:3]];
+    NSLog(@"Add 3 \n%@", list);
+    [list insertObject:[Person personWithAge:2] atIndex:1];
+    NSLog(@"Insert 2 atIndex 1 \n%@", list);
+    [list insertObject:[Person personWithAge:0] atIndex:0];
+    NSLog(@"Insert 0 atIndex 0 \n%@", list);
+    [list removeFirstObject];
+    NSLog(@"Remove first \n%@", list);
+    [list removeLastObject];
+    NSLog(@"Remove last \n%@", list);
+    [list removeAllObjects];
+    NSLog(@"Remove all \n%@", list);
+}
+
 void testCirleList() {
     JKRBaseList *list = [JKRLinkedCircleList new];
     [list addObject:[Person personWithAge:1]];
@@ -634,6 +652,7 @@ int main(int argc, const char * argv[]) {
 //        testSingleCirleList();
 //        compareSingleLinkedListAndSingleCircleLinkedList();
 //        useSingleCircleList();
+        testLinkedList();
 //        testCirleList();
     }
     return 0;
