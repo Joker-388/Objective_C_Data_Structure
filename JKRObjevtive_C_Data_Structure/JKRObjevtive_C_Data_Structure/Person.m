@@ -45,7 +45,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"%@ dealloc", self);
+    printf("\n%s\n", [NSString stringWithFormat:@"%@ dealloc", self].UTF8String);
 }
 
 - (NSString *)description {

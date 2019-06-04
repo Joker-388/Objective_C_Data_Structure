@@ -602,37 +602,55 @@ void useSingleCircleList() {
 void testLinkedList() {
     JKRBaseList *list = [JKRLinkedList new];
     [list addObject:[Person personWithAge:1]];
-    NSLog(@"Add 1 \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"添加链表第一个节点 \n%@\n\n", list].UTF8String);
+    
     [list addObject:[Person personWithAge:3]];
-    NSLog(@"Add 3 \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"尾部追加一个节点 \n%@\n\n", list].UTF8String);
+    
     [list insertObject:[Person personWithAge:2] atIndex:1];
-    NSLog(@"Insert 2 atIndex 1 \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"插入到链表两个节点之间 \n%@\n\n", list].UTF8String);
+    
     [list insertObject:[Person personWithAge:0] atIndex:0];
-    NSLog(@"Insert 0 atIndex 0 \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"插入到链表头部 \n%@\n\n", list].UTF8String);
+    
     [list removeFirstObject];
-    NSLog(@"Remove first \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"删除头节点 \n%@\n\n", list].UTF8String);
+    
+    [list removeObjectAtIndex:1];
+    printf("%s", [NSString stringWithFormat:@"删除链表两个节点之间的节点 \n%@\n\n", list].UTF8String);
+    
     [list removeLastObject];
-    NSLog(@"Remove last \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"删除尾节点 \n%@\n\n", list].UTF8String);
+    
     [list removeAllObjects];
-    NSLog(@"Remove all \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"删除链表唯一的节点 \n%@\n\n", list].UTF8String);
 }
 
 void testCirleList() {
     JKRBaseList *list = [JKRLinkedCircleList new];
     [list addObject:[Person personWithAge:1]];
-    NSLog(@"Add 1 \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"添加链表第一个节点 \n%@\n\n", list].UTF8String);
+    
     [list addObject:[Person personWithAge:3]];
-    NSLog(@"Add 3 \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"尾部追加一个节点 \n%@\n\n", list].UTF8String);
+    
     [list insertObject:[Person personWithAge:2] atIndex:1];
-    NSLog(@"Insert 2 atIndex 1 \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"插入到链表两个节点之间 \n%@\n\n", list].UTF8String);
+    
     [list insertObject:[Person personWithAge:0] atIndex:0];
-    NSLog(@"Insert 0 atIndex 0 \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"插入到链表头部 \n%@\n\n", list].UTF8String);
+    
     [list removeFirstObject];
-    NSLog(@"Remove first \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"删除头节点 \n%@\n\n", list].UTF8String);
+    
+    [list removeObjectAtIndex:1];
+    printf("%s", [NSString stringWithFormat:@"删除链表两个节点之间的节点 \n%@\n\n", list].UTF8String);
+    
     [list removeLastObject];
-    NSLog(@"Remove last \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"删除尾节点 \n%@\n\n", list].UTF8String);
+    
     [list removeAllObjects];
-    NSLog(@"Remove all \n%@", list);
+    printf("%s", [NSString stringWithFormat:@"删除链表唯一的节点 \n%@\n\n", list].UTF8String);
 }
 
 int main(int argc, const char * argv[]) {
@@ -652,8 +670,8 @@ int main(int argc, const char * argv[]) {
 //        testSingleCirleList();
 //        compareSingleLinkedListAndSingleCircleLinkedList();
 //        useSingleCircleList();
-        testLinkedList();
-//        testCirleList();
+//        testLinkedList();
+        testCirleList();
     }
     return 0;
 }
