@@ -38,6 +38,7 @@
 		F3A6FBF6229D486700B9A4E8 /* JKRTreeSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBF4229D486700B9A4E8 /* JKRTreeSet.m */; };
 		F3A6FBFF229E16FC00B9A4E8 /* JKRBaseHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBFE229E16FC00B9A4E8 /* JKRBaseHeap.m */; };
 		F3A6FC04229E1A0500B9A4E8 /* JKRBinaryHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FC03229E1A0500B9A4E8 /* JKRBinaryHeap.m */; };
+		F3F25BC422A7CA840055A92E /* JKRHashMap_LinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F25BC322A7CA840055A92E /* JKRHashMap_LinkedList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -115,6 +116,8 @@
 		F3A6FBFE229E16FC00B9A4E8 /* JKRBaseHeap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRBaseHeap.m; sourceTree = "<group>"; };
 		F3A6FC02229E1A0500B9A4E8 /* JKRBinaryHeap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRBinaryHeap.h; sourceTree = "<group>"; };
 		F3A6FC03229E1A0500B9A4E8 /* JKRBinaryHeap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRBinaryHeap.m; sourceTree = "<group>"; };
+		F3F25BC222A7CA830055A92E /* JKRHashMap_LinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRHashMap_LinkedList.h; sourceTree = "<group>"; };
+		F3F25BC322A7CA840055A92E /* JKRHashMap_LinkedList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRHashMap_LinkedList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,6 +438,8 @@
 			children = (
 				F3A6FBEC229D481100B9A4E8 /* JKRHashMap.h */,
 				F3A6FBEA229D481100B9A4E8 /* JKRHashMap.m */,
+				F3F25BC222A7CA830055A92E /* JKRHashMap_LinkedList.h */,
+				F3F25BC322A7CA840055A92E /* JKRHashMap_LinkedList.m */,
 			);
 			name = HashMap;
 			sourceTree = "<group>";
@@ -553,6 +558,7 @@
 				F3A6FBF6229D486700B9A4E8 /* JKRTreeSet.m in Sources */,
 				F3A6FBB2229D334C00B9A4E8 /* JKRLinkedCircleList.m in Sources */,
 				F3A6FBCC229D401B00B9A4E8 /* JKRBinarySearchTree.m in Sources */,
+				F3F25BC422A7CA840055A92E /* JKRHashMap_LinkedList.m in Sources */,
 				F3A6FB6F229D011300B9A4E8 /* JKRArray.mm in Sources */,
 				F3A6FB83229D024D00B9A4E8 /* JKRArrayList.m in Sources */,
 				F3A6FBD9229D404700B9A4E8 /* JKRRedBlackTree.m in Sources */,

@@ -27,6 +27,8 @@
 #import "JKRBinaryHeap.h"
 #import "JKRArray.h"
 
+#import "JKRHashMap_LinkedList.h"
+
 NSString * getRandomStr() {
     char data[6];
     for (int i = 0; i < 6; i++) data[i] = (char)((i ? 'a' : 'A') + (arc4random_uniform(26)));
@@ -953,7 +955,55 @@ int main(int argc, const char * argv[]) {
 //        compareOperator();
 //        testCirleList();
 //        compareLinkedListAndLinkedCircleList();
-        useLinkedCircleList();
+//        useLinkedCircleList();
+        
+        NSMutableArray *allStrings = allFileStrings();
+//        allStrings = [allStrings subarrayWithRange:NSMakeRange(0, 100)];
+        
+        
+        [JKRTimeTool teskCodeWithBlock:^{
+            JKRHashMap *map = [JKRHashMap new];
+            [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSNumber *count = map[obj];
+                if (count) {
+                    count = [NSNumber numberWithInteger:count.integerValue+1];
+                } else {
+                    count = [NSNumber numberWithInteger:1];
+                }
+                map[obj] = count;
+            }];
+            NSLog(@"JKRHashMap 计算不重复单词数量和出现次数 %zd", map.count);
+            
+            __block NSUInteger allCount = 0;
+            [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                allCount += [map[obj] integerValue];
+                [map removeObjectForKey:obj];
+            }];
+            
+            NSLog(@"JKRHashMap 累加计算所有单词数量 %zd", allCount);
+        }];
+        
+        [JKRTimeTool teskCodeWithBlock:^{
+            JKRHashMap_LinkedList *map = [JKRHashMap_LinkedList new];
+            [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSNumber *count = map[obj];
+                if (count) {
+                    count = [NSNumber numberWithInteger:count.integerValue+1];
+                } else {
+                    count = [NSNumber numberWithInteger:1];
+                }
+                map[obj] = count;
+            }];
+            NSLog(@"JKRHashMap_LinkedList 计算不重复单词数量和出现次数 %zd", map.count);
+            
+            __block NSUInteger allCount = 0;
+            [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                allCount += [map[obj] integerValue];
+                [map removeObjectForKey:obj];
+            }];
+            
+            NSLog(@"JKRHashMap_LinkedList 累加计算所有单词数量 %zd", allCount);
+        }];
     }
     return 0;
 }
