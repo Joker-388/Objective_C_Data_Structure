@@ -626,6 +626,153 @@ void testLinkedList() {
     printf("%s", [NSString stringWithFormat:@"删除链表唯一的节点 \n%@\n\n", list].UTF8String);
 }
 
+void compareSingleLinkedListAndLinkedList() {
+    NSUInteger testCount = 10000;
+
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRSingleLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:0];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeFirstObject];
+        }
+        NSLog(@"单向链表操作头节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:0];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeFirstObject];
+        }
+        NSLog(@"双向链表操作头节点");
+    }];
+
+
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRSingleLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array addObject:[NSNumber numberWithInteger:i]];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeLastObject];
+        }
+        NSLog(@"单向链表操作尾节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array addObject:[NSNumber numberWithInteger:i]];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeLastObject];
+        }
+        NSLog(@"双向链表操作尾节点");
+    }];
+
+
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRSingleLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count >> 2];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeObjectAtIndex:array.count >> 2];
+        }
+        NSLog(@"单向链表操作 index = 总节点数*0.25 节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count >> 2];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeObjectAtIndex:array.count >> 2];
+        }
+        NSLog(@"双向链表操作 index = 总节点数*0.25 节点");
+    }];
+
+
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRSingleLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count * 0.75];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeObjectAtIndex:array.count * 0.75];
+        }
+        NSLog(@"单向链表操作 index = 总节点数*0.75 节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count * 0.75];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeObjectAtIndex:array.count * 0.75];
+        }
+        NSLog(@"双向链表操作 index = 总节点数*0.75 节点");
+    }];
+    
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRSingleLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count >> 1];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeObjectAtIndex:array.count >> 1];
+        }
+        NSLog(@"单向链表操作中间节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count >> 1];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeObjectAtIndex:array.count >> 1];
+        }
+        NSLog(@"双向链表操作中间节点");
+    }];
+}
+
+void compareOperator() {
+    NSUInteger testCount = 5000000000;
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+//        JKRBaseList *array = [JKRLinkedList new];
+//        for (NSUInteger i = 0; i < testCount; i++) {
+//            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count >> 2];
+//        }
+//        for (NSUInteger i = 0; i < testCount; i++) {
+//            [array removeObjectAtIndex:array.count >> 2];
+//        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            NSUInteger c = i - (i >> 2);
+            c = c == i ? c - 1 : c;
+        }
+        
+        NSLog(@"位运算计算index 双向链表操作 index = 总节点数*0.25 节点");
+    }];
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+//        JKRBaseList *array = [JKRLinkedList new];
+//        for (NSUInteger i = 0; i < testCount; i++) {
+//            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count * 0.25];
+//        }
+//        for (NSUInteger i = 0; i < testCount; i++) {
+//            [array removeObjectAtIndex:array.count * 0.25];
+//        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            i * 0.75;
+        }
+        NSLog(@"乘法计算index 双向链表操作 index = 总节点数*0.25 节点");
+    }];
+}
+
 void testCirleList() {
     JKRBaseList *list = [JKRLinkedCircleList new];
     [list addObject:[Person personWithAge:1]];
@@ -653,6 +800,137 @@ void testCirleList() {
     printf("%s", [NSString stringWithFormat:@"删除链表唯一的节点 \n%@\n\n", list].UTF8String);
 }
 
+void compareLinkedListAndLinkedCircleList() {
+    NSUInteger testCount = 50000;
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedCircleList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:0];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeFirstObject];
+        }
+        NSLog(@"双向循环链表操作头节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:0];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeFirstObject];
+        }
+        NSLog(@"双向链表操作头节点");
+    }];
+    
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedCircleList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array addObject:[NSNumber numberWithInteger:i]];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeLastObject];
+        }
+        NSLog(@"双向循环链表操作尾节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array addObject:[NSNumber numberWithInteger:i]];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeLastObject];
+        }
+        NSLog(@"双向链表操作尾节点");
+    }];
+    
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedCircleList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count >> 2];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeObjectAtIndex:array.count >> 2];
+        }
+        NSLog(@"双向循环链表操作 index = 总节点数*0.25 节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count >> 2];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeObjectAtIndex:array.count >> 2];
+        }
+        NSLog(@"双向链表操作 index = 总节点数*0.25 节点");
+    }];
+    
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedCircleList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count * 0.75];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeObjectAtIndex:array.count * 0.75];
+        }
+        NSLog(@"单双向循环链表操作 index = 总节点数*0.75 节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count * 0.75];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeObjectAtIndex:array.count * 0.75];
+        }
+        NSLog(@"双向链表操作 index = 总节点数*0.75 节点");
+    }];
+    
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedCircleList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count >> 1];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeObjectAtIndex:array.count >> 1];
+        }
+        NSLog(@"双向循环链表操作中间节点");
+    }];
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRBaseList *array = [JKRLinkedList new];
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count >> 1];
+        }
+        for (NSUInteger i = 0; i < testCount; i++) {
+            [array removeObjectAtIndex:array.count >> 1];
+        }
+        NSLog(@"双向链表操作中间节点");
+    }];
+}
+
+void useLinkedCircleList() {
+    JKRLinkedCircleList *list = [JKRLinkedCircleList new];
+    for (NSUInteger i = 1; i <= 41; i++) {
+        [list addObject:[NSNumber numberWithInteger:i]];
+    }
+    NSLog(@"%@", list);
+    
+    JKRLinkedListNode *node = list->_first;
+    while (list.count) {
+        node = node.next;
+        node = node.next;
+        printf("%s ", [[NSString stringWithFormat:@"%@", node.object] UTF8String]);
+        [list removeObject:node.object];
+        node = node.next;
+    }
+    printf("\n");
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
 //        testBinarySearchTree();
@@ -671,7 +949,11 @@ int main(int argc, const char * argv[]) {
 //        compareSingleLinkedListAndSingleCircleLinkedList();
 //        useSingleCircleList();
 //        testLinkedList();
-        testCirleList();
+//        compareSingleLinkedListAndLinkedList();
+//        compareOperator();
+//        testCirleList();
+//        compareLinkedListAndLinkedCircleList();
+        useLinkedCircleList();
     }
     return 0;
 }

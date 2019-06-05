@@ -39,6 +39,7 @@
         JKRLinkedListNode *oldLast = _last;
         JKRLinkedListNode *node = [[JKRLinkedListNode alloc] initWithPrev:_last object:anObject next:_first];
         _last = node;
+        // _size == 0
         if (!oldLast) { // 添加链表第一个元素
             _first = _last;
             _first.prev = _first;
@@ -56,11 +57,12 @@
         JKRLinkedListNode *prev = next.prev;
         JKRLinkedListNode *node = [[JKRLinkedListNode alloc] initWithPrev:prev object:anObject next:next];
         next.prev = node;
-        if (next == _first) {
+        // index == 0
+        if (next == _first) { // 插入到表头
             _first = node;
             prev.next = nil;
             prev.weakNext = node;
-        } else {
+        } else { // 插入到两个节点中间
             prev.next = node;
             prev.weakNext = nil;
         }
@@ -71,31 +73,29 @@
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self rangeCheckForExceptAdd:index];
-    
-    JKRLinkedListNode *node = _first;
-    if (_size == 1) {
+
+    if (_size == 1) { // 删除唯一的节点
         _first = nil;
         _last = nil;
     } else {
         // 被删除的节点
-        node = [self nodeWithIndex:index];
+        JKRLinkedListNode *node = [self nodeWithIndex:index];
         // 被删除的节点的上一个节点
         JKRLinkedListNode *prev = node.prev;
         // 被删除的节点的下一个节点
         JKRLinkedListNode *next = node.next;
-        
-        // 删除的是头节点
-        if (node == _first) {
+
+        if (node == _first) { // 删除头节点
             prev.next = nil;
             prev.weakNext = next;
             next.prev = prev;
             _first = next;
-        } else if (node == _last) { // 删除的是尾节点
+        } else if (node == _last) { // 删除尾节点
             prev.next = nil;
             prev.weakNext = next;
             next.prev = prev;
             _last = prev;
-        } else { // 删除的是中间的节点
+        } else { // 删除节点之间的节点
             prev.next = next;
             next.prev = prev;
         }
