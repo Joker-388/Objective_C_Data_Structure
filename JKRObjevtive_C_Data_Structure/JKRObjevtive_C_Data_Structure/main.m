@@ -960,30 +960,30 @@ int main(int argc, const char * argv[]) {
         NSMutableArray *allStrings = allFileStrings();
 //        allStrings = [allStrings subarrayWithRange:NSMakeRange(0, 100)];
         
-[JKRTimeTool teskCodeWithBlock:^{
-    NSMutableDictionary *map = [NSMutableDictionary new];
-    [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSNumber *count = map[obj];
-        if (count) {
-            count = [NSNumber numberWithInteger:count.integerValue+1];
-        } else {
-            count = [NSNumber numberWithInteger:1];
-        }
-        map[obj] = count;
-    }];
-    NSLog(@"NSMutableDictionary 计算不重复单词数量和出现次数 %zd", map.count);
-    NSLog(@"NSMutableDictionary 计算单词出现的次数NSObject: %@", map[@"NSObject"]);
-    NSLog(@"NSMutableDictionary 计算单词出现的次数include: %@", map[@"include"]);
-    NSLog(@"NSMutableDictionary 计算单词出现的次数return: %@", map[@"return"]);
-    
-    __block NSUInteger allCount = 0;
-    [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        allCount += [map[obj] integerValue];
-        [map removeObjectForKey:obj];
-    }];
-    
-    NSLog(@"NSMutableDictionary 累加计算所有单词数量 %zd", allCount);
-}];
+        [JKRTimeTool teskCodeWithBlock:^{
+            NSMutableDictionary *map = [NSMutableDictionary new];
+            [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSNumber *count = map[obj];
+                if (count) {
+                    count = [NSNumber numberWithInteger:count.integerValue+1];
+                } else {
+                    count = [NSNumber numberWithInteger:1];
+                }
+                map[obj] = count;
+            }];
+            NSLog(@"NSMutableDictionary 计算不重复单词数量和出现次数 %zd", map.count);
+            NSLog(@"NSMutableDictionary 计算单词出现的次数NSObject: %@", map[@"NSObject"]);
+            NSLog(@"NSMutableDictionary 计算单词出现的次数include: %@", map[@"include"]);
+            NSLog(@"NSMutableDictionary 计算单词出现的次数return: %@", map[@"return"]);
+            
+            __block NSUInteger allCount = 0;
+            [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                allCount += [map[obj] integerValue];
+                [map removeObjectForKey:obj];
+            }];
+            
+            NSLog(@"NSMutableDictionary 累加计算所有单词数量 %zd", allCount);
+        }];
         
 
         
