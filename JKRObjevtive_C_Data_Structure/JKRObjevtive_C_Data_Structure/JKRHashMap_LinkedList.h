@@ -35,7 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JKRHashMap_LinkedList<KeyType, ObjectType> (JKRExtendedHashMap)
 
-- (void)enumerateKeysAndObjectsUsingBlock:(void (^)(KeyType key, ObjectType obj, BOOL *stop))block;
 - (nullable ObjectType)objectForKeyedSubscript:(nullable KeyType)key;
 - (void)setObject:(nullable ObjectType)obj forKeyedSubscript:(nullable KeyType)key;
 

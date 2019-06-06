@@ -529,9 +529,7 @@ static inline NSUInteger jkrHaspMap_hash(id key) {
     NSMutableString *string = [NSMutableString string];
     [string appendString:[NSString stringWithFormat:@"<%@, %p>: \ncount:%zd length:%zd\n{\n", self.className, self, _size, self.array.length]];
     [self.array enumerateObjectsUsingBlock:^(JKRHashMapNode*  _Nullable node, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (idx) {
-            [string appendString:[NSString stringWithFormat:@"\n--- index: %zd ---\n", idx]];
-        }
+        [string appendString:[NSString stringWithFormat:@"\n--- index: %zd ---\n", idx]];
         if (node) {
             JKRHashTempTree *tree = [[JKRHashTempTree alloc] initWithRoot:node];
             [string appendString:[LevelOrderPrinter printStringWithTree:tree]];

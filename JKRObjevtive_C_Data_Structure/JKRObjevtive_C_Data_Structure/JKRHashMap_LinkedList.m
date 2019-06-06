@@ -138,7 +138,7 @@
     if (_size <= self.array.length * 0.75) return;
     JKRArray *oldArray = self.array;
     self.array = [JKRArray arrayWithLength:oldArray.length << 1];
-    NSLog(@"扩容 %zd -> %zd", oldArray.length ,self.array.length);
+//    NSLog(@"扩容 %zd -> %zd", oldArray.length ,self.array.length);
 
     for (NSUInteger i = 0; i < oldArray.length; i++) {
         JKRHashMap_LinkedList_Node *node = oldArray[i];
@@ -154,18 +154,15 @@
 - (void)moveNode:(JKRHashMap_LinkedList_Node *)newNode {
     NSUInteger index = [self indexWithKey:newNode.key];
     JKRHashMap_LinkedList_Node *node = self.array[index];
-    
     if (!node) {
         self.array[index] = newNode;
         return;
     }
-    
     JKRHashMap_LinkedList_Node *preNode = nil;
     while (node) {
         preNode = node;
         node = node.next;
     }
-    
     preNode.next = newNode;
 }
 
@@ -203,19 +200,22 @@
     NSMutableString *string = [NSMutableString string];
     [string appendString:[NSString stringWithFormat:@"<%@, %p>: \ncount:%zd length:%zd\n{\n", self.className, self, _size, self.array.length]];
     for (NSUInteger i = 0; i < self.array.length; i++) {
-        [string appendString:[NSString stringWithFormat:@"\n--- index: %zd ---\n", i]];
+        [string appendString:[NSString stringWithFormat:@"\n\n--- index: %zd ---\n\n", i]];
         JKRHashMap_LinkedList_Node *node= self.array[i];
         if (node) {
             while (node) {
-                [string appendString:[NSString stringWithFormat:@"[%@:%@ -> %@:%@]", node.key , node.value, node.next.key, node.next.value]];
+                [string appendString:[NSString stringWithFormat:@"[%@:%@ -> %@%@] ", node.key , node.value, node.next ? [NSString stringWithFormat:@"%@:", node.next.key] : @"NULL", node.next ? node.next.value : @""]];
                 node = node.next;
+                if (i) {
+                    [string appendString:@", "];
+                }
             }
         } else {
             [string appendString:@"   "];
             [string appendString:@"NULL"];;
         }
     }
-    [string appendString:@"\n}"];
+    [string appendString:@"\n\n}"];
     return string;
 }
 
