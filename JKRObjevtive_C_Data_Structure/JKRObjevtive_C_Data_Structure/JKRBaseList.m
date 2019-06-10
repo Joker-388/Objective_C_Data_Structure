@@ -93,4 +93,12 @@
     }
 }
 
+- (BOOL)isEqual:(id)object {
+    NSMutableArray *array = [NSMutableArray array];
+    [self enumerateObjectsUsingBlock:^(id  _Nullable obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [array addObject:obj];
+    }];
+    return [array isEqual:object];
+}
+
 @end

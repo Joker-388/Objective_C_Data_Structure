@@ -8,10 +8,14 @@
 
 #import "JKRStack.h"
 #import "JKRLinkedList.h"
+#import "JKRLinkedCircleList.h"
+#import "JKRSingleLinkedList.h"
+#import "JKRSingleCircleLinkedList.h"
+#import "JKRArrayList.h"
 
 @interface JKRStack ()
 
-@property (nonatomic, strong) JKRLinkedList *array;
+@property (nonatomic, strong) JKRBaseList *array;
 
 @end
 
@@ -43,9 +47,13 @@
     }
 }
 
-- (JKRLinkedList *)array {
+- (JKRBaseList *)array {
     if (!_array) {
         _array = [JKRLinkedList new];
+//        _array = [JKRLinkedCircleList new];
+//        _array = [JKRSingleLinkedList new];
+//        _array = [JKRSingleCircleLinkedList new];
+//        _array = [JKRArrayList new];
     }
     return _array;
 }

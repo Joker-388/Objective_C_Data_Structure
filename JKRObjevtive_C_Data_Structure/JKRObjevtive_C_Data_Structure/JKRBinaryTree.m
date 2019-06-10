@@ -113,24 +113,36 @@ typedef void(^orderBlock)(id element);
  */
 - (NSMutableArray *)preorderTraversal {
     __block BOOL stop = NO;
+    
     NSMutableArray *elements = [NSMutableArray array];
-    [self preorderTraversal:_root block:^(id element) {
+    [self preorderTraversalWithBlock:^(id element) {
         [elements addObject:element];
     } stop:&stop];
     return elements;
+    
+//    NSMutableArray *elements = [NSMutableArray array];
+//    [self preorderTraversal:_root block:^(id element) {
+//        [elements addObject:element];
+//    } stop:&stop];
+//    return elements;
 }
 
 - (void)enumerateObjectsWithPreorderTraversalUsingBlock:(void (^)(id _Nonnull, BOOL * _Nonnull))block {
     __block BOOL stop = NO;
-    [self preorderTraversal:_root block:^(id element) {
+    
+    [self  preorderTraversalWithBlock:^(id element) {
         block(element, &stop);
     } stop:&stop];
+    
+//    [self preorderTraversal:_root block:^(id element) {
+//        block(element, &stop);
+//    } stop:&stop];
 }
 
-- (void)preorderTraversal:(JKRBinaryTreeNode *)node block:(orderBlock)block stop:(BOOL *)stop {
-    if (node) {
+- (void)preorderTraversalWithBlock:(orderBlock)block stop:(BOOL *)stop {
+    if (_root) {
         JKRStack *stack = [JKRStack new];
-        [stack push:node];
+        [stack push:_root];
         while (stack.count && !*stop) {
             JKRBinaryTreeNode *n = [stack pop];
             block(n.object);
@@ -144,21 +156,58 @@ typedef void(^orderBlock)(id element);
     }
 }
 
+- (void)preorderTraversal:(JKRBinaryTreeNode *)node block:(orderBlock)block stop:(BOOL *)stop {
+    if (node && !*stop) {
+        block(node.object);
+        [self preorderTraversal:node.left block:block stop:stop];
+        [self preorderTraversal:node.right block:block stop:stop];
+    }
+}
+
 #pragma mark - 后序遍历
 - (NSMutableArray *)postorderTraversal {
     __block BOOL stop = NO;
+    
     NSMutableArray *elements = [NSMutableArray array];
-    [self postorderTraversal:_root block:^(id element) {
+    [self postorderTraversalWithBlock:^(id element) {
         [elements addObject:element];
     } stop:&stop];
     return elements;
+    
+//    NSMutableArray *elements = [NSMutableArray array];
+//    [self postorderTraversal:_root block:^(id element) {
+//        [elements addObject:element];
+//    } stop:&stop];
+//    return elements;
 }
 
 - (void)enumerateObjectsWithPostorderTraversalUsingBlock:(void (^)(id _Nonnull, BOOL * _Nonnull))block {
     __block BOOL stop = NO;
-    [self postorderTraversal:_root block:^(id element) {
+    
+    [self postorderTraversalWithBlock:^(id element) {
         block(element, &stop);
     } stop:&stop];
+    
+//    [self postorderTraversal:_root block:^(id element) {
+//        block(element, &stop);
+//    } stop:&stop];
+}
+
+- (void)postorderTraversalWithBlock:(orderBlock)block stop:(BOOL *)stop {
+    if (!_root) return;
+    JKRStack *stack = [JKRStack new];
+    [stack push:_root];
+    JKRBinaryTreeNode *prevPopNode;
+    while (stack.count && !*stop) {
+        JKRBinaryTreeNode *top = stack.peek;
+        if (top.isLeaf || (prevPopNode && prevPopNode.parent == top)) {
+            prevPopNode = stack.pop;
+            block(prevPopNode.object);
+        } else {
+            if (top.right) [stack push:top.right];
+            if (top.left) [stack push:top.left];
+        }
+    }
 }
 
 - (void)postorderTraversal:(JKRBinaryTreeNode *)node block:(orderBlock)block stop:(BOOL *)stop {
@@ -176,34 +225,55 @@ typedef void(^orderBlock)(id element);
  */
 - (NSMutableArray *)inorderTraversal {
     __block BOOL stop = NO;
+    
     NSMutableArray *elements = [NSMutableArray array];
-    [self inorderTraversal:_root block:^(id element) {
+    [self inorderTraversalWithBlock:^(id element) {
         [elements addObject:element];
     } stop:&stop];
     return elements;
+    
+//    NSMutableArray *elements = [NSMutableArray array];
+//    [self inorderTraversal:_root block:^(id element) {
+//        [elements addObject:element];
+//    } stop:&stop];
+//    return elements;
 }
 
 - (void)enumerateObjectsWithInorderTraversalUsingBlock:(void (^)(id _Nonnull, BOOL * _Nonnull))block {
     __block BOOL stop = NO;
-    [self inorderTraversal:_root block:^(id element) {
+    
+    [self inorderTraversalWithBlock:^(id element) {
         block(element, &stop);
     } stop:&stop];
+    
+//    [self inorderTraversal:_root block:^(id element) {
+//        block(element, &stop);
+//    } stop:&stop];
+}
+
+- (void)inorderTraversalWithBlock:(orderBlock)block stop:(BOOL *)stop {
+    if (!_root) return;
+    JKRBinaryTreeNode *node = _root;
+    JKRStack *stack = [JKRStack new];
+    do {
+        while (node) {
+            [stack push:node];
+            node = node.left;
+        }
+        if (stack.count) {
+            JKRBinaryTreeNode *n = [stack pop];
+            block(n.object);
+            node = n.right;
+        }
+    } while((stack.count || node) && !*stop);
 }
 
 - (void)inorderTraversal:(JKRBinaryTreeNode *)node block:(orderBlock)block stop:(BOOL *)stop {
-    if (node) {
-        JKRStack *stack = [JKRStack new];
-        do {
-            while (node) {
-                [stack push:node];
-                node = node.left;
-            }
-            if (stack.count) {
-                JKRBinaryTreeNode *n = [stack pop];
-                block(n.object);
-                node = n.right;
-            }
-        } while((stack.count || node) && !*stop);
+    if (node && !*stop) {
+        [self inorderTraversal:node.left block:block stop:stop];
+        if (*stop) return;
+        block(node.object);
+        [self inorderTraversal:node.right block:block stop:stop];
     }
 }
 
@@ -211,7 +281,7 @@ typedef void(^orderBlock)(id element);
 - (NSMutableArray *)levelOrderTraversal {
     __block BOOL stop = NO;
     NSMutableArray *elements = [NSMutableArray array];
-    [self levelOrderTraversal:_root block:^(id element) {
+    [self levelOrderTraversalWithBlock:^(id element) {
         [elements addObject:element];
     } stop:&stop];
     return elements;
@@ -219,27 +289,22 @@ typedef void(^orderBlock)(id element);
 
 - (void)enumerateObjectsWithLevelOrderTraversalUsingBlock:(void (^)(id _Nonnull, BOOL * _Nonnull))block {
     __block BOOL stop = NO;
-    [self levelOrderTraversal:_root block:^(id element) {
+    [self levelOrderTraversalWithBlock:^(id element) {
         block(element, &stop);
     } stop:&stop];
 }
 
-- (void)levelOrderTraversal:(JKRBinaryTreeNode *)node block:(orderBlock)block stop:(BOOL *)stop {
-    if (node) {
-        JKRQueue *queue = [JKRQueue new];
-        [queue enQueue:node];
-        while (queue.count && !*stop) {
-            for (NSInteger i = 0, n = queue.count; i < n; i++) {
-                if (*stop) return;
-                JKRBinaryTreeNode *n = [queue deQueue];
-                block(n.object);
-                if (n.left) {
-                    [queue enQueue:n.left];
-                }
-                if (n.right) {
-                    [queue enQueue:n.right];
-                }
-            }
+- (void)levelOrderTraversalWithBlock:(orderBlock)block stop:(BOOL *)stop {
+    if (!_root) return;
+    JKRQueue *queue = [JKRQueue new];
+    [queue enQueue:_root];
+    while (queue.count && !*stop) {
+        for (NSInteger i = 0, n = queue.count; i < n; i++) {
+            if (*stop) return;
+            JKRBinaryTreeNode *n = [queue deQueue];
+            block(n.object);
+            if (n.left) [queue enQueue:n.left];
+            if (n.right) [queue enQueue:n.right];
         }
     }
 }

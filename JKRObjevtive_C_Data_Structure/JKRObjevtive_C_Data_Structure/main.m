@@ -37,6 +37,13 @@ NSString * getRandomStr() {
     return string;
 }
 
+
+void check(BOOL pass, NSString *errorString) {
+    if (!pass) {
+        NSLog(@"!!! 发现错误 !!! :%@", errorString);
+    }
+}
+
 void testBinarySearchTree() {
     JKRBinarySearchTree<NSNumber *> *tree = [[JKRBinarySearchTree alloc] initWithCompare:^NSInteger(NSNumber *  _Nonnull e1, NSNumber *  _Nonnull e2) {
         return e1.intValue - e2.intValue;
@@ -77,44 +84,56 @@ void testBinarySearchTree() {
     //    [tree invertByIteration];
     //    [tree printTree];
     
-    NSLog(@"\n二叉树高度: %zd", tree.height);
     
-    NSLog(@"\n二叉树节点个数: %zd", tree.count);
+    check(tree.height == 4, @"二叉树高度计算错误");
+    check(tree.count == 11, @"二叉树节点个数计算错误");
+    
+
+    JKRArrayList *checkArray = [JKRArrayList array];
     /// 前序 7 4 2 1 3 5 9 8 11 10 12
-    NSLog(@"\n前序 %@", [tree allObjectsWithTraversalType:JKRBinaryTreeTraversalTypePreorder]);
+    check([[tree allObjectsWithTraversalType:JKRBinaryTreeTraversalTypePreorder] isEqual:@[@7, @4, @2, @1, @3, @5, @9, @8, @11, @10, @12]], @"前序遍历错误");
     [tree enumerateObjectsWithTraversalType:JKRBinaryTreeTraversalTypePreorder usingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
-        if ([obj isEqual:@4]) {
+        if ([obj isEqual:@9]) {
             *stop = YES;
         }
-        NSLog(@"%@", obj);
+        [checkArray addObject:obj];
     }];
+    check([checkArray isEqual:@[@7, @4, @2, @1, @3, @5, @9]], @"前序遍历错误");
+    [checkArray removeAllObjects];
     
     /// 后序 1 3 2 5 4 8 10 12 11 9 7
-    NSLog(@"\n后序 %@", [tree allObjectsWithTraversalType:JKRBinaryTreeTraversalTypePostorder]);
+    check([[tree allObjectsWithTraversalType:JKRBinaryTreeTraversalTypePostorder] isEqual:@[@1, @3, @2, @5, @4, @8, @10, @12, @11, @9, @7]], @"后序遍历错误");
     [tree enumerateObjectsWithTraversalType:JKRBinaryTreeTraversalTypePostorder usingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
         if ([obj isEqual:@4]) {
             *stop = YES;
         }
-        NSLog(@"%@", obj);
+        [checkArray addObject:obj];
     }];
+    check([checkArray isEqual:@[@1, @3, @2, @5, @4]], @"后序遍历错误");
+    [checkArray removeAllObjects];
     
     /// 中序 1 2 3 4 5 7 8 9 10 11 12
-    NSLog(@"\n中序 %@", [tree allObjectsWithTraversalType:JKRBinaryTreeTraversalTypeInorder]);
+    check([[tree allObjectsWithTraversalType:JKRBinaryTreeTraversalTypeInorder] isEqual:@[@1, @2, @3, @4, @5, @7, @8, @9, @10, @11, @12]], @"中序遍历错误");
+    
     [tree enumerateObjectsWithTraversalType:JKRBinaryTreeTraversalTypeInorder usingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
-        if ([obj isEqual:@4]) {
+        if ([obj isEqual:@5]) {
             *stop = YES;
         }
-        NSLog(@"%@", obj);
+        [checkArray addObject:obj];
     }];
+    check([checkArray isEqual:@[@1, @2, @3, @4, @5]], @"中序遍历错误");
+    [checkArray removeAllObjects];
     
     /// 层序 7 4 9 2 5 8 11 1 3 10 12
-    NSLog(@"\n层序 %@", [tree allObjectsWithTraversalType:JKRBinaryTreeTraversalTypeLevelOrder]);
+    check([[tree allObjectsWithTraversalType:JKRBinaryTreeTraversalTypeLevelOrder] isEqual:@[@7, @4, @9, @2, @5, @8, @11, @1, @3, @10, @12]], @"层序遍历错误");
     [tree enumerateObjectsWithTraversalType:JKRBinaryTreeTraversalTypeLevelOrder usingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
         if ([obj isEqual:@11]) {
             *stop = YES;
         }
-        NSLog(@"%@", obj);
+        [checkArray addObject:obj];
     }];
+    check([checkArray isEqual:@[@7, @4, @9, @2, @5, @8, @11]], @"层序遍历错误");
+    [checkArray removeAllObjects];
     
     /// 清空
     [tree removeAllObjects];
@@ -242,12 +261,6 @@ NSMutableArray * allFileStrings() {
     }];
     NSLog(@"所有单词的数量: %zd", allStrings.count);
     return allStrings;
-}
-
-void check(BOOL pass, NSString *errorString) {
-    if (!pass) {
-        NSLog(@"!!! 发现错误 !!! :%@", errorString);
-    }
 }
 
 void testHashMapAndTreeMap() {
@@ -741,40 +754,6 @@ void compareSingleLinkedListAndLinkedList() {
     }];
 }
 
-void compareOperator() {
-    NSUInteger testCount = 5000000000;
-    
-    [JKRTimeTool teskCodeWithBlock:^{
-//        JKRBaseList *array = [JKRLinkedList new];
-//        for (NSUInteger i = 0; i < testCount; i++) {
-//            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count >> 2];
-//        }
-//        for (NSUInteger i = 0; i < testCount; i++) {
-//            [array removeObjectAtIndex:array.count >> 2];
-//        }
-        for (NSUInteger i = 0; i < testCount; i++) {
-            NSUInteger c = i - (i >> 2);
-            c = c == i ? c - 1 : c;
-        }
-        
-        NSLog(@"位运算计算index 双向链表操作 index = 总节点数*0.25 节点");
-    }];
-    
-    [JKRTimeTool teskCodeWithBlock:^{
-//        JKRBaseList *array = [JKRLinkedList new];
-//        for (NSUInteger i = 0; i < testCount; i++) {
-//            [array insertObject:[NSNumber numberWithInteger:i] atIndex:array.count * 0.25];
-//        }
-//        for (NSUInteger i = 0; i < testCount; i++) {
-//            [array removeObjectAtIndex:array.count * 0.25];
-//        }
-        for (NSUInteger i = 0; i < testCount; i++) {
-            i * 0.75;
-        }
-        NSLog(@"乘法计算index 双向链表操作 index = 总节点数*0.25 节点");
-    }];
-}
-
 void testCirleList() {
     JKRBaseList *list = [JKRLinkedCircleList new];
     [list addObject:[Person personWithAge:1]];
@@ -933,6 +912,79 @@ void useLinkedCircleList() {
     printf("\n");
 }
 
+void testHashMap_LinkedList() {
+    NSMutableArray *allStrings = allFileStrings();
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+        NSMutableDictionary *map = [NSMutableDictionary new];
+        [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSNumber *count = map[obj];
+            if (count) {
+                count = [NSNumber numberWithInteger:count.integerValue+1];
+            } else {
+                count = [NSNumber numberWithInteger:1];
+            }
+            map[obj] = count;
+        }];
+        NSLog(@"NSMutableDictionary 计算不重复单词数量和出现次数 %zd", map.count);
+        NSLog(@"NSMutableDictionary 计算单词出现的次数NSObject: %@", map[@"NSObject"]);
+        NSLog(@"NSMutableDictionary 计算单词出现的次数include: %@", map[@"include"]);
+        NSLog(@"NSMutableDictionary 计算单词出现的次数return: %@", map[@"return"]);
+        
+        __block NSUInteger allCount = 0;
+        [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            allCount += [map[obj] integerValue];
+            [map removeObjectForKey:obj];
+        }];
+        
+        NSLog(@"NSMutableDictionary 累加计算所有单词数量 %zd", allCount);
+    }];
+    
+    
+    
+    
+    
+    
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRHashMap_LinkedList *map = [JKRHashMap_LinkedList new];
+        [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSNumber *count = map[obj];
+            if (count) {
+                count = [NSNumber numberWithInteger:count.integerValue+1];
+            } else {
+                count = [NSNumber numberWithInteger:1];
+            }
+            map[obj] = count;
+        }];
+        NSLog(@"JKRHashMap_LinkedList 计算不重复单词数量和出现次数 %zd", map.count);
+        NSLog(@"JKRHashMap_LinkedList 计算单词出现的次数NSObject: %@", map[@"NSObject"]);
+        NSLog(@"JKRHashMap_LinkedList 计算单词出现的次数include: %@", map[@"include"]);
+        NSLog(@"JKRHashMap_LinkedList 计算单词出现的次数return: %@", map[@"return"]);
+        
+        __block NSUInteger allCount = 0;
+        [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            allCount += [map[obj] integerValue];
+            [map removeObjectForKey:obj];
+        }];
+        
+        NSLog(@"JKRHashMap_LinkedList 累加计算所有单词数量 %zd", allCount);
+    }];
+
+}
+
+void testStack() {
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRStack *stack = [JKRStack new];
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [stack push:[NSNumber numberWithInteger:i]];
+        }
+        
+        while (stack.count) {
+            [stack pop];
+        }
+    }];
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
 //        testBinarySearchTree();
@@ -952,69 +1004,11 @@ int main(int argc, const char * argv[]) {
 //        useSingleCircleList();
 //        testLinkedList();
 //        compareSingleLinkedListAndLinkedList();
-//        compareOperator();
 //        testCirleList();
 //        compareLinkedListAndLinkedCircleList();
 //        useLinkedCircleList();
-        
-        NSMutableArray *allStrings = allFileStrings();
-//        allStrings = [allStrings subarrayWithRange:NSMakeRange(0, 100)];
-        
-        [JKRTimeTool teskCodeWithBlock:^{
-            NSMutableDictionary *map = [NSMutableDictionary new];
-            [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSNumber *count = map[obj];
-                if (count) {
-                    count = [NSNumber numberWithInteger:count.integerValue+1];
-                } else {
-                    count = [NSNumber numberWithInteger:1];
-                }
-                map[obj] = count;
-            }];
-            NSLog(@"NSMutableDictionary 计算不重复单词数量和出现次数 %zd", map.count);
-            NSLog(@"NSMutableDictionary 计算单词出现的次数NSObject: %@", map[@"NSObject"]);
-            NSLog(@"NSMutableDictionary 计算单词出现的次数include: %@", map[@"include"]);
-            NSLog(@"NSMutableDictionary 计算单词出现的次数return: %@", map[@"return"]);
-            
-            __block NSUInteger allCount = 0;
-            [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                allCount += [map[obj] integerValue];
-                [map removeObjectForKey:obj];
-            }];
-            
-            NSLog(@"NSMutableDictionary 累加计算所有单词数量 %zd", allCount);
-        }];
-        
-
-        
-
-        
-
-        [JKRTimeTool teskCodeWithBlock:^{
-            JKRHashMap_LinkedList *map = [JKRHashMap_LinkedList new];
-            [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSNumber *count = map[obj];
-                if (count) {
-                    count = [NSNumber numberWithInteger:count.integerValue+1];
-                } else {
-                    count = [NSNumber numberWithInteger:1];
-                }
-                map[obj] = count;
-            }];
-            NSLog(@"JKRHashMap_LinkedList 计算不重复单词数量和出现次数 %zd", map.count);
-            NSLog(@"JKRHashMap_LinkedList 计算单词出现的次数NSObject: %@", map[@"NSObject"]);
-            NSLog(@"JKRHashMap_LinkedList 计算单词出现的次数include: %@", map[@"include"]);
-            NSLog(@"JKRHashMap_LinkedList 计算单词出现的次数return: %@", map[@"return"]);
-
-            __block NSUInteger allCount = 0;
-            [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                allCount += [map[obj] integerValue];
-                [map removeObjectForKey:obj];
-            }];
-
-            NSLog(@"JKRHashMap_LinkedList 累加计算所有单词数量 %zd", allCount);
-        }];
-
+//        testHashMap_LinkedList()
+        testStack();
     }
     return 0;
 }
