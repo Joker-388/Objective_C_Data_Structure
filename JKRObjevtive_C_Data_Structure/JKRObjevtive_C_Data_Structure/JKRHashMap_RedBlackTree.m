@@ -1,12 +1,12 @@
 //
-//  JKRHashMap.m
+//  JKRHashMap_RedBliackTree.m
 //  HashMapSet
 //
 //  Created by Joker on 2019/5/21.
 //  Copyright © 2019 Joker. All rights reserved.
 //
 
-#import "JKRHashMap.h"
+#import "JKRHashMap_RedBlackTree.h"
 #import "Person.h"
 #import "JKRArray.h"
 #import "NSObject+JKRDataStructure.h"
@@ -39,13 +39,13 @@
 
 @end
 
-@interface JKRHashMap ()
+@interface JKRHashMap_RedBlackTree ()
 
 @property (nonatomic, strong) JKRArray *array;
 
 @end
 
-@implementation JKRHashMap
+@implementation JKRHashMap_RedBlackTree
 
 - (instancetype)init {
     self = [super init];

@@ -7,11 +7,11 @@
 //
 
 #import "JKRHashSet.h"
-#import "JKRHashMap.h"
+#import "JKRHashMap_RedBlackTree.h"
 
 @interface JKRHashSet ()
 
-@property (nonatomic, strong) JKRHashMap *map;
+@property (nonatomic, strong) JKRHashMap_RedBlackTree *map;
 
 @end
 
@@ -43,9 +43,9 @@
     }];
 }
 
-- (JKRHashMap *)map {
+- (JKRHashMap_RedBlackTree *)map {
     if (!_map) {
-        _map = [JKRHashMap new];
+        _map = [JKRHashMap_RedBlackTree new];
     }
     return _map;
 }

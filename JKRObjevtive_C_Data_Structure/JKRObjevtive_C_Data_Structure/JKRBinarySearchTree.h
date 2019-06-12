@@ -31,7 +31,7 @@ typedef NSInteger(^jkrbinarytree_compareBlock)(id e1, id e2);
  2，加入的对象是系统默认的带有compare:方法的类的实例，例如：NSNumber、NSString类的实例对象
  3，加入的对象实现binaryTreeCompare:方法
  */
-- (instancetype)initWithCompare:(_Nonnull jkrbinarytree_compareBlock)compare;
+- (instancetype)initWithCompare:(_Nullable jkrbinarytree_compareBlock)compare;
 
 /// 添加元素
 - (void)addObject:(nonnull ObjectType)object;
@@ -39,14 +39,16 @@ typedef NSInteger(^jkrbinarytree_compareBlock)(id e1, id e2);
 - (void)removeObject:(nonnull ObjectType)object;
 /// 是否包含元素
 - (BOOL)containsObject:(nonnull ObjectType)object;
-/// 添加节点后的处理
-- (void)afterAddWithNewNode:(JKRBinaryTreeNode *)node;
-/// 删除节点后的处理
-- (void)afterRemoveWithNode:(JKRBinaryTreeNode *)node;
 /// 通过元素获取对应节点
 - (JKRBinaryTreeNode *)nodeWithObject:(nonnull ObjectType)object;
 /// 删除节点
 - (void)removeWithNode:(JKRBinaryTreeNode *)node;
+
+
+/// 添加节点后的处理
+- (void)afterAddWithNewNode:(JKRBinaryTreeNode *)node;
+/// 删除节点后的处理
+- (void)afterRemoveWithNode:(JKRBinaryTreeNode *)node;
 /// 左旋转一个节点
 - (void)rotateLeft:(JKRBinaryTreeNode *)grand;
 /// 右旋转一个节点
@@ -62,7 +64,5 @@ typedef NSInteger(^jkrbinarytree_compareBlock)(id e1, id e2);
                      f:(JKRBinaryTreeNode *)f;
 
 @end
-
-
 
 NS_ASSUME_NONNULL_END

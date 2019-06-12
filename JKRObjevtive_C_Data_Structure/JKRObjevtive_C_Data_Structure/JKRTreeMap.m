@@ -59,7 +59,7 @@ static BOOL const BLACK = true;
     
     JKRTreeMapNode *parent = _root;
     JKRTreeMapNode *node = _root;
-    int cmp = 0;
+    NSInteger cmp = 0;
     while (node) {
         cmp = [self compareWithKey1:key key2:node.key];
         parent = node;
@@ -197,7 +197,7 @@ static BOOL const BLACK = true;
 }
 
 #pragma mark - key比较
-- (int)compareWithKey1:(id)key1 key2:(id)key2 {
+- (NSInteger)compareWithKey1:(id)key1 key2:(id)key2 {
     if (_compareBlock) {
         return _compareBlock(key1, key2);
     } else {
@@ -237,7 +237,7 @@ static BOOL const BLACK = true;
 - (JKRTreeMapNode *)nodeWithKey:(id)key {
     JKRTreeMapNode *node = _root;
     while (node) {
-        int cmp = [self compareWithKey1:key key2:node.key];
+        NSInteger cmp = [self compareWithKey1:key key2:node.key];
         if (!cmp) {
             return node;
         } else if (cmp > 0) {

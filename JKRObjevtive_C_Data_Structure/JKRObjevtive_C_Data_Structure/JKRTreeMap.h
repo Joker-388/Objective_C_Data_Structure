@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef int(^jkrmap_compareBlock)(id e1, id e2);
+typedef NSInteger(^jkrmap_compareBlock)(id e1, id e2);
 
 /*
  红黑树实现Map

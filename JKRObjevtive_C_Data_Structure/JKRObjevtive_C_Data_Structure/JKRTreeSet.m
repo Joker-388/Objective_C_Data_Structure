@@ -23,7 +23,7 @@
 }
 
 - (instancetype)init {
-    self = [self initWithCompare:^int(id  _Nonnull e1, id  _Nonnull e2) {
+    self = [self initWithCompare:^NSInteger(id  _Nonnull e1, id  _Nonnull e2) {
         return [e1 compare:e2];
     }];
     return self;

@@ -55,7 +55,8 @@
     JKRBinaryTreeNode *parent = _root;
     JKRBinaryTreeNode *node = _root;
     NSInteger cmp = 0;
-    while (node) {
+    
+    do {
         cmp = [self compareWithValue1:object value2:node.object];
         parent = node;
         if (cmp < 0) {
@@ -66,7 +67,8 @@
             node.object = object;
             return;
         }
-    }
+    } while(node);
+
     JKRBinaryTreeNode *newNode = [self createNodeWithObject:object parent:parent];
     if (cmp < 0) {
         parent.left = newNode;

@@ -1,5 +1,5 @@
 //
-//  JKRHashMap.h
+//  JKRHashMap_RedBliackTree.h
 //  HashMapSet
 //
 //  Created by Joker on 2019/5/21.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRHashMap<KeyType, ObjectType> : NSObject {
+@interface JKRHashMap_RedBlackTree<KeyType, ObjectType> : NSObject {
 @protected
     /// 节点个数
     NSUInteger _size;
@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface JKRHashMap<KeyType, ObjectType> (JKRExtendedHashMap)
+@interface JKRHashMap_RedBlackTree<KeyType, ObjectType> (JKRExtendedHashMap)
 
 - (void)enumerateKeysAndObjectsUsingBlock:(void (^)(KeyType key, ObjectType obj, BOOL *stop))block;
 - (nullable ObjectType)objectForKeyedSubscript:(nullable KeyType)key;

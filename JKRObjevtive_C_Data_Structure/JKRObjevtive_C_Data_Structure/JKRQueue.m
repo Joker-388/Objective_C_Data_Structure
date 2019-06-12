@@ -8,10 +8,14 @@
 
 #import "JKRQueue.h"
 #import "JKRLinkedList.h"
+//#import "JKRLinkedCircleList.h"
+//#import "JKRSingleLinkedList.h"
+//#import "JKRSingleCircleLinkedList.h"
+//#import "JKRArrayList.h"
 
 @interface JKRQueue ()
 
-@property (nonatomic, strong) JKRLinkedList *array;
+@property (nonatomic, strong) JKRBaseList *array;
 
 @end
 
@@ -39,11 +43,11 @@
 
 - (void)rangeCheck {
     if (self.array.count == 0) {
-        NSAssert(NO, @"stack is empty");
+        NSAssert(NO, @"queue is empty");
     }
 }
 
-- (JKRLinkedList *)array {
+- (JKRBaseList *)array {
     if (!_array) {
         _array = [JKRLinkedList new];
     }

@@ -20,12 +20,13 @@
 #import "JKRAVLTree.h"
 #import "JKRRedBlackTree.h"
 #import "JKRTimeTool.h"
-#import "JKRHashMap.h"
+#import "JKRHashMap_RedBlackTree.h"
 #import "JKRHashSet.h"
 #import "JKRTreeMap.h"
 #import "JKRTreeSet.h"
 #import "JKRBinaryHeap.h"
 #import "JKRArray.h"
+#import "T_BinarySearchTree.h"
 
 #import "JKRHashMap_LinkedList.h"
 
@@ -263,15 +264,20 @@ NSMutableArray * allFileStrings() {
     return allStrings;
 }
 
-void testHashMapAndTreeMap() {
+void compareHashMap() {
     NSMutableArray *allStrings = allFileStrings();
     
-    __block NSUInteger hashMapCount = 0;
-    __block NSUInteger treeMapCount = 1;
-    __block NSUInteger treeSetCount = 2;
+    __block NSUInteger hashMap_lindedlist_count = 0;
+    __block NSUInteger hashMap_lindedlist_all = 0;
+    
+    __block NSUInteger hashMap_redblacktree_count = 0;
+    __block NSUInteger hashMap_redblacktree_all = 0;
+    
+    __block NSUInteger nsmutabledictionary_count = 0;
+    __block NSUInteger nsmutabledictionary_all = 0;
     
     [JKRTimeTool teskCodeWithBlock:^{
-        JKRHashMap *map = [JKRHashMap new];
+        JKRHashMap_LinkedList *map = [JKRHashMap_LinkedList new];
         [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSNumber *count = map[obj];
             if (count) {
@@ -281,19 +287,39 @@ void testHashMapAndTreeMap() {
             }
             map[obj] = count;
         }];
-        hashMapCount = map.count;
-        NSLog(@"JKRHashMap 计算不重复单词数量和出现次数 %zd", map.count);
+        
+        hashMap_lindedlist_count = map.count;
+        
+        [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            hashMap_lindedlist_all += [map[obj] integerValue];
+            [map removeObjectForKey:obj];
+        }];
+        
+        check(map.count == 0, @"JKRHashMap_LinkedList 清空失败");
     }];
     
     [JKRTimeTool teskCodeWithBlock:^{
-        JKRHashSet *set = [JKRHashSet new];
+        JKRHashMap_RedBlackTree *map = [JKRHashMap_RedBlackTree new];
         [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [set addObject:obj];
+            NSNumber *count = map[obj];
+            if (count) {
+                count = [NSNumber numberWithInteger:count.integerValue+1];
+            } else {
+                count = [NSNumber numberWithInteger:1];
+            }
+            map[obj] = count;
         }];
-        treeMapCount = set.count;
-        NSLog(@"JKRHashSet 计算不重复单词数量和出现次数 %zd", set.count);
+        
+        hashMap_redblacktree_count = map.count;
+        
+        [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            hashMap_redblacktree_all += [map[obj] integerValue];
+            [map removeObjectForKey:obj];
+        }];
+        
+        check(map.count == 0, @"JKRHashMap_RedBlackTree 清空失败");
     }];
-    
+ 
     [JKRTimeTool teskCodeWithBlock:^{
         NSMutableDictionary *map = [NSMutableDictionary new];
         [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -305,69 +331,18 @@ void testHashMapAndTreeMap() {
             }
             map[obj] = count;
         }];
-        treeMapCount = map.count;
-        NSLog(@"NSMutableDictionary 计算不重复单词数量和出现次数 %zd", map.count);
-    }];
-    
-    [JKRTimeTool teskCodeWithBlock:^{
-        NSMutableSet *set = [NSMutableSet new];
+        nsmutabledictionary_count = map.count;
+        
         [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [set addObject:obj];
+            nsmutabledictionary_all += [map[obj] integerValue];
+            [map removeObjectForKey:obj];
         }];
-        treeMapCount = set.count;
-        NSLog(@"NSMutableSet 计算不重复单词数量和出现次数 %zd", set.count);
+        
+        check(map.count == 0, @"NSMutableDictionary 清空失败");
     }];
     
-    [JKRTimeTool teskCodeWithBlock:^{
-        JKRTreeMap *map = [JKRTreeMap new];
-        [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSNumber *count = map[obj];
-            if (count) {
-                count = [NSNumber numberWithInteger:count.integerValue+1];
-            } else {
-                count = [NSNumber numberWithInteger:1];
-            }
-            map[obj] = count;
-        }];
-        treeMapCount = map.count;
-        NSLog(@"JKRTreeMap 计算不重复单词数量和出现次数 %zd", map.count);
-    }];
     
-    [JKRTimeTool teskCodeWithBlock:^{
-        JKRTreeSet *set = [JKRTreeSet new];
-        [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [set addObject:obj];
-        }];
-        treeSetCount = set.count;
-        NSLog(@"JKRTreeSet 计算不重复单词数量 %zd", set.count);
-    }];
-    
-    check(hashMapCount == treeMapCount && treeMapCount == treeSetCount, @"计算不重复单词数量结果不一致！");
-    
-    
-//    JKRHashMap *map = [JKRHashMap new];
-//    [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        NSNumber *count = map[obj];
-//        if (count) {
-//            count = [NSNumber numberWithInteger:count.integerValue+1];
-//        } else {
-//            count = [NSNumber numberWithInteger:1];
-//        }
-//        map[obj] = count;
-//    }];
-//    hashMapCount = map.count;
-//    NSLog(@"JKRHashMap 计算不重复单词数量和出现次数 %zd", map.count);
-//
-//    __block NSUInteger allCount = 0;
-//    [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        allCount += [map[obj] integerValue];
-//        [map removeObjectForKey:obj];
-//    }];
-//    
-//    NSLog(@"HashMap 累加计算所有单词数量 %zd", allCount);
-//    
-//    check(allCount == allStrings.count, @"统计所有单词出现的数量和错误！");
-//    check(map.count == 0, @"哈希表没有清空！");
+    check(hashMap_lindedlist_count == hashMap_redblacktree_count && hashMap_redblacktree_count == nsmutabledictionary_count && hashMap_lindedlist_all == hashMap_redblacktree_all && hashMap_redblacktree_all == nsmutabledictionary_all, @"计算不重复单词数量结果不一致！");
 }
 
 void testBinaryHeap() {
@@ -399,7 +374,7 @@ void testBinaryHeap() {
 void testTopN() {
     NSMutableArray *allStrings = allFileStrings();
     [JKRTimeTool teskCodeWithBlock:^{
-        JKRHashMap *map = [JKRHashMap new];
+        JKRHashMap_RedBlackTree *map = [JKRHashMap_RedBlackTree new];
         [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSNumber *count = map[obj];
             if (count) {
@@ -940,11 +915,6 @@ void testHashMap_LinkedList() {
         NSLog(@"NSMutableDictionary 累加计算所有单词数量 %zd", allCount);
     }];
     
-    
-    
-    
-    
-    
     [JKRTimeTool teskCodeWithBlock:^{
         JKRHashMap_LinkedList *map = [JKRHashMap_LinkedList new];
         [allStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -969,7 +939,6 @@ void testHashMap_LinkedList() {
         
         NSLog(@"JKRHashMap_LinkedList 累加计算所有单词数量 %zd", allCount);
     }];
-
 }
 
 void testStack() {
@@ -985,30 +954,81 @@ void testStack() {
     }];
 }
 
+void testQueue() {
+    [JKRTimeTool teskCodeWithBlock:^{
+        JKRQueue *queue = [JKRQueue new];
+        for (NSUInteger i = 0; i < 10000; i++) {
+            [queue enQueue:[NSNumber numberWithInteger:i]];
+        }
+        
+        while (queue.count) {
+            NSLog(@"%@", queue.deQueue);
+        }
+    }];
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-//        testBinarySearchTree();
-//        testAVLTree();
-//        testRedBlackTree();
-//        compareTrees();
-//        testHashMapAndTreeMap();
-//        testBinaryHeap();
-//        testTopN();
+//                testSingleCirleList();
+        //        compareSingleLinkedListAndSingleCircleLinkedList();
+        //        useSingleCircleList();
+        //        testLinkedList();
+        //        compareSingleLinkedListAndLinkedList();
+        //        testCirleList();
+        //        compareLinkedListAndLinkedCircleList();
+        //        useLinkedCircleList();
+        //        testHashMap_LinkedList()
+        //        testStack();
+        //        testQueue();
         
-//        testArray();
-//        testDynamicArray();
-//        compareArrayListAndSingleLinkedList();
+//                testBinarySearchTree();
+        //        testAVLTree();
+        //        testRedBlackTree();
+        //        compareTrees();
+//        compareHashMap();
+        //        testBinaryHeap();
+//                testTopN();
         
-//        testSingleCirleList();
-//        compareSingleLinkedListAndSingleCircleLinkedList();
-//        useSingleCircleList();
-//        testLinkedList();
-//        compareSingleLinkedListAndLinkedList();
-//        testCirleList();
-//        compareLinkedListAndLinkedCircleList();
-//        useLinkedCircleList();
-//        testHashMap_LinkedList()
-        testStack();
+        //        testArray();
+        //        testDynamicArray();
+        //        compareArrayListAndSingleLinkedList();
+        
+//JKRBinaryTree *tree = [JKRBinaryTree new];
+//JKRBinaryTreeNode *rootNode = [JKRBinaryTreeNode new];
+//rootNode.object = @1;
+//tree->_root = rootNode;
+//
+//JKRBinaryTreeNode *leftChildNode = [JKRBinaryTreeNode new];
+//leftChildNode.object = @2;
+//leftChildNode.parent = rootNode;
+//rootNode.left = leftChildNode;
+//
+//JKRBinaryTreeNode *rightChildNode = [JKRBinaryTreeNode new];
+//rightChildNode.object = @3;
+//rightChildNode.parent = rootNode;
+//rootNode.right = rightChildNode;
+//
+//        NSLog(@"%@", tree);
+        
+        
+JKRBinarySearchTree<NSNumber *> *tree = [[JKRBinarySearchTree alloc] initWithCompare:^NSInteger(NSNumber *  _Nonnull e1, NSNumber *  _Nonnull e2) {
+    return e1.intValue - e2.intValue;
+}];
+
+int nums[] = {7,4,2,1,3,5,9,8,11,10,12};
+NSMutableArray *numbers = [NSMutableArray array];
+for (int i = 0; i < sizeof(nums)/sizeof(nums[0]); i++) {
+    printf("%d ", nums[i]);
+    [numbers addObject:[NSNumber numberWithInt:nums[i]]];
+}
+printf("\n");
+
+for (NSNumber *number in numbers) {
+    [tree addObject:number];
+}
+
+/// 打印二叉树
+NSLog(@"%@", tree);
     }
     return 0;
 }

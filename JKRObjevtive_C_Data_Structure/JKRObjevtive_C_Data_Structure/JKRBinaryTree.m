@@ -146,12 +146,8 @@ typedef void(^orderBlock)(id element);
         while (stack.count && !*stop) {
             JKRBinaryTreeNode *n = [stack pop];
             block(n.object);
-            if (n.right) {
-                [stack push:n.right];
-            }
-            if (n.left) {
-                [stack push:n.left];
-            }
+            if (n.right) [stack push:n.right];
+            if (n.left) [stack push:n.left];
         }
     }
 }
