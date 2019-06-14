@@ -12,12 +12,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JKRObjevtive_C_Data_Structure/main.m"
-            timestampString = "581916901.46345"
+            timestampString = "582201209.3315361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "check(pass, errorString)"
+            landmarkName = "check"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
