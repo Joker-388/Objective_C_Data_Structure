@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F36070B023408BC3005A3744 /* JKRSort.m in Sources */ = {isa = PBXBuildFile; fileRef = F36070AF23408BC3005A3744 /* JKRSort.m */; };
+		F36070B72340A3EA005A3744 /* JKRBubbleSort1.m in Sources */ = {isa = PBXBuildFile; fileRef = F36070B62340A3EA005A3744 /* JKRBubbleSort1.m */; };
+		F36070BD2340ABE6005A3744 /* NSNumber+JKRDataStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = F36070BC2340ABE6005A3744 /* NSNumber+JKRDataStructure.m */; };
+		F36071012341B091005A3744 /* JKRBubbleSort2.m in Sources */ = {isa = PBXBuildFile; fileRef = F36071002341B091005A3744 /* JKRBubbleSort2.m */; };
+		F36071042341D4B1005A3744 /* JKRBubbleSort3.m in Sources */ = {isa = PBXBuildFile; fileRef = F36071032341D4B1005A3744 /* JKRBubbleSort3.m */; };
+		F360710B2341E4C3005A3744 /* SortTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F360710A2341E4C3005A3744 /* SortTest.m */; };
+		F360710E2341F041005A3744 /* JKRSelectionSort.m in Sources */ = {isa = PBXBuildFile; fileRef = F360710D2341F041005A3744 /* JKRSelectionSort.m */; };
+		F36071132341F150005A3744 /* JKRHeapSort.m in Sources */ = {isa = PBXBuildFile; fileRef = F36071122341F150005A3744 /* JKRHeapSort.m */; };
 		F37F37CC22B0FBD300431929 /* T_BinarySearchTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F37F37CB22B0FBD300431929 /* T_BinarySearchTree.m */; };
 		F37F37CF22B0FBE600431929 /* T_BinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F37F37CE22B0FBE600431929 /* T_BinaryTree.m */; };
 		F3A6FB28229D004500B9A4E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB27229D004500B9A4E8 /* main.m */; };
@@ -56,6 +64,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F36070AE23408BC3005A3744 /* JKRSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRSort.h; sourceTree = "<group>"; };
+		F36070AF23408BC3005A3744 /* JKRSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRSort.m; sourceTree = "<group>"; };
+		F36070B52340A3EA005A3744 /* JKRBubbleSort1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRBubbleSort1.h; sourceTree = "<group>"; };
+		F36070B62340A3EA005A3744 /* JKRBubbleSort1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRBubbleSort1.m; sourceTree = "<group>"; };
+		F36070BB2340ABE6005A3744 /* NSNumber+JKRDataStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNumber+JKRDataStructure.h"; sourceTree = "<group>"; };
+		F36070BC2340ABE6005A3744 /* NSNumber+JKRDataStructure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+JKRDataStructure.m"; sourceTree = "<group>"; };
+		F36070FF2341B091005A3744 /* JKRBubbleSort2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRBubbleSort2.h; sourceTree = "<group>"; };
+		F36071002341B091005A3744 /* JKRBubbleSort2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRBubbleSort2.m; sourceTree = "<group>"; };
+		F36071022341D4B1005A3744 /* JKRBubbleSort3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRBubbleSort3.h; sourceTree = "<group>"; };
+		F36071032341D4B1005A3744 /* JKRBubbleSort3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRBubbleSort3.m; sourceTree = "<group>"; };
+		F36071092341E4C3005A3744 /* SortTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SortTest.h; sourceTree = "<group>"; };
+		F360710A2341E4C3005A3744 /* SortTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortTest.m; sourceTree = "<group>"; };
+		F360710C2341F041005A3744 /* JKRSelectionSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRSelectionSort.h; sourceTree = "<group>"; };
+		F360710D2341F041005A3744 /* JKRSelectionSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRSelectionSort.m; sourceTree = "<group>"; };
+		F36071112341F150005A3744 /* JKRHeapSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRHeapSort.h; sourceTree = "<group>"; };
+		F36071122341F150005A3744 /* JKRHeapSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRHeapSort.m; sourceTree = "<group>"; };
 		F37F37CA22B0FBD300431929 /* T_BinarySearchTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = T_BinarySearchTree.h; sourceTree = "<group>"; };
 		F37F37CB22B0FBD300431929 /* T_BinarySearchTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = T_BinarySearchTree.m; sourceTree = "<group>"; };
 		F37F37CD22B0FBE600431929 /* T_BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = T_BinaryTree.h; sourceTree = "<group>"; };
@@ -137,6 +161,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F36070B12340A3A3005A3744 /* 自定义算法实现 */ = {
+			isa = PBXGroup;
+			children = (
+				F36071092341E4C3005A3744 /* SortTest.h */,
+				F360710A2341E4C3005A3744 /* SortTest.m */,
+				F36071142341F1E9005A3744 /* 堆排序 */,
+				F36071102341F110005A3744 /* 排序基类 */,
+				F360710F2341F092005A3744 /* 选择排序 */,
+				F36071052341DE5E005A3744 /* 冒泡排序 */,
+			);
+			name = "自定义算法实现";
+			sourceTree = "<group>";
+		};
+		F36071052341DE5E005A3744 /* 冒泡排序 */ = {
+			isa = PBXGroup;
+			children = (
+				F36070B52340A3EA005A3744 /* JKRBubbleSort1.h */,
+				F36070B62340A3EA005A3744 /* JKRBubbleSort1.m */,
+				F36070FF2341B091005A3744 /* JKRBubbleSort2.h */,
+				F36071002341B091005A3744 /* JKRBubbleSort2.m */,
+				F36071022341D4B1005A3744 /* JKRBubbleSort3.h */,
+				F36071032341D4B1005A3744 /* JKRBubbleSort3.m */,
+			);
+			name = "冒泡排序";
+			sourceTree = "<group>";
+		};
+		F360710F2341F092005A3744 /* 选择排序 */ = {
+			isa = PBXGroup;
+			children = (
+				F360710C2341F041005A3744 /* JKRSelectionSort.h */,
+				F360710D2341F041005A3744 /* JKRSelectionSort.m */,
+			);
+			name = "选择排序";
+			sourceTree = "<group>";
+		};
+		F36071102341F110005A3744 /* 排序基类 */ = {
+			isa = PBXGroup;
+			children = (
+				F36070AE23408BC3005A3744 /* JKRSort.h */,
+				F36070AF23408BC3005A3744 /* JKRSort.m */,
+			);
+			name = "排序基类";
+			sourceTree = "<group>";
+		};
+		F36071142341F1E9005A3744 /* 堆排序 */ = {
+			isa = PBXGroup;
+			children = (
+				F36071112341F150005A3744 /* JKRHeapSort.h */,
+				F36071122341F150005A3744 /* JKRHeapSort.m */,
+			);
+			name = "堆排序";
+			sourceTree = "<group>";
+		};
 		F3A6FB1B229D004500B9A4E8 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +236,7 @@
 				F3A6FB27229D004500B9A4E8 /* main.m */,
 				F3A6FBE5229D416C00B9A4E8 /* 测试 */,
 				F3A6FBBC229D3C7400B9A4E8 /* 自定义数据结构 */,
+				F36070B12340A3A3005A3744 /* 自定义算法实现 */,
 			);
 			path = JKRObjevtive_C_Data_Structure;
 			sourceTree = "<group>";
@@ -403,6 +481,8 @@
 			children = (
 				F3A6FBE3229D416700B9A4E8 /* JKRTimeTool.h */,
 				F3A6FBE2229D416700B9A4E8 /* JKRTimeTool.m */,
+				F36070BB2340ABE6005A3744 /* NSNumber+JKRDataStructure.h */,
+				F36070BC2340ABE6005A3744 /* NSNumber+JKRDataStructure.m */,
 			);
 			name = "工具";
 			sourceTree = "<group>";
@@ -525,7 +605,7 @@
 		F3A6FB1C229D004500B9A4E8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Joker;
 				TargetAttributes = {
 					F3A6FB23229D004500B9A4E8 = {
@@ -558,6 +638,7 @@
 				F3A6FBAC229D2B3000B9A4E8 /* JKRLinkedList.m in Sources */,
 				F3A6FB28229D004500B9A4E8 /* main.m in Sources */,
 				F3A6FBB6229D354E00B9A4E8 /* JKRStack.m in Sources */,
+				F36071132341F150005A3744 /* JKRHeapSort.m in Sources */,
 				F3A6FBEF229D481100B9A4E8 /* JKRHashMap_RedBlackTree.m in Sources */,
 				F3A6FBD3229D402D00B9A4E8 /* JKRAVLTree.m in Sources */,
 				F3A6FBF5229D486700B9A4E8 /* JKRTreeMap.m in Sources */,
@@ -571,6 +652,7 @@
 				F3F25BC422A7CA840055A92E /* JKRHashMap_LinkedList.m in Sources */,
 				F3A6FB6F229D011300B9A4E8 /* JKRArray.mm in Sources */,
 				F3A6FB83229D024D00B9A4E8 /* JKRArrayList.m in Sources */,
+				F36071012341B091005A3744 /* JKRBubbleSort2.m in Sources */,
 				F3A6FBD9229D404700B9A4E8 /* JKRRedBlackTree.m in Sources */,
 				F37F37CF22B0FBE600431929 /* T_BinaryTree.m in Sources */,
 				F3A6FB7E229D01FD00B9A4E8 /* SubKey1.m in Sources */,
@@ -583,9 +665,15 @@
 				F3A6FBBA229D39AB00B9A4E8 /* JKRQueue.m in Sources */,
 				F3A6FB7C229D01FD00B9A4E8 /* Person.m in Sources */,
 				F3A6FBC0229D3CBE00B9A4E8 /* Deque.m in Sources */,
+				F36070B023408BC3005A3744 /* JKRSort.m in Sources */,
+				F360710B2341E4C3005A3744 /* SortTest.m in Sources */,
 				F3A6FB7B229D01FD00B9A4E8 /* Student.m in Sources */,
 				F3A6FB99229D17C300B9A4E8 /* JKRSingleLinkedList.m in Sources */,
+				F36071042341D4B1005A3744 /* JKRBubbleSort3.m in Sources */,
+				F36070B72340A3EA005A3744 /* JKRBubbleSort1.m in Sources */,
+				F360710E2341F041005A3744 /* JKRSelectionSort.m in Sources */,
 				F3A6FBA8229D269500B9A4E8 /* JKRSingleCircleLinkedList.m in Sources */,
+				F36070BD2340ABE6005A3744 /* NSNumber+JKRDataStructure.m in Sources */,
 				F3A6FB7D229D01FD00B9A4E8 /* SubKey2.m in Sources */,
 				F3A6FB9E229D1FF300B9A4E8 /* JKRSingleLinkedListNode.m in Sources */,
 				F3A6FBEE229D481100B9A4E8 /* NSObject+JKRDataStructure.m in Sources */,
@@ -709,6 +797,7 @@
 		F3A6FB2C229D004500B9A4E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -717,6 +806,7 @@
 		F3A6FB2D229D004500B9A4E8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

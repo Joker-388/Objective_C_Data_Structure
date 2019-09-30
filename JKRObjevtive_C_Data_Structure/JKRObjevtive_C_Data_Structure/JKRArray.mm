@@ -143,5 +143,13 @@
     return mutableString;
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+    JKRArray *array = [[JKRArray alloc] initWithLength:_length];
+    for (NSUInteger i = 0; i < _length; i++) {
+        array[i] = self[i];
+    }
+    return array;
+}
+
 @end
 

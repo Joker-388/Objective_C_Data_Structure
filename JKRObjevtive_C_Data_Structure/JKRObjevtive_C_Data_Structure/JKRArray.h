@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRArray<ObjectType> : NSObject<NSFastEnumeration>  {
+@interface JKRArray<ObjectType> : NSObject<NSFastEnumeration, NSCopying>  {
 @private
     void ** _array;
     NSUInteger _length;

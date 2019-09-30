@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRArrayList : JKRBaseList
+@interface JKRArrayList<ObjectType> : JKRBaseList<NSCopying>
 
 + (instancetype)array;
 + (instancetype)arrayWithCapacity:(NSUInteger)capacity;

@@ -24,7 +24,7 @@
 }
 
 + (instancetype)arrayWithCapacity:(NSUInteger)capacity {
-    return [[self alloc] initWithCapacity:JKRARRAY_LIST_DEFAULT_CAPACITY];
+    return [[self alloc] initWithCapacity:capacity];
 }
 
 - (instancetype)init {
@@ -113,15 +113,24 @@
 
 - (NSString *)description {
     NSMutableString *string = [NSMutableString string];
-    [string appendString:[NSString stringWithFormat:@"size=%zd, {\n", _size]];
+    [string appendString:[NSString stringWithFormat:@"[%@, %p]: size=%zd \n{ ", [self class], self, _size]];
     [self enumerateObjectsUsingBlock:^(id  _Nullable obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (idx) {
-            [string appendString:@"\n"];
+            [string appendString:@", "];
         }
         [string appendString:[NSString stringWithFormat:@"%@", obj]];
     }];
-    [string appendString:@"\n}"];
+    [string appendString:@" }"];
     return string;
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    JKRArrayList *array = [[JKRArrayList alloc] initWithCapacity:self.array.length];
+    array->_size = _size;
+    for (NSUInteger i = 0; i < self.count; i++) {
+        array[i] = self[i];
+    }
+    return array;
 }
 
 @end

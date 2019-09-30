@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRSingleLinkedList : JKRBaseList {
+@interface JKRSingleLinkedList<ObjectType> : JKRBaseList<ObjectType> {
     JKRSingleLinkedListNode *_first;
 }
 

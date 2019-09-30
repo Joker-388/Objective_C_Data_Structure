@@ -27,8 +27,16 @@
 #import "JKRBinaryHeap.h"
 #import "JKRArray.h"
 #import "T_BinarySearchTree.h"
-
 #import "JKRHashMap_LinkedList.h"
+
+#import "SortTest.h"
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        [[SortTest new] runTest];
+    }
+    return 0;
+}
 
 NSString * getRandomStr() {
     char data[6];
@@ -967,71 +975,65 @@ void testQueue() {
     }];
 }
 
-
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-//                testSingleCirleList();
-        //        compareSingleLinkedListAndSingleCircleLinkedList();
-        //        useSingleCircleList();
-        //        testLinkedList();
-        //        compareSingleLinkedListAndLinkedList();
-        //        testCirleList();
-        //        compareLinkedListAndLinkedCircleList();
-        //        useLinkedCircleList();
-        //        testHashMap_LinkedList()
-        //        testStack();
-        //        testQueue();
-        
-//                testBinarySearchTree();
-        //        testAVLTree();
-        //        testRedBlackTree();
-        //        compareTrees();
-//        compareHashMap();
-        //        testBinaryHeap();
-//                testTopN();
-        
-        //        testArray();
-        //        testDynamicArray();
-        //        compareArrayListAndSingleLinkedList();
-        
-//JKRBinaryTree *tree = [JKRBinaryTree new];
-//JKRBinaryTreeNode *rootNode = [JKRBinaryTreeNode new];
-//rootNode.object = @1;
-//tree->_root = rootNode;
-//
-//JKRBinaryTreeNode *leftChildNode = [JKRBinaryTreeNode new];
-//leftChildNode.object = @2;
-//leftChildNode.parent = rootNode;
-//rootNode.left = leftChildNode;
-//
-//JKRBinaryTreeNode *rightChildNode = [JKRBinaryTreeNode new];
-//rightChildNode.object = @3;
-//rightChildNode.parent = rootNode;
-//rootNode.right = rightChildNode;
-//
-//        NSLog(@"%@", tree);
-        
-        
-JKRBinarySearchTree<NSNumber *> *tree = [[JKRBinarySearchTree alloc] initWithCompare:^NSInteger(NSNumber *  _Nonnull e1, NSNumber *  _Nonnull e2) {
-    return e1.intValue - e2.intValue;
-}];
-
-int nums[] = {7,4,2,1,3,5,9,8,11,10,12};
-NSMutableArray *numbers = [NSMutableArray array];
-for (int i = 0; i < sizeof(nums)/sizeof(nums[0]); i++) {
-    printf("%d ", nums[i]);
-    [numbers addObject:[NSNumber numberWithInt:nums[i]]];
-}
-printf("\n");
-
-for (NSNumber *number in numbers) {
-    [tree addObject:number];
-}
-
-/// 打印二叉树
-NSLog(@"%@", tree);
-        
-        
-    }
-    return 0;
+void ttttt() {
+    //                testSingleCirleList();
+            //        compareSingleLinkedListAndSingleCircleLinkedList();
+            //        useSingleCircleList();
+            //        testLinkedList();
+            //        compareSingleLinkedListAndLinkedList();
+            //        testCirleList();
+            //        compareLinkedListAndLinkedCircleList();
+            //        useLinkedCircleList();
+            //        testHashMap_LinkedList()
+            //        testStack();
+            //        testQueue();
+            
+    //                testBinarySearchTree();
+    //                testAVLTree();
+    //                testRedBlackTree();
+            //        compareTrees();
+    //        compareHashMap();
+            //        testBinaryHeap();
+    //                testTopN();
+            
+            //        testArray();
+            //        testDynamicArray();
+            //        compareArrayListAndSingleLinkedList();
+            
+    //JKRBinaryTree *tree = [JKRBinaryTree new];
+    //JKRBinaryTreeNode *rootNode = [JKRBinaryTreeNode new];
+    //rootNode.object = @1;
+    //tree->_root = rootNode;
+    //
+    //JKRBinaryTreeNode *leftChildNode = [JKRBinaryTreeNode new];
+    //leftChildNode.object = @2;
+    //leftChildNode.parent = rootNode;
+    //rootNode.left = leftChildNode;
+    //
+    //JKRBinaryTreeNode *rightChildNode = [JKRBinaryTreeNode new];
+    //rightChildNode.object = @3;
+    //rightChildNode.parent = rootNode;
+    //rootNode.right = rightChildNode;
+    //
+    //        NSLog(@"%@", tree);
+            
+            
+    //JKRBinarySearchTree<NSNumber *> *tree = [[JKRBinarySearchTree alloc] initWithCompare:^NSInteger(NSNumber *  _Nonnull e1, NSNumber *  _Nonnull e2) {
+    //    return e1.intValue - e2.intValue;
+    //}];
+    //
+    //int nums[] = {7,4,2,1,3,5,9,8,11,10,12};
+    //NSMutableArray *numbers = [NSMutableArray array];
+    //for (int i = 0; i < sizeof(nums)/sizeof(nums[0]); i++) {
+    //    printf("%d ", nums[i]);
+    //    [numbers addObject:[NSNumber numberWithInt:nums[i]]];
+    //}
+    //printf("\n");
+    //
+    //for (NSNumber *number in numbers) {
+    //    [tree addObject:number];
+    //}
+    //
+    ///// 打印二叉树
+    //NSLog(@"%@", tree);
 }
