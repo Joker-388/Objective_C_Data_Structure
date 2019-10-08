@@ -7,6 +7,7 @@
 //
 
 #import "JKRSort.h"
+#import "SortModel.h"
 
 @implementation JKRSort
 
@@ -49,13 +50,34 @@
     _array[index1] = tmp;
 }
 
+- (BOOL)isStable {
+    JKRArrayList<SortModel *> *models = [JKRArrayList arrayWithCapacity:20];
+    for (NSInteger i = 0; i < 20; i++) {
+        SortModel *model = [[SortModel alloc] init];
+        model.score = i * 10;
+        model.age = 10;
+        models[i] = model;
+    }
+    [self sortWithArray:models];
+    for (NSInteger i = 1; i < models.count; i++) {
+        NSInteger score = models[i].score;
+        NSInteger preScore = models[i - 1].score;
+        if (score != preScore + 10) {
+            return false;
+        }
+    }
+    return true;
+}
+
 - (NSString *)description {
     NSMutableString *string = [NSMutableString string];
     NSString *timeString = [NSString stringWithFormat:@"\n耗时: %.3f s\n", _time];
+    NSString *stableString = [NSString stringWithFormat:@"稳定性: %@\n", [self isStable] ? @"是":@"否"];
     NSString *swapCountString = [NSString stringWithFormat:@"比较: %zd\n", _compareCount];
     NSString *compareCountString = [NSString stringWithFormat:@"交换: %zd\n", _swapCount];
     [string appendString:[NSString stringWithFormat:@"[%@, %p]: {", [self class], self]];
     [string appendString:timeString];
+    [string appendString:stableString];
     [string appendString:swapCountString];
     [string appendString:compareCountString];
     [string appendString:@"}"];

@@ -19,7 +19,6 @@
 - (void)sort {
     _heapSize = _array.count;
     for (NSInteger i = (_heapSize >> 1) - 1; i >= 0; i--) {
-        NSLog(@"%zd", i);
         [self siftDownWithIndex:i];
     }
     

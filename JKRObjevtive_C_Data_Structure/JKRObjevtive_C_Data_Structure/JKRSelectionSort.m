@@ -14,7 +14,7 @@
     for (NSUInteger end = _array.count - 1; end > 0; end--) {
         NSUInteger maxIndex = 0;
         for (NSUInteger begin = 1; begin <= end; begin++) {
-            if ([self compareWithIndex0:maxIndex index1:begin] == NSOrderedAscending) {
+            if ([self compareWithIndex0:maxIndex index1:begin] != NSOrderedDescending) {
                 maxIndex = begin;
             }
         }

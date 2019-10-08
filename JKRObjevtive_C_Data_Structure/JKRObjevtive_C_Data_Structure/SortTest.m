@@ -14,13 +14,24 @@
 #import "JKRBubbleSort3.h"
 #import "JKRSelectionSort.h"
 #import "JKRHeapSort.h"
+#import "JKRInsertionSort1.h"
+#import "JKRInsertionSort2.h"
+#import "JKRInsertionSort3.h"
 
 @implementation SortTest
 
 - (void)runTest {
-    JKRArrayList *numbers = [NSNumber jkr_tailAsAscendingOrderArrayWithMin:0 max:10000 disorderCount:7000];
-
-    [self testSorts:numbers Sorts:[[JKRBubbleSort1 alloc] init], [[JKRBubbleSort2 alloc] init],[[JKRBubbleSort3 alloc] init], [[JKRSelectionSort alloc] init], [[JKRHeapSort alloc] init], nil];
+//    JKRArrayList *numbers = [NSNumber jkr_tailAsAscendingOrderArrayWithMin:0 max:1000 disorderCount:700];
+    JKRArrayList *numbers = [NSNumber jkr_randomArrayWithCount:1000 min:0 max:20000];
+    
+    [self testSorts:numbers Sorts:
+     [[JKRBubbleSort3 alloc] init],
+     [[JKRSelectionSort alloc] init],
+     [[JKRHeapSort alloc] init],
+     [[JKRInsertionSort1 alloc] init],
+     [[JKRInsertionSort2 alloc] init],
+     [[JKRInsertionSort3 alloc] init],
+     nil];
 }
 
 - (void)testSorts:(JKRArrayList *)array Sorts:(JKRSort *)firstSort, ... {
@@ -54,3 +65,4 @@
 }
 
 @end
+
