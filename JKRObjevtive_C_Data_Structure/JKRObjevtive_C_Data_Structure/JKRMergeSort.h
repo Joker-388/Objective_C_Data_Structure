@@ -1,5 +1,5 @@
 //
-//  JKRInsertionSort1.h
+//  JKRMergeSort.h
 //  JKRObjevtive_C_Data_Structure
 //
 //  Created by Joker on 2019/10/8.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRInsertionSort1<ObjectType> : JKRSort<ObjectType>
+@interface JKRMergeSort<ObjectType> : JKRSort<ObjectType>
 
 @end
 

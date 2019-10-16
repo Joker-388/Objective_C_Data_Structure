@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRRedBlackTree : JKRBinarySearchTree
+@interface JKRRedBlackTree<ObjectType> : JKRBinarySearchTree<ObjectType>
 
 @end
 

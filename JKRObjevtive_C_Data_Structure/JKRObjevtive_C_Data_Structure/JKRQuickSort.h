@@ -1,8 +1,8 @@
 //
-//  JKRInsertionSort1.h
+//  JKRQuickSort.h
 //  JKRObjevtive_C_Data_Structure
 //
-//  Created by Joker on 2019/10/8.
+//  Created by Joker on 2019/10/11.
 //  Copyright © 2019 Joker. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRInsertionSort1<ObjectType> : JKRSort<ObjectType>
+@interface JKRQuickSort<ObjectType> : JKRSort<ObjectType>
 
 @end
 

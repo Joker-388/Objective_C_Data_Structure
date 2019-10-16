@@ -20,7 +20,7 @@ typedef NSInteger(^jkrbinarytree_compareBlock)(id e1, id e2);
 
 @end
 
-@interface JKRBinarySearchTree<ObjectType> : JKRBinaryTree {
+@interface JKRBinarySearchTree<ObjectType> : JKRBinaryTree<ObjectType> {
 @protected
     jkrbinarytree_compareBlock _compareBlock;
 }

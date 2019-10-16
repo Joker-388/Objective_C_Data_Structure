@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NSInteger(^jkrbinaryheap_compareBlock)(id e1, id e2);
 
-@interface JKRBinaryHeap : JKRBaseHeap {
+@interface JKRBinaryHeap<ObjectType> : JKRBaseHeap<ObjectType> {
 @protected
     jkrbinaryheap_compareBlock _compareBlock;
 }

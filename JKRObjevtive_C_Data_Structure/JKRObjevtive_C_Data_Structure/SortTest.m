@@ -17,21 +17,66 @@
 #import "JKRInsertionSort1.h"
 #import "JKRInsertionSort2.h"
 #import "JKRInsertionSort3.h"
+#import "JKRMergeSort.h"
+#import "JKRQuickSort.h"
+#import "JKRShellSort.h"
+#import "JKRArray.h"
 
 @implementation SortTest
 
 - (void)runTest {
-//    JKRArrayList *numbers = [NSNumber jkr_tailAsAscendingOrderArrayWithMin:0 max:1000 disorderCount:700];
-    JKRArrayList *numbers = [NSNumber jkr_randomArrayWithCount:1000 min:0 max:20000];
+//    JKRArray *array = [JKRArray arrayWithLength:100];
+//    for (id obj in array) {
+//
+//    }
     
+//    {
+//        JKRArrayList<NSNumber *> *list = [JKRArrayList array];
+//        for (NSInteger i = 0; i < 100; i++) {
+//            [list addObject:[NSNumber numberWithInteger:i]];
+//        }
+//        for (NSNumber *num in list) {
+//            NSLog(@"%@", num);
+//        }
+//    }
+//    NSLog(@"--------------------");
+//    {
+//        JKRArrayList<NSNumber *> *list = [JKRArrayList array];
+//        for (NSInteger i = 0; i < 10; i++) {
+//            [list addObject:[NSNumber numberWithInteger:i]];
+//        }
+//        for (NSNumber *num in list) {
+//            NSLog(@"%@", num);
+//        }
+//    }
+//    NSLog(@"--------------------");
+//    {
+//        JKRArrayList<NSNumber *> *list = [JKRArrayList array];
+//
+//        for (NSNumber *num in list) {
+//            NSLog(@"%@", num);
+//        }
+//    }
+    
+    
+//    JKRArrayList *numbers = [NSNumber jkr_tailAsAscendingOrderArrayWithMin:0 max:1000 disorderCount:700];
+    JKRArrayList *numbers = [NSNumber jkr_randomArrayWithCount:100000 min:0 max:200000];
+
     [self testSorts:numbers Sorts:
-     [[JKRBubbleSort3 alloc] init],
-     [[JKRSelectionSort alloc] init],
+     //     [[JKRBubbleSort3 alloc] init],
+     //     [[JKRSelectionSort alloc] init],
      [[JKRHeapSort alloc] init],
-     [[JKRInsertionSort1 alloc] init],
-     [[JKRInsertionSort2 alloc] init],
-     [[JKRInsertionSort3 alloc] init],
+     //     [[JKRInsertionSort1 alloc] init],
+     //     [[JKRInsertionSort2 alloc] init],
+//     [[JKRInsertionSort3 alloc] init],
+     [[JKRMergeSort alloc] init],
+     [[JKRQuickSort alloc] init],
+     [[JKRShellSort alloc] init],
      nil];
+}
+
+- (NSInteger)randomFrom:(NSInteger)from to:(NSInteger)to {
+    return (NSInteger)(from + (arc4random() % (to - from)));
 }
 
 - (void)testSorts:(JKRArrayList *)array Sorts:(JKRSort *)firstSort, ... {
@@ -65,4 +110,3 @@
 }
 
 @end
-

@@ -17,7 +17,9 @@
 
 @end
 
-@implementation JKRArrayList
+@implementation JKRArrayList {
+    NSInteger _countByEnumCount;
+}
 
 + (instancetype)array {
     return [[self alloc] initWithCapacity:JKRARRAY_LIST_DEFAULT_CAPACITY];
@@ -33,6 +35,7 @@
 
 - (instancetype)initWithCapacity:(NSUInteger)capacity {
     self = [super init];
+    _countByEnumCount = -1;
     self.array = [JKRArray arrayWithLength:capacity > JKRARRAY_LIST_DEFAULT_CAPACITY ? capacity : JKRARRAY_LIST_DEFAULT_CAPACITY];
     return self;
 }
@@ -124,6 +127,19 @@
     return string;
 }
 
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(__unsafe_unretained id  _Nullable [])buffer count:(NSUInteger)len {
+    if (state->state > 0) return 0;
+    if (_countByEnumCount < 0) _countByEnumCount = _size;
+    NSUInteger res = [_array countByEnumeratingWithState:state objects:buffer count:len];
+    _countByEnumCount -= res;
+    if (_countByEnumCount < 0) {
+        state->state++;
+        return res + _countByEnumCount;
+    }
+    return res;
+}
+
+#pragma mark - NSCopying
 - (id)copyWithZone:(NSZone *)zone {
     JKRArrayList *array = [[JKRArrayList alloc] initWithCapacity:self.array.length];
     array->_size = _size;

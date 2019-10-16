@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRAVLTree<E> : JKRBinarySearchTree
+@interface JKRAVLTree<ObjectType> : JKRBinarySearchTree<ObjectType>
 
 @end
 
