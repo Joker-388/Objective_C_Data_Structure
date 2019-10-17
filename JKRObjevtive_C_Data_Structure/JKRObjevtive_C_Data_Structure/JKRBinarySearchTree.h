@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NSInteger(^jkrbinarytree_compareBlock)(id e1, id e2);
 
-@protocol JKRBinarySearchTreeCompare <NSObject>
+@protocol JKRBinarySearchTreeCompare 
 
 - (NSInteger)binaryTreeCompare:(id)object;
 

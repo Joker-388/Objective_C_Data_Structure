@@ -1,8 +1,8 @@
 //
-//  JKRBubbleSort1.h
+//  JKRCountingSort.h
 //  JKRObjevtive_C_Data_Structure
 //
-//  Created by Joker on 2019/9/29.
+//  Created by Joker on 2019/10/17.
 //  Copyright © 2019 Joker. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRBubbleSort1<ObjectType : id<JKRSortCompare>> : JKRSort<ObjectType>
+@interface JKRCountingSort : JKRSort<NSNumber *>
 
 @end
 

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRMergeSort<ObjectType> : JKRSort<ObjectType>
+@interface JKRMergeSort<ObjectType : id<JKRSortCompare>> : JKRSort<ObjectType>
 
 @end
 

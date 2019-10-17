@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRBubbleSort2<ObjectType> : JKRSort<ObjectType>
+@interface JKRBubbleSort2<ObjectType : id<JKRSortCompare>> : JKRSort<ObjectType>
 
 @end
 

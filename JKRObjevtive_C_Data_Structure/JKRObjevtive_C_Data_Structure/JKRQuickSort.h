@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRQuickSort<ObjectType> : JKRSort<ObjectType>
+@interface JKRQuickSort<ObjectType : id<JKRSortCompare>> : JKRSort<ObjectType>
 
 @end
 

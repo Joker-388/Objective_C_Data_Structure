@@ -62,4 +62,8 @@
     return stepSequence;
 }
 
+- (BOOL)isStable {
+    return NO;
+}
+
 @end

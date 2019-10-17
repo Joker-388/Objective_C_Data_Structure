@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol LevelOrderPrinterDelegate <NSObject>
+@protocol LevelOrderPrinterDelegate 
 
 @required
 - (id)print_root;

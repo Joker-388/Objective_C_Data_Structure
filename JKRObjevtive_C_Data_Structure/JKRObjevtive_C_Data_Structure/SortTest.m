@@ -21,6 +21,8 @@
 #import "JKRQuickSort.h"
 #import "JKRShellSort.h"
 #import "JKRArray.h"
+#import "JKRCountingSort.h"
+#import "TestSortModel.h"
 
 @implementation SortTest
 
@@ -57,11 +59,35 @@
 //            NSLog(@"%@", num);
 //        }
 //    }
-    
+//    NSLog(@"--------------------");
+//    {
+//        JKRArrayList<NSNumber *> *list = [JKRArrayList array];
+//        for (NSInteger i = 0; i < 3; i++) {
+//            [list addObject:[NSNumber numberWithInteger:i]];
+//        }
+//        for (NSNumber *num in list) {
+//            NSLog(@"%@", num);
+//        }
+//    }
+//    NSLog(@"--------------------");
+//    {
+//        JKRArrayList<NSNumber *> *list = [JKRArrayList array];
+//
+//        for (NSNumber *num in list) {
+//            NSLog(@"%@", num);
+//        }
+//    }
     
 //    JKRArrayList *numbers = [NSNumber jkr_tailAsAscendingOrderArrayWithMin:0 max:1000 disorderCount:700];
-    JKRArrayList *numbers = [NSNumber jkr_randomArrayWithCount:100000 min:0 max:200000];
-
+    JKRArrayList<NSNumber *> *numbers = [NSNumber jkr_randomArrayWithCount:100000 min:0 max:1000000];
+    
+//    JKRArrayList<NSNumber *> *numbers = [JKRArrayList array];
+//    int nums[] = {7,3,5,8,6,7,4,5};
+//    for (int i = 0; i < sizeof(nums)/sizeof(nums[0]); i++) {
+//        printf("%d ", nums[i]);
+//        [numbers addObject:[NSNumber numberWithInt:nums[i]]];
+//    }
+    
     [self testSorts:numbers Sorts:
      //     [[JKRBubbleSort3 alloc] init],
      //     [[JKRSelectionSort alloc] init],
@@ -72,6 +98,7 @@
      [[JKRMergeSort alloc] init],
      [[JKRQuickSort alloc] init],
      [[JKRShellSort alloc] init],
+     [[JKRCountingSort alloc] init],
      nil];
 }
 
@@ -79,14 +106,14 @@
     return (NSInteger)(from + (arc4random() % (to - from)));
 }
 
-- (void)testSorts:(JKRArrayList *)array Sorts:(JKRSort *)firstSort, ... {
+- (void)testSorts:(JKRArrayList<NSNumber *> *)array Sorts:(JKRSort *)firstSort, ... {
     va_list args;
     va_start(args, firstSort);
     
     NSMutableArray *sorts = [NSMutableArray array];
     
-    for (JKRSort *sort = firstSort; sort; sort = va_arg(args, JKRSort *)) {
-        JKRArrayList *numbers = [array copy];
+    for (JKRSort<NSNumber *> *sort = firstSort; sort; sort = va_arg(args, JKRSort *)) {
+        JKRArrayList<NSNumber *> *numbers = [array copy];
         [sort sortWithArray:numbers];
         [sorts addObject:sort];
         [self checkWithPass:[NSNumber jkr_isAscendingOrder:numbers] errorString:@"** 排序失败 **"];

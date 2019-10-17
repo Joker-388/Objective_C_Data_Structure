@@ -11,6 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol JKRSortCompare 
+
+- (NSComparisonResult)compare:(id)other;
+
+@end
+
 @interface JKRSort<__covariant ObjectType> : NSObject {
 @private
     NSInteger _compareCount;
@@ -32,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JKRSort<__covariant ObjectType> (JKRSort)
 
 - (void)sort;
+- (BOOL)isStable;
 
 @end
 

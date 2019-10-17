@@ -7,7 +7,7 @@
 //
 
 #import "JKRSort.h"
-#import "SortModel.h"
+#import "JKRSortModel.h"
 
 @implementation JKRSort
 
@@ -51,9 +51,9 @@
 }
 
 - (BOOL)isStable {
-    JKRArrayList<SortModel *> *models = [JKRArrayList arrayWithCapacity:20];
+    JKRArrayList<JKRSortModel *> *models = [JKRArrayList arrayWithCapacity:20];
     for (NSInteger i = 0; i < 20; i++) {
-        SortModel *model = [[SortModel alloc] init];
+        JKRSortModel *model = [[JKRSortModel alloc] init];
         model.score = i * 10;
         model.age = 10;
         models[i] = model;

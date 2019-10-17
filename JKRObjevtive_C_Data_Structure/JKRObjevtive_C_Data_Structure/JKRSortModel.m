@@ -6,11 +6,11 @@
 //  Copyright © 2019 Joker. All rights reserved.
 //
 
-#import "SortModel.h"
+#import "JKRSortModel.h"
 
-@implementation SortModel
+@implementation JKRSortModel
 
-- (NSComparisonResult)compare:(SortModel *)other {
+- (NSComparisonResult)compare:(JKRSortModel *)other {
     if (self.age == other.age) {
         return NSOrderedSame;
     } else if (self.age > other.age) {

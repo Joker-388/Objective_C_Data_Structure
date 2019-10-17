@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JKRSort.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SortModel : NSObject
+@interface JKRSortModel : NSObject<JKRSortCompare>
 
 @property (nonatomic, assign) NSInteger score;
 @property (nonatomic, assign) NSInteger age;
-
-- (NSComparisonResult)compare:(SortModel *)other;
 
 @end
 

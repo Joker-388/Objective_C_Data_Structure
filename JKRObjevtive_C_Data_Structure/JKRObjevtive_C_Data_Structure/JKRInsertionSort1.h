@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRInsertionSort1<ObjectType> : JKRSort<ObjectType>
+@interface JKRInsertionSort1<ObjectType : id<JKRSortCompare>> : JKRSort<ObjectType>
 
 @end
 
