@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRRadixSort : JKRSort<NSNumber *>
+@interface JKRRadixSort1 : JKRSort<NSNumber *>
 
 @end
 

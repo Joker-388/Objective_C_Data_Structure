@@ -6,10 +6,10 @@
 //  Copyright © 2019 Joker. All rights reserved.
 //
 
-#import "JKRRadixSort.h"
+#import "JKRRadixSort1.h"
 #import "JKRArray.h"
 
-@implementation JKRRadixSort
+@implementation JKRRadixSort1
 
 - (void)sort {
     NSInteger max = _array[0].integerValue;
