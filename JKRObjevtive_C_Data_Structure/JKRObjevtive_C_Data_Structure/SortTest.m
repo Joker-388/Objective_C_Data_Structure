@@ -23,6 +23,7 @@
 #import "JKRArray.h"
 #import "JKRCountingSort.h"
 #import "TestSortModel.h"
+#import "JKRRadixSort.h"
 
 @implementation SortTest
 
@@ -99,6 +100,7 @@
      [[JKRQuickSort alloc] init],
      [[JKRShellSort alloc] init],
      [[JKRCountingSort alloc] init],
+     [[JKRRadixSort alloc] init],
      nil];
 }
 
