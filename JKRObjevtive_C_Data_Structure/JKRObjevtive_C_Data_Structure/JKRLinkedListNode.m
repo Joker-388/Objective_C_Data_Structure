@@ -32,6 +32,7 @@
     NSString *tipString = @"";
     if (_next && _weakNext) {
         tipString = @"E ";
+        NSAssert(NO, @"节点指针维护错误");
     } else if (_weakNext) {
         tipString = @"W ";
     }

@@ -96,7 +96,7 @@
      //     [[JKRSelectionSort alloc] init],
      //     [[JKRInsertionSort1 alloc] init],
      //     [[JKRInsertionSort2 alloc] init],
-//     [[JKRInsertionSort3 alloc] init],
+     //     [[JKRInsertionSort3 alloc] init],
      [[JKRHeapSort alloc] init],
      [[JKRMergeSort alloc] init],
      [[JKRQuickSort alloc] init],
