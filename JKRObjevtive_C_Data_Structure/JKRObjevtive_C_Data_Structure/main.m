@@ -30,10 +30,11 @@
 #import "JKRHashMap_LinkedList.h"
 
 #import "SortTest.h"
+#import "UnionFindTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [[SortTest new] runTest];
+        [[UnionFindTest new] runTest];
     }
     return 0;
 }
