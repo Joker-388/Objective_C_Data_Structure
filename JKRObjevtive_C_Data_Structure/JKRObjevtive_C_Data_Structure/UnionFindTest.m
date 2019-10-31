@@ -11,6 +11,9 @@
 #import "JKRUnionFind_QU.h"
 #import "JKRUnionFind_QU_S.h"
 #import "JKRUnionFind_QU_R.h"
+#import "JKRUnionFind_QU_R_PC.h"
+#import "JKRUnionFind_QU_R_PS.h"
+#import "JKRUnionFind_QU_R_PH.h"
 
 @implementation UnionFindTest
 
@@ -19,8 +22,14 @@
     [self testWithUnionFind:[[JKRUnionFind_QU alloc] initWithCapacity:14]];
     [self testWithUnionFind:[[JKRUnionFind_QU_S alloc] initWithCapacity:14]];
     [self testWithUnionFind:[[JKRUnionFind_QU_R alloc] initWithCapacity:14]];
+    [self testWithUnionFind:[[JKRUnionFind_QU_R_PC alloc] initWithCapacity:14]];
+    [self testWithUnionFind:[[JKRUnionFind_QU_R_PS alloc] initWithCapacity:14]];
+    [self testWithUnionFind:[[JKRUnionFind_QU_R_PH alloc] initWithCapacity:14]];
 }
 
+
+/// 测试
+/// @param uf 测试对象实例
 - (void)testWithUnionFind:(JKRUnionFind *)uf {
     [uf unionWithValue1:0 value2:1];
     [uf unionWithValue1:0 value2:3];

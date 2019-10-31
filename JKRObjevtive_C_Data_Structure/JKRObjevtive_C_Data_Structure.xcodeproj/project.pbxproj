@@ -25,6 +25,9 @@
 		F37F37CF22B0FBE600431929 /* T_BinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F37F37CE22B0FBE600431929 /* T_BinaryTree.m */; };
 		F39E49C623507DA700625DB4 /* JKRQuickSort.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E49C523507DA700625DB4 /* JKRQuickSort.m */; };
 		F3A279362362FEE2006A8F4E /* JKRUnionFind_QU_R.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A279352362FEE2006A8F4E /* JKRUnionFind_QU_R.m */; };
+		F3A2793923668729006A8F4E /* JKRUnionFind_QU_R_PC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A2793823668729006A8F4E /* JKRUnionFind_QU_R_PC.m */; };
+		F3A2793C23668B27006A8F4E /* JKRUnionFind_QU_R_PS.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A2793B23668B27006A8F4E /* JKRUnionFind_QU_R_PS.m */; };
+		F3A2793F236692E4006A8F4E /* JKRUnionFind_QU_R_PH.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A2793E236692E4006A8F4E /* JKRUnionFind_QU_R_PH.m */; };
 		F3A6FB28229D004500B9A4E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB27229D004500B9A4E8 /* main.m */; };
 		F3A6FB6F229D011300B9A4E8 /* JKRArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB6D229D011300B9A4E8 /* JKRArray.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F3A6FB7B229D01FD00B9A4E8 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FB71229D01FC00B9A4E8 /* Student.m */; };
@@ -118,6 +121,12 @@
 		F39E49C523507DA700625DB4 /* JKRQuickSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRQuickSort.m; sourceTree = "<group>"; };
 		F3A279342362FEE2006A8F4E /* JKRUnionFind_QU_R.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRUnionFind_QU_R.h; sourceTree = "<group>"; };
 		F3A279352362FEE2006A8F4E /* JKRUnionFind_QU_R.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRUnionFind_QU_R.m; sourceTree = "<group>"; };
+		F3A2793723668729006A8F4E /* JKRUnionFind_QU_R_PC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRUnionFind_QU_R_PC.h; sourceTree = "<group>"; };
+		F3A2793823668729006A8F4E /* JKRUnionFind_QU_R_PC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRUnionFind_QU_R_PC.m; sourceTree = "<group>"; };
+		F3A2793A23668B27006A8F4E /* JKRUnionFind_QU_R_PS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRUnionFind_QU_R_PS.h; sourceTree = "<group>"; };
+		F3A2793B23668B27006A8F4E /* JKRUnionFind_QU_R_PS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRUnionFind_QU_R_PS.m; sourceTree = "<group>"; };
+		F3A2793D236692E4006A8F4E /* JKRUnionFind_QU_R_PH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRUnionFind_QU_R_PH.h; sourceTree = "<group>"; };
+		F3A2793E236692E4006A8F4E /* JKRUnionFind_QU_R_PH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRUnionFind_QU_R_PH.m; sourceTree = "<group>"; };
 		F3A6FB24229D004500B9A4E8 /* JKRObjevtive_C_Data_Structure */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JKRObjevtive_C_Data_Structure; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A6FB27229D004500B9A4E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F3A6FB6D229D011300B9A4E8 /* JKRArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JKRArray.mm; sourceTree = "<group>"; };
@@ -758,6 +767,12 @@
 				F3EF66502362F2BA00D7B7E5 /* JKRUnionFind_QU_S.m */,
 				F3A279342362FEE2006A8F4E /* JKRUnionFind_QU_R.h */,
 				F3A279352362FEE2006A8F4E /* JKRUnionFind_QU_R.m */,
+				F3A2793723668729006A8F4E /* JKRUnionFind_QU_R_PC.h */,
+				F3A2793823668729006A8F4E /* JKRUnionFind_QU_R_PC.m */,
+				F3A2793A23668B27006A8F4E /* JKRUnionFind_QU_R_PS.h */,
+				F3A2793B23668B27006A8F4E /* JKRUnionFind_QU_R_PS.m */,
+				F3A2793D236692E4006A8F4E /* JKRUnionFind_QU_R_PH.h */,
+				F3A2793E236692E4006A8F4E /* JKRUnionFind_QU_R_PH.m */,
 			);
 			name = "并查集";
 			sourceTree = "<group>";
@@ -835,6 +850,7 @@
 				F3A6FBFF229E16FC00B9A4E8 /* JKRBaseHeap.m in Sources */,
 				F3A6FBE4229D416700B9A4E8 /* JKRTimeTool.m in Sources */,
 				F3A6FBA1229D200A00B9A4E8 /* JKRLinkedListNode.m in Sources */,
+				F3A2793C23668B27006A8F4E /* JKRUnionFind_QU_R_PS.m in Sources */,
 				F3A6FBF6229D486700B9A4E8 /* JKRTreeSet.m in Sources */,
 				F3A6FBB2229D334C00B9A4E8 /* JKRLinkedCircleList.m in Sources */,
 				F3A6FBCC229D401B00B9A4E8 /* JKRBinarySearchTree.m in Sources */,
@@ -861,6 +877,7 @@
 				F3C866A8235850AD002CA4F6 /* JKRCountingSort.m in Sources */,
 				F36070B023408BC3005A3744 /* JKRSort.m in Sources */,
 				F360710B2341E4C3005A3744 /* SortTest.m in Sources */,
+				F3A2793923668729006A8F4E /* JKRUnionFind_QU_R_PC.m in Sources */,
 				F3C866AF235957C0002CA4F6 /* JKRRadixSort1.m in Sources */,
 				F3A6FB7B229D01FD00B9A4E8 /* Student.m in Sources */,
 				F37CB850234C3D510082802F /* JKRInsertionSort2.m in Sources */,
@@ -878,6 +895,7 @@
 				F3C866A12356FFB0002CA4F6 /* JKRShellSort.m in Sources */,
 				F3A6FBEE229D481100B9A4E8 /* NSObject+JKRDataStructure.m in Sources */,
 				F3A279362362FEE2006A8F4E /* JKRUnionFind_QU_R.m in Sources */,
+				F3A2793F236692E4006A8F4E /* JKRUnionFind_QU_R_PH.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
