@@ -31,10 +31,11 @@
 
 #import "SortTest.h"
 #import "UnionFindTest.h"
+#import "JKRGraphTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [[UnionFindTest new] runTest];
+        [[JKRGraphTest new] test];
     }
     return 0;
 }

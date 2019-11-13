@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F315020A2361A59D00C99CAA /* JKRUnionFind.m in Sources */ = {isa = PBXBuildFile; fileRef = F31502092361A59D00C99CAA /* JKRUnionFind.m */; };
+		F32BC805237AB7670000FF27 /* JKRGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BC804237AB7670000FF27 /* JKRGraph.m */; };
+		F32BC808237AB8E60000FF27 /* JKRListGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BC807237AB8E60000FF27 /* JKRListGraph.m */; };
+		F32BC80B237ABD9C0000FF27 /* JKRGraphTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F32BC80A237ABD9C0000FF27 /* JKRGraphTest.m */; };
 		F36070B023408BC3005A3744 /* JKRSort.m in Sources */ = {isa = PBXBuildFile; fileRef = F36070AF23408BC3005A3744 /* JKRSort.m */; };
 		F36070B72340A3EA005A3744 /* JKRBubbleSort1.m in Sources */ = {isa = PBXBuildFile; fileRef = F36070B62340A3EA005A3744 /* JKRBubbleSort1.m */; };
 		F36070BD2340ABE6005A3744 /* NSNumber+JKRDataStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = F36070BC2340ABE6005A3744 /* NSNumber+JKRDataStructure.m */; };
@@ -87,6 +90,12 @@
 		F31502082361A59D00C99CAA /* JKRUnionFind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRUnionFind.h; sourceTree = "<group>"; };
 		F31502092361A59D00C99CAA /* JKRUnionFind.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRUnionFind.m; sourceTree = "<group>"; };
 		F315020D236295B300C99CAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F32BC803237AB7670000FF27 /* JKRGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRGraph.h; sourceTree = "<group>"; };
+		F32BC804237AB7670000FF27 /* JKRGraph.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRGraph.m; sourceTree = "<group>"; };
+		F32BC806237AB8E60000FF27 /* JKRListGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRListGraph.h; sourceTree = "<group>"; };
+		F32BC807237AB8E60000FF27 /* JKRListGraph.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRListGraph.m; sourceTree = "<group>"; };
+		F32BC809237ABD9C0000FF27 /* JKRGraphTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRGraphTest.h; sourceTree = "<group>"; };
+		F32BC80A237ABD9C0000FF27 /* JKRGraphTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRGraphTest.m; sourceTree = "<group>"; };
 		F36070AE23408BC3005A3744 /* JKRSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRSort.h; sourceTree = "<group>"; };
 		F36070AF23408BC3005A3744 /* JKRSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRSort.m; sourceTree = "<group>"; };
 		F36070B52340A3EA005A3744 /* JKRBubbleSort1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRBubbleSort1.h; sourceTree = "<group>"; };
@@ -238,6 +247,17 @@
 				F315020D236295B300C99CAA /* Foundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F32BC80C237ABDAC0000FF27 /* 图 */ = {
+			isa = PBXGroup;
+			children = (
+				F32BC803237AB7670000FF27 /* JKRGraph.h */,
+				F32BC804237AB7670000FF27 /* JKRGraph.m */,
+				F32BC806237AB8E60000FF27 /* JKRListGraph.h */,
+				F32BC807237AB8E60000FF27 /* JKRListGraph.m */,
+			);
+			name = "图";
 			sourceTree = "<group>";
 		};
 		F36070B12340A3A3005A3744 /* 自定义算法实现 */ = {
@@ -500,6 +520,7 @@
 				F3A6FBF0229D481700B9A4E8 /* 哈希表 */,
 				F3A6FC00229E170000B9A4E8 /* 堆 */,
 				F315020B2361A5A200C99CAA /* 并查集 */,
+				F32BC80C237ABDAC0000FF27 /* 图 */,
 			);
 			name = "自定义数据结构";
 			sourceTree = "<group>";
@@ -579,6 +600,8 @@
 		F3A6FBE5229D416C00B9A4E8 /* 测试 */ = {
 			isa = PBXGroup;
 			children = (
+				F32BC809237ABD9C0000FF27 /* JKRGraphTest.h */,
+				F32BC80A237ABD9C0000FF27 /* JKRGraphTest.m */,
 				F3A6FB80229D020A00B9A4E8 /* 测试模型 */,
 				F3A6FBE6229D417A00B9A4E8 /* 工具 */,
 			);
@@ -863,13 +886,16 @@
 				F3EF664E2362EA1D00D7B7E5 /* JKRUnionFind_QU.m in Sources */,
 				F37CB856234C6A0A0082802F /* JKRSortModel.m in Sources */,
 				F3A6FB7E229D01FD00B9A4E8 /* SubKey1.m in Sources */,
+				F32BC80B237ABD9C0000FF27 /* JKRGraphTest.m in Sources */,
 				F315020A2361A59D00C99CAA /* JKRUnionFind.m in Sources */,
+				F32BC808237AB8E60000FF27 /* JKRListGraph.m in Sources */,
 				F3A6FBE1229D40B900B9A4E8 /* LevelOrderPrinter.m in Sources */,
 				F3A6FBC6229D3FE500B9A4E8 /* JKRBinaryTree.m in Sources */,
 				F3A6FB96229D05D500B9A4E8 /* JKRBaseList.m in Sources */,
 				F3A6FC04229E1A0500B9A4E8 /* JKRBinaryHeap.m in Sources */,
 				F3C866B72359B42B002CA4F6 /* JKRRadixSort2.m in Sources */,
 				F37F37CC22B0FBD300431929 /* T_BinarySearchTree.m in Sources */,
+				F32BC805237AB7670000FF27 /* JKRGraph.m in Sources */,
 				F3A6FBED229D481100B9A4E8 /* JKRHashSet.m in Sources */,
 				F3A6FBBA229D39AB00B9A4E8 /* JKRQueue.m in Sources */,
 				F3A6FB7C229D01FD00B9A4E8 /* Person.m in Sources */,
