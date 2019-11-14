@@ -9,6 +9,7 @@
 #import "JKRGraph.h"
 #import "JKRHashMap_RedBlackTree.h"
 #import "JKRHashSet.h"
+#import "JKRArrayList.h"
 
 @class JKRVertex<V, E>;
 @class JKREdge<V, E>;

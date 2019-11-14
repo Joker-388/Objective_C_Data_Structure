@@ -8,13 +8,6 @@
 
 #import "JKRListGraph.h"
 
-
-@interface JKRListGraph ()
-
-
-
-@end
-
 @implementation JKRListGraph
 
 - (NSInteger)edgesSize {
@@ -26,9 +19,7 @@
 }
 
 - (void)addVertex:(id)v {
-    if ([self.vertices containsKey:v]) {
-        return;
-    }
+    if ([self.vertices containsKey:v]) return;
     [self.vertices setObject:[[JKRVertex alloc] initWithValue:v]  forKey:v];
 }
 
@@ -62,11 +53,32 @@
 }
 
 - (void)removeVertex:(id)v {
-    
+    JKRVertex *vertex = self.vertices[v];
+    if (!vertex) return;
+    JKRArrayList<JKREdge *> *removeEdges = [JKRArrayList array];
+    [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull stop) {
+        [removeEdges addObject:obj];
+    }];
+    [vertex.inEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull stop) {
+        [removeEdges addObject:obj];
+    }];
+    [removeEdges enumerateObjectsUsingBlock:^(JKREdge * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self removeEdgeFrom:obj.from.value to:obj.to.value];
+    }];
+    [self.vertices removeObjectForKey:v];
 }
 
 - (void)removeEdgeFrom:(id)from to:(id)to {
-    
+    JKRVertex *fromVertex = self.vertices[from];
+    if (!fromVertex) return;
+    JKRVertex *toVertex = self.vertices[to];
+    if (!toVertex) return;
+    JKREdge *edge = [[JKREdge alloc] initWithFrom:fromVertex to:toVertex];
+    if ([fromVertex.outEdges containsObject:edge]) {
+        [fromVertex.outEdges removeObject:edge];
+        [toVertex.inEdges removeObject:edge];
+        [self.edges removeObject:edge];
+    }
 }
 
 - (JKRHashMap_RedBlackTree *)vertices {
@@ -85,16 +97,22 @@
 
 - (NSString *)description {
     NSMutableString *str = [NSMutableString string];
+    [str appendString:@"\n==== PrintGraph  ====\n"];
     [str appendString:[NSString stringWithFormat:@"<%@: %p>: \n", self.className, self]];
-    [str appendString:[NSString stringWithFormat:@"----- Vertices: %zd -----\n", self.vertices.count]];
+    [str appendString:[NSString stringWithFormat:@"----- Vertices: %zd -----\n", self.vertricesSize]];
     [self.vertices enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [str appendString:[NSString stringWithFormat:@"%@\n", obj]];
     }];
-    [str appendString:[NSString stringWithFormat:@"----- Edges: %zd -----\n", self.edges.count]];
+    [str appendString:[NSString stringWithFormat:@"----- Edges: %zd -----\n", self.edgesSize]];
     [self.edges enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
         [str appendString:[NSString stringWithFormat:@"%@\n", obj]];
     }];
+    [str appendString:@"=====================\n"];
     return str;
+}
+
+- (void)bfsWithBegin:(id)v {
+    
 }
 
 @end

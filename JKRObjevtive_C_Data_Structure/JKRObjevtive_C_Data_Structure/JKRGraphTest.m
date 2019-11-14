@@ -20,6 +20,20 @@
     [graph addEdgeFrom:@"V3" to:@"V4" weight:@1];
     [graph addEdgeFrom:@"V0" to:@"V4" weight:@6];
     
+    
+//    [graph removeEdgeFrom:@"V1" to:@"V0"];
+//    [graph removeEdgeFrom:@"V1" to:@"V2"];
+//    [graph removeEdgeFrom:@"V2" to:@"V0"];
+//    [graph removeEdgeFrom:@"V2" to:@"V3"];
+//    [graph removeEdgeFrom:@"V3" to:@"V4"];
+//    [graph removeEdgeFrom:@"V0" to:@"V4"];
+    
+//    [graph removeVertex:@"V0"];
+//    [graph removeVertex:@"V1"];
+//    [graph removeVertex:@"V2"];
+//    [graph removeVertex:@"V3"];
+//    [graph removeVertex:@"V4"];
+    
     NSLog(@"%@", graph);
 }
 

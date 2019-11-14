@@ -600,8 +600,8 @@
 		F3A6FBE5229D416C00B9A4E8 /* 测试 */ = {
 			isa = PBXGroup;
 			children = (
-				F32BC809237ABD9C0000FF27 /* JKRGraphTest.h */,
-				F32BC80A237ABD9C0000FF27 /* JKRGraphTest.m */,
+				F3D1302F237D40B8008A9FC4 /* 排序 */,
+				F3D1302E237D40A8008A9FC4 /* 图 */,
 				F3A6FB80229D020A00B9A4E8 /* 测试模型 */,
 				F3A6FBE6229D417A00B9A4E8 /* 工具 */,
 			);
@@ -743,10 +743,6 @@
 		F3C866B12359ACFE002CA4F6 /* 排序 */ = {
 			isa = PBXGroup;
 			children = (
-				F36071092341E4C3005A3744 /* SortTest.h */,
-				F360710A2341E4C3005A3744 /* SortTest.m */,
-				F3C866AA23585DA1002CA4F6 /* TestSortModel.h */,
-				F3C866AB23585DA1002CA4F6 /* TestSortModel.m */,
 				F36071102341F110005A3744 /* 排序基类 */,
 				F3C866B22359AD25002CA4F6 /* 非基于比较的排序 */,
 				F3C866B42359AD43002CA4F6 /* 基于比较的排序 */,
@@ -775,6 +771,26 @@
 				F39E49C723507FE700625DB4 /* 快速排序 */,
 			);
 			name = "基于比较的排序";
+			sourceTree = "<group>";
+		};
+		F3D1302E237D40A8008A9FC4 /* 图 */ = {
+			isa = PBXGroup;
+			children = (
+				F32BC809237ABD9C0000FF27 /* JKRGraphTest.h */,
+				F32BC80A237ABD9C0000FF27 /* JKRGraphTest.m */,
+			);
+			name = "图";
+			sourceTree = "<group>";
+		};
+		F3D1302F237D40B8008A9FC4 /* 排序 */ = {
+			isa = PBXGroup;
+			children = (
+				F36071092341E4C3005A3744 /* SortTest.h */,
+				F360710A2341E4C3005A3744 /* SortTest.m */,
+				F3C866AA23585DA1002CA4F6 /* TestSortModel.h */,
+				F3C866AB23585DA1002CA4F6 /* TestSortModel.m */,
+			);
+			name = "排序";
 			sourceTree = "<group>";
 		};
 		F3EF664B2362D75F00D7B7E5 /* 并查集 */ = {
