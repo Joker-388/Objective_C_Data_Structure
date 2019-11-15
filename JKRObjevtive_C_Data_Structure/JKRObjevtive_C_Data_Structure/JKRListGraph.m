@@ -11,6 +11,36 @@
 
 @implementation JKRListGraph
 
++ (instancetype)dirctedGraphWithDataArray:(NSArray<NSArray *> *)array {
+    JKRListGraph *graph = [JKRListGraph new];
+    for (NSArray *edge in array) {
+        if (edge.count == 1) {
+            [graph addVertex:edge[0]];
+        } else if (edge.count == 2) {
+            [graph addEdgeFrom:edge[0] to:edge[1]];
+        } else if (edge.count == 3) {
+            [graph addEdgeFrom:edge[0] to:edge[1] weight:edge[2]];
+        }
+    }
+    return graph;
+}
+
++ (instancetype)undirctedGraphWithDataArray:(NSArray<NSArray *> *)array {
+    JKRListGraph *graph = [JKRListGraph new];
+    for (NSArray *edge in array) {
+        if (edge.count == 1) {
+            [graph addVertex:edge[0]];
+        } else if (edge.count == 2) {
+            [graph addEdgeFrom:edge[0] to:edge[1]];
+            [graph addEdgeFrom:edge[1] to:edge[0]];
+        } else if (edge.count == 3) {
+            [graph addEdgeFrom:edge[0] to:edge[1] weight:edge[2]];
+            [graph addEdgeFrom:edge[1] to:edge[0] weight:edge[2]];
+        }
+    }
+    return graph;
+}
+
 - (NSInteger)edgesSize {
     return self.edges.count;
 }
@@ -134,34 +164,21 @@
     }
 }
 
-+ (instancetype)dirctedGraphWithDataArray:(NSArray<NSArray *> *)array {
-    JKRListGraph *graph = [JKRListGraph new];
-    for (NSArray *edge in array) {
-        if (edge.count == 1) {
-            [graph addVertex:edge[0]];
-        } else if (edge.count == 2) {
-            [graph addEdgeFrom:edge[0] to:edge[1]];
-        } else if (edge.count == 3) {
-            [graph addEdgeFrom:edge[0] to:edge[1] weight:edge[2]];
-        }
-    }
-    return graph;
+- (void)dfsWithBegin:(id)v block:(void (^)(id _Nonnull))block {
+    JKRVertex *vertex = self.vertices[v];
+    if (!vertex) return;
+    JKRHashSet<JKRVertex *> *visitedVertices = [JKRHashSet new];
+    [self dfsTraversal:vertex visitedVertices:visitedVertices block:block];
 }
 
-+ (instancetype)undirctedGraphWithDataArray:(NSArray<NSArray *> *)array {
-    JKRListGraph *graph = [JKRListGraph new];
-    for (NSArray *edge in array) {
-        if (edge.count == 1) {
-            [graph addVertex:edge[0]];
-        } else if (edge.count == 2) {
-            [graph addEdgeFrom:edge[0] to:edge[1]];
-            [graph addEdgeFrom:edge[1] to:edge[0]];
-        } else if (edge.count == 3) {
-            [graph addEdgeFrom:edge[0] to:edge[1] weight:edge[2]];
-            [graph addEdgeFrom:edge[1] to:edge[0] weight:edge[2]];
+- (void)dfsTraversal:(JKRVertex *)vertex visitedVertices:(JKRHashSet<JKRVertex *> *)visitedVertices block:(void (^)(id _Nonnull))block {
+    block(vertex.value);
+    [visitedVertices addObject:vertex];
+    [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull stop) {
+        if (![visitedVertices containsObject:obj.to]) {
+            [self dfsTraversal:obj.to visitedVertices:visitedVertices block:block];
         }
-    }
-    return graph;
+    }];
 }
 
 @end

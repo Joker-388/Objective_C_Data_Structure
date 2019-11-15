@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeEdgeFrom:(V)from to:(V)to;
 
 - (void)bfsWithBegin:(V)v block:(void(^)(V v))block;
+- (void)dfsWithBegin:(V)v block:(void(^)(V v))block;
 
 @end
 

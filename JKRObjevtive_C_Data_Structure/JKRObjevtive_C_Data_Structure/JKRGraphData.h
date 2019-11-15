@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray *)BFS_02;
 + (NSArray *)BFS_03;
 + (NSArray *)BFS_04;
++ (NSArray *)DFS_01;
++ (NSArray *)DFS_02;
 
 @end
 
