@@ -112,7 +112,7 @@
     return str;
 }
 
-- (void)bfsWithBegin:(id)v {
+- (void)bfsWithBegin:(id)v block:(nonnull void (^)(id _Nonnull))block{
     JKRVertex *vertex = self.vertices[v];
     if (!vertex) return;
     
@@ -124,7 +124,7 @@
     
     while (queue.count) {
         JKRVertex *vertex = [queue deQueue];
-        NSLog(@"%@", vertex);
+        block(vertex.value);
         [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull stop) {
             if (![visitedVertices containsObject:obj.to]) {
                 [queue enQueue:obj.to];

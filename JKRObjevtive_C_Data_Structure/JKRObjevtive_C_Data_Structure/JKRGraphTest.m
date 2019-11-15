@@ -55,7 +55,9 @@
 //    NSLog(@"%@", graph);
     JKRGraph *graph = [JKRListGraph dirctedGraphWithDataArray:[JKRGraphData BFS_02]];
 //    NSLog(@"%@", graph);
-    [graph bfsWithBegin:@5];
+    [graph bfsWithBegin:@0 block:^(id  _Nonnull v) {
+        NSLog(@"%@", v);
+    }];
 }
 
 @end
