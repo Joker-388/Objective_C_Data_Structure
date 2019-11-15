@@ -67,6 +67,7 @@
 		F3C866AC23585DA1002CA4F6 /* TestSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C866AB23585DA1002CA4F6 /* TestSortModel.m */; };
 		F3C866AF235957C0002CA4F6 /* JKRRadixSort1.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C866AE235957C0002CA4F6 /* JKRRadixSort1.m */; };
 		F3C866B72359B42B002CA4F6 /* JKRRadixSort2.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C866B62359B42B002CA4F6 /* JKRRadixSort2.m */; };
+		F3D53C99237E4F55002131FC /* JKRGraphData.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D53C98237E4F55002131FC /* JKRGraphData.m */; };
 		F3EF66472362D42600D7B7E5 /* JKRUnionFind_QF.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EF66462362D42600D7B7E5 /* JKRUnionFind_QF.m */; };
 		F3EF664A2362D75A00D7B7E5 /* UnionFindTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EF66492362D75A00D7B7E5 /* UnionFindTest.m */; };
 		F3EF664E2362EA1D00D7B7E5 /* JKRUnionFind_QU.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EF664D2362EA1D00D7B7E5 /* JKRUnionFind_QU.m */; };
@@ -208,6 +209,8 @@
 		F3C866AE235957C0002CA4F6 /* JKRRadixSort1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRRadixSort1.m; sourceTree = "<group>"; };
 		F3C866B52359B42B002CA4F6 /* JKRRadixSort2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRRadixSort2.h; sourceTree = "<group>"; };
 		F3C866B62359B42B002CA4F6 /* JKRRadixSort2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRRadixSort2.m; sourceTree = "<group>"; };
+		F3D53C97237E4F55002131FC /* JKRGraphData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRGraphData.h; sourceTree = "<group>"; };
+		F3D53C98237E4F55002131FC /* JKRGraphData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRGraphData.m; sourceTree = "<group>"; };
 		F3EF66452362D42600D7B7E5 /* JKRUnionFind_QF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRUnionFind_QF.h; sourceTree = "<group>"; };
 		F3EF66462362D42600D7B7E5 /* JKRUnionFind_QF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRUnionFind_QF.m; sourceTree = "<group>"; };
 		F3EF66482362D75A00D7B7E5 /* UnionFindTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnionFindTest.h; sourceTree = "<group>"; };
@@ -778,6 +781,8 @@
 			children = (
 				F32BC809237ABD9C0000FF27 /* JKRGraphTest.h */,
 				F32BC80A237ABD9C0000FF27 /* JKRGraphTest.m */,
+				F3D53C97237E4F55002131FC /* JKRGraphData.h */,
+				F3D53C98237E4F55002131FC /* JKRGraphData.m */,
 			);
 			name = "图";
 			sourceTree = "<group>";
@@ -891,6 +896,7 @@
 				F3A6FBA1229D200A00B9A4E8 /* JKRLinkedListNode.m in Sources */,
 				F3A2793C23668B27006A8F4E /* JKRUnionFind_QU_R_PS.m in Sources */,
 				F3A6FBF6229D486700B9A4E8 /* JKRTreeSet.m in Sources */,
+				F3D53C99237E4F55002131FC /* JKRGraphData.m in Sources */,
 				F3A6FBB2229D334C00B9A4E8 /* JKRLinkedCircleList.m in Sources */,
 				F3A6FBCC229D401B00B9A4E8 /* JKRBinarySearchTree.m in Sources */,
 				F3F25BC422A7CA840055A92E /* JKRHashMap_LinkedList.m in Sources */,

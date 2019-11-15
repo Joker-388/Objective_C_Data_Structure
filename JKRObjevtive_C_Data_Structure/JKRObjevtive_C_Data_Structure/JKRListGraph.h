@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) JKRHashMap_RedBlackTree<V, JKRVertex<V, E> *> *vertices;
 @property (nonatomic, strong) JKRHashSet<JKREdge<V, E> *> *edges;
++ (instancetype)dirctedGraphWithDataArray:(NSArray<NSArray *> *)array;
++ (instancetype)undirctedGraphWithDataArray:(NSArray<NSArray *> *)array;
 
 @end
 
@@ -36,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) JKRVertex<V, E> *from;
 @property (nonatomic, weak) JKRVertex<V, E> *to;
-@property (nonatomic, strong) NSNumber *weight;
+@property (nonatomic, strong) id weight;
 - (instancetype)initWithFrom:(JKRVertex<V, E> *)from to:(JKRVertex<V, E> *)to;
 
 @end

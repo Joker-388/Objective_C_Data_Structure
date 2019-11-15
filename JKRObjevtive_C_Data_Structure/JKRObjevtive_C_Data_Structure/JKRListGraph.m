@@ -7,6 +7,7 @@
 //
 
 #import "JKRListGraph.h"
+#import "JKRQueue.h"
 
 @implementation JKRListGraph
 
@@ -112,7 +113,55 @@
 }
 
 - (void)bfsWithBegin:(id)v {
+    JKRVertex *vertex = self.vertices[v];
+    if (!vertex) return;
     
+    JKRHashSet<JKRVertex *> *visitedVertices = [JKRHashSet new];
+    
+    JKRQueue<JKRVertex *> *queue = [JKRQueue new];
+    [queue enQueue:vertex];
+    [visitedVertices addObject:vertex];
+    
+    while (queue.count) {
+        JKRVertex *vertex = [queue deQueue];
+        NSLog(@"%@", vertex);
+        [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull stop) {
+            if (![visitedVertices containsObject:obj.to]) {
+                [queue enQueue:obj.to];
+                [visitedVertices addObject:obj.to];
+            }
+        }];
+    }
+}
+
++ (instancetype)dirctedGraphWithDataArray:(NSArray<NSArray *> *)array {
+    JKRListGraph *graph = [JKRListGraph new];
+    for (NSArray *edge in array) {
+        if (edge.count == 1) {
+            [graph addVertex:edge[0]];
+        } else if (edge.count == 2) {
+            [graph addEdgeFrom:edge[0] to:edge[1]];
+        } else if (edge.count == 3) {
+            [graph addEdgeFrom:edge[0] to:edge[1] weight:edge[2]];
+        }
+    }
+    return graph;
+}
+
++ (instancetype)undirctedGraphWithDataArray:(NSArray<NSArray *> *)array {
+    JKRListGraph *graph = [JKRListGraph new];
+    for (NSArray *edge in array) {
+        if (edge.count == 1) {
+            [graph addVertex:edge[0]];
+        } else if (edge.count == 2) {
+            [graph addEdgeFrom:edge[0] to:edge[1]];
+            [graph addEdgeFrom:edge[1] to:edge[0]];
+        } else if (edge.count == 3) {
+            [graph addEdgeFrom:edge[0] to:edge[1] weight:edge[2]];
+            [graph addEdgeFrom:edge[1] to:edge[0] weight:edge[2]];
+        }
+    }
+    return graph;
 }
 
 @end
