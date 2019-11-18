@@ -121,13 +121,13 @@
 
 - (NSString *)description {
     NSMutableString *string = [NSMutableString string];
-    [string appendString:[NSString stringWithFormat:@"Size: %zd [", _size]];
+    [string appendString:[NSString stringWithFormat:@"Size: %zd \n[", _size]];
     JKRLinkedListNode *node = _first;
     for (NSInteger i = 0; i < _size; i++) {
         if (i != 0) {
-            [string appendString:@", "];
+            [string appendString:@",\n"];
         }
-        [string appendString:[NSString stringWithFormat:@"%@", node]];
+        [string appendString:[NSString stringWithFormat:@"%@\n", node]];
         node = node.next;
     }
     [string appendString:@"]"];

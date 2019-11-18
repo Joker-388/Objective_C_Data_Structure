@@ -8,6 +8,7 @@
 
 #import "JKRListGraph.h"
 #import "JKRQueue.h"
+#import "JKRStack.h"
 
 @implementation JKRListGraph
 
@@ -142,7 +143,7 @@
     return str;
 }
 
-- (void)bfsWithBegin:(id)v block:(nonnull void (^)(id _Nonnull))block{
+- (void)bfsWithBegin:(id)v block:(nonnull void (^)(id _Nonnull, BOOL * _Nonnull))block{
     JKRVertex *vertex = self.vertices[v];
     if (!vertex) return;
     
@@ -152,10 +153,14 @@
     [queue enQueue:vertex];
     [visitedVertices addObject:vertex];
     
+    __block BOOL stop = NO;
+    
     while (queue.count) {
         JKRVertex *vertex = [queue deQueue];
-        block(vertex.value);
-        [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull stop) {
+        block(vertex.value, &stop);
+        if (stop) return;
+
+        [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull s) {
             if (![visitedVertices containsObject:obj.to]) {
                 [queue enQueue:obj.to];
                 [visitedVertices addObject:obj.to];
@@ -164,21 +169,53 @@
     }
 }
 
-- (void)dfsWithBegin:(id)v block:(void (^)(id _Nonnull))block {
+- (void)dfsWithBegin:(id)v block:(void (^)(id _Nonnull, BOOL * _Nonnull))block {
     JKRVertex *vertex = self.vertices[v];
     if (!vertex) return;
     JKRHashSet<JKRVertex *> *visitedVertices = [JKRHashSet new];
-    [self dfsTraversal:vertex visitedVertices:visitedVertices block:block];
+    __block BOOL stop = NO;
+    
+//    [self dfsTraversal:vertex visitedVertices:visitedVertices block:block];
+    
+    JKRStack<JKRVertex *> *stack = [JKRStack new];
+    [stack push:vertex];
+    [visitedVertices addObject:vertex];
+    block(vertex.value, &stop);
+    if (stop) return;
+    
+    while (stack.count) {
+        JKRVertex *v = stack.pop;
+
+        [v.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull s) {
+            if (stop) {
+                *s = YES;
+                return;
+            }
+            if (![visitedVertices containsObject:obj.to]) {
+                [stack push:obj.from];
+                [stack push:obj.to];
+                [visitedVertices addObject:obj.to];
+                block(obj.to.value, &stop);
+                *s = YES;
+            }
+        }];
+    }
 }
 
-- (void)dfsTraversal:(JKRVertex *)vertex visitedVertices:(JKRHashSet<JKRVertex *> *)visitedVertices block:(void (^)(id _Nonnull))block {
-    block(vertex.value);
-    [visitedVertices addObject:vertex];
-    [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull stop) {
-        if (![visitedVertices containsObject:obj.to]) {
-            [self dfsTraversal:obj.to visitedVertices:visitedVertices block:block];
-        }
-    }];
+//- (void)dfsTraversal:(JKRVertex *)vertex visitedVertices:(JKRHashSet<JKRVertex *> *)visitedVertices block:(void (^)(id _Nonnull))block {
+//    block(vertex.value);
+//    [visitedVertices addObject:vertex];
+//    [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull s) {
+//        if (![visitedVertices containsObject:obj.to]) {
+//            [self dfsTraversal:obj.to visitedVertices:visitedVertices block:block];
+//        }
+//    }];
+//}
+
+- (NSArray *)topologicalSort {
+    
+    
+    return nil;
 }
 
 @end

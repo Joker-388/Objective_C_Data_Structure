@@ -58,6 +58,12 @@
     return _array;
 }
 
+- (NSString *)description {
+    NSMutableString *str = [NSMutableString string];
+    [str appendString:[NSString stringWithFormat:@"<%@: %p> : %@", self.className, self, _array]];
+    return str;
+}
+
 - (void)dealloc {
 //    NSLog(@"<%@: %p>: dealloc", self.class, self);
 }

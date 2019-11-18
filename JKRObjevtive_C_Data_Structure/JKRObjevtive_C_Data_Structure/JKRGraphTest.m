@@ -53,25 +53,26 @@
 //    [graph bfsWithBegin:@"V1"];
     
 //    NSLog(@"%@", graph);
-    [self testBfs];
+//    [self testBfs];
     [self testDfs];
 }
 
 - (void)testBfs {
-    JKRGraph *graph = [JKRListGraph dirctedGraphWithDataArray:[JKRGraphData BFS_02]];
-    [graph bfsWithBegin:@5 block:^(id  _Nonnull v) {
+    JKRGraph *graph = [JKRListGraph undirctedGraphWithDataArray:[JKRGraphData BFS_01]];
+    [graph bfsWithBegin:@"A" block:^(id  _Nonnull v, BOOL * _Nonnull stop) {
+        if ([v isEqual:@"I"]) {
+            *stop = YES;
+        }
         NSLog(@"%@", v);
     }];
 }
 
 - (void)testDfs {
-//    JKRGraph *graph = [JKRListGraph undirctedGraphWithDataArray:[JKRGraphData DFS_01]];
-//    [graph dfsWithBegin:@1 block:^(id  _Nonnull v) {
-//        NSLog(@"%@", v);
-//    }];
-    
-    JKRGraph *graph = [JKRListGraph dirctedGraphWithDataArray:[JKRGraphData DFS_02]];
-    [graph dfsWithBegin:@"d" block:^(id  _Nonnull v) {
+    JKRGraph *graph = [JKRListGraph undirctedGraphWithDataArray:[JKRGraphData DFS_02]];
+    [graph dfsWithBegin:@"a" block:^(id  _Nonnull v, BOOL * _Nonnull stop) {
+        if ([v isEqual:@"b"]) {
+            *stop = YES;
+        }
         NSLog(@"%@", v);
     }];
 }

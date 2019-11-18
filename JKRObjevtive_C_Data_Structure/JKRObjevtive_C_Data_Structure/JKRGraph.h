@@ -27,8 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeVertex:(V)v;
 - (void)removeEdgeFrom:(V)from to:(V)to;
 
-- (void)bfsWithBegin:(V)v block:(void(^)(V v))block;
-- (void)dfsWithBegin:(V)v block:(void(^)(V v))block;
+- (void)bfsWithBegin:(V)v block:(void(^)(V v, BOOL *stop))block;
+- (void)dfsWithBegin:(V)v block:(void(^)(V v, BOOL *stop))block;
+
+- (NSArray<V> *)topologicalSort;
 
 @end
 
