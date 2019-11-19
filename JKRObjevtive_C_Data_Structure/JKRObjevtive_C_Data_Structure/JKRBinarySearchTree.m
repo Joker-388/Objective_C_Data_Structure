@@ -176,11 +176,9 @@
 #pragma mark - 元素比较
 - (NSInteger)compareWithValue1:(id)value1 value2:(id)value2 {
     NSInteger result = 0;
-    if (_compareBlock) { // 有比较器
+    if (_compareBlock) { 
         result = _compareBlock(value1, value2);
-    } else if ([value1 respondsToSelector:@selector(binaryTreeCompare:)]) { // 实现了自定义比较方法
-        result = [value1 binaryTreeCompare:value2];
-    } else if ([value1 respondsToSelector:@selector(compare:)]){ // 系统自带的可比较对象
+    } else if ([value1 respondsToSelector:@selector(compare:)]){
         result = [value1 compare:value2];
     } else {
         NSAssert(NO, @"object can not compare!");

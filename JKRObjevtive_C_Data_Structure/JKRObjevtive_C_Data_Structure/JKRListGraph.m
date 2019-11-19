@@ -213,9 +213,34 @@
 //}
 
 - (NSArray *)topologicalSort {
+    NSMutableArray *array = [NSMutableArray array];
+    JKRQueue<JKRVertex *> *queue = [JKRQueue new];
+    JKRHashMap_RedBlackTree<JKRVertex *, NSNumber *> *inCountMap = [JKRHashMap_RedBlackTree new];
     
+    [self.vertices enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull v, JKRVertex *  _Nonnull vertex, BOOL * _Nonnull stop) {
+        NSInteger inEdgeCount = vertex.inEdges.count;
+        if (inEdgeCount == 0) {
+            [queue enQueue:vertex];
+        } else {
+            [inCountMap setObject:[NSNumber numberWithInteger:inEdgeCount] forKey:vertex];
+        }
+    }];
     
-    return nil;
+    while (queue.count) {
+        JKRVertex *vertex = queue.deQueue;
+        [array addObject:vertex.value];
+        
+        [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull stop) {
+            NSInteger toInEdgeCount = inCountMap[obj.to].integerValue - 1;
+            if (toInEdgeCount == 0) {
+                [queue enQueue:obj.to];
+            } else {
+                [inCountMap setObject:[NSNumber numberWithInteger:toInEdgeCount] forKey:obj.to];
+            }
+        }];
+    }
+    
+    return array;
 }
 
 @end

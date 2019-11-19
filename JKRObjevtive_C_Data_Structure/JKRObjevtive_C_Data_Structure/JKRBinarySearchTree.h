@@ -6,19 +6,13 @@
 //  Copyright © 2019 Lucky. All rights reserved.
 //
 
-#import "JKRBinaryTree.h"
+#import "JKRBinaryTree.h" 
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class JKRBinaryTreeNode;
 
 typedef NSInteger(^jkrbinarytree_compareBlock)(id e1, id e2);
-
-@protocol JKRBinarySearchTreeCompare 
-
-- (NSInteger)binaryTreeCompare:(id)object;
-
-@end
 
 @interface JKRBinarySearchTree<ObjectType> : JKRBinaryTree<ObjectType> {
 @protected

@@ -54,7 +54,8 @@
     
 //    NSLog(@"%@", graph);
 //    [self testBfs];
-    [self testDfs];
+//    [self testDfs];
+    [self testTop];
 }
 
 - (void)testBfs {
@@ -75,6 +76,11 @@
         }
         NSLog(@"%@", v);
     }];
+}
+
+- (void)testTop {
+    JKRGraph *graph = [JKRListGraph dirctedGraphWithDataArray:[JKRGraphData TOP_01]];
+    NSLog(@"%@", [graph topologicalSort]);
 }
 
 @end
