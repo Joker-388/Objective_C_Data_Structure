@@ -160,12 +160,11 @@
         if(block) block(vertex.value, &stop);
         if (stop) return;
 
-        [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull s) {
-            if (![visitedVertices containsObject:obj.to]) {
-                [queue enQueue:obj.to];
-                [visitedVertices addObject:obj.to];
-            }
-        }];
+        for (JKREdge *edge in vertex.outEdges) {
+            if ([visitedVertices containsObject:edge.to]) continue;
+            [queue enQueue:edge.to];
+            [visitedVertices addObject:edge.to];
+        }
     }
 }
 
@@ -226,14 +225,14 @@
         JKRVertex *vertex = queue.deQueue;
         [array addObject:vertex.value];
         
-        [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull stop) {
-            NSInteger toInEdgeCount = inCountMap[obj.to].integerValue - 1;
+        for (JKREdge *edge in vertex.outEdges) {
+            NSInteger toInEdgeCount = inCountMap[edge.to].integerValue - 1;
             if (toInEdgeCount == 0) {
-                [queue enQueue:obj.to];
+                [queue enQueue:edge.to];
             } else {
-                [inCountMap setObject:[NSNumber numberWithInteger:toInEdgeCount] forKey:obj.to];
+                [inCountMap setObject:[NSNumber numberWithInteger:toInEdgeCount] forKey:edge.to];
             }
-        }];
+        }
     }
     
     return array;

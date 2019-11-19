@@ -54,7 +54,7 @@
     
 //    NSLog(@"%@", graph);
 //    [self testBfs];
-    [self testDfs];
+//    [self testDfs];
 //    [self testTop];
 }
 
