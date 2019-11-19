@@ -14,4 +14,10 @@
 
 @implementation JKREdgeInfo
 
+- (NSString *)description {
+    NSMutableString *str = [NSMutableString string];
+    [str appendString:[NSString stringWithFormat:@"<%@: %p>: [From: %@] -- [To: %@] == [Weight: %@]", self.className, self, self.from, self.to, self.weight]];
+    return str;
+}
+
 @end

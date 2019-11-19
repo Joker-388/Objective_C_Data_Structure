@@ -7,6 +7,7 @@
 //
 
 #import "JKRGraph.h"
+#import "JKRDSPotocol.h"
 
 @class JKRVertex<VertexType, EdgeWeightType>;
 @class JKREdge<VertexType, EdgeWeightType>;
@@ -31,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface JKREdge<VertexType, EdgeWeightType> : NSObject
+@interface JKREdge<VertexType, EdgeWeightType> : NSObject<JKRCompare>
 
 @property (nonatomic, weak) JKRVertex<VertexType, EdgeWeightType> *from;
 @property (nonatomic, weak) JKRVertex<VertexType, EdgeWeightType> *to;

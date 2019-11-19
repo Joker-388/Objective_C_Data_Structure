@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// 最小生成树
-- (NSArray<JKREdgeInfo *> *)minimumSpanningTree;
+- (NSSet<JKREdgeInfo *> *)minimumSpanningTree;
 
 @end
 

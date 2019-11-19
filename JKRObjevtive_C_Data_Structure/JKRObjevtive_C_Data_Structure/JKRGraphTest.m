@@ -56,6 +56,7 @@
 //    [self testBfs];
 //    [self testDfs];
 //    [self testTop];
+    [self testMst];
 }
 
 - (void)testBfs {
@@ -81,6 +82,11 @@
 - (void)testTop {
     JKRGraph *graph = [JKRListGraph dirctedGraphWithDataArray:[JKRGraphData TOP_01]];
     NSLog(@"%@", [graph topologicalSort]);
+}
+
+- (void)testMst {
+    JKRGraph *graph = [JKRListGraph undirctedGraphWithDataArray:[JKRGraphData MST_02]];
+    NSLog(@"%@", [graph minimumSpanningTree]);
 }
 
 @end

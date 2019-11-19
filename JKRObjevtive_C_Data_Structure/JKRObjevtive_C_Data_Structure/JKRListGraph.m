@@ -9,6 +9,7 @@
 #import "JKRListGraph.h"
 #import "JKRQueue.h"
 #import "JKRStack.h"
+#import "JKRBinaryHeap.h"
 
 @implementation JKRListGraph
 
@@ -238,6 +239,38 @@
     return array;
 }
 
+- (NSSet<JKREdgeInfo *> *)minimumSpanningTree {
+    JKRVertex *vertex = self.vertices.allValues[0];
+    
+    NSMutableSet<JKREdgeInfo *> *edgeInfos = [NSMutableSet set];
+    NSMutableSet<JKRVertex *> *addedVertices = [NSMutableSet set];
+    
+    [addedVertices addObject:vertex];
+    
+    JKRBinaryHeap *heap = [[JKRBinaryHeap alloc] initWithArray:vertex.outEdges.allObjects compare:^NSInteger(JKREdge<JKRCompare> *  _Nonnull e1, JKREdge<JKRCompare> *  _Nonnull e2) {
+        return [e2 compare:e1];
+    }];
+    
+    NSInteger verticesSize = self.vertices.count;
+    while (heap.count && addedVertices.count < verticesSize) {
+        JKREdge *edge = heap.top;
+        [heap removeTop];
+        if ([addedVertices containsObject:edge.to]) {
+            continue;
+        }
+        JKREdgeInfo *edgeInfo = [JKREdgeInfo new];
+        edgeInfo.from = edge.from.value;
+        edgeInfo.to = edge.to.value;
+        edgeInfo.weight = edge.weight;
+        [edgeInfos addObject:edgeInfo];
+        [addedVertices addObject:edge.to];
+        for (JKREdge *e in edge.to.outEdges) {
+            [heap addObject:e];
+        }
+    }
+    return edgeInfos;
+}
+
 @end
 
 @implementation JKRVertex
@@ -311,6 +344,10 @@
     NSNumber *fromCode = [NSNumber numberWithInteger:self.from.hash];
     NSNumber *toCode = [NSNumber numberWithInteger:self.to.hash];
     return fromCode.hash + toCode.hash;
+}
+
+- (NSInteger)compare:(JKREdge *)object {
+    return [self.weight compare:object.weight];
 }
 
 - (NSString *)description {

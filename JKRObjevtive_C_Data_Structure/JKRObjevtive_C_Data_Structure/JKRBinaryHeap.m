@@ -34,6 +34,7 @@
 
 - (instancetype)initWithArray:(NSArray *)array compare:(jkrbinaryheap_compareBlock)compare {
     self = [super init];
+    _compareBlock = compare;
     if (!array || array.count == 0) {
         self.array = [JKRArray arrayWithLength:BINARY_HEAP_DEAFULT_CAPACITY];
     } else {
@@ -44,7 +45,6 @@
         _size = array.count;
         [self heapity];
     }
-    _compareBlock = compare;
     return self;
 }
 

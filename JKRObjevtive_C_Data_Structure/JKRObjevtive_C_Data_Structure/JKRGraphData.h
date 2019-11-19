@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray *)DFS_01;
 + (NSArray *)DFS_02;
 + (NSArray *)TOP_01;
++ (NSArray *)MST_01;
++ (NSArray *)MST_02;
 
 @end
 
