@@ -10,27 +10,48 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRGraph<V, E> : NSObject
+@interface JKRGraph<VertexType, EdgeWeightType> : NSObject
 
 @end
 
-@interface JKRGraph<V, E> (JKRGraph)
+@interface JKREdgeInfo<VertexType, EdgeWeightType> : NSObject
+
+@property (nonatomic, strong) VertexType from;
+@property (nonatomic, strong) VertexType to;
+@property (nonatomic, strong) EdgeWeightType weight;
+
+@end
+
+@interface JKRGraph<VertexType, EdgeWeightType> (JKRGraph)
 
 - (NSInteger)edgesSize;
 - (NSInteger)vertricesSize;
 
-- (void)addVertex:(V)v;
-- (void)addEdgeFrom:(V)from to:(V)to;
-- (void)addEdgeFrom:(V)from to:(V)to weight:(nullable E)weight;
+- (void)addVertex:(VertexType)v;
+- (void)addEdgeFrom:(VertexType)from to:(VertexType)to;
+- (void)addEdgeFrom:(VertexType)from to:(VertexType)to weight:(nullable EdgeWeightType)weight;
 
 
-- (void)removeVertex:(V)v;
-- (void)removeEdgeFrom:(V)from to:(V)to;
+- (void)removeVertex:(VertexType)v;
+- (void)removeEdgeFrom:(VertexType)from to:(VertexType)to;
 
-- (void)bfsWithBegin:(V)v block:(void(^)(V v, BOOL *stop))block;
-- (void)dfsWithBegin:(V)v block:(void(^)(V v, BOOL *stop))block;
 
-- (NSArray<V> *)topologicalSort;
+/// 广度优先搜索
+/// @param v 起点
+/// @param block 回调
+- (void)bfsWithBegin:(VertexType)v block:(void(^)(VertexType v, BOOL *stop))block;
+
+/// 深度优先搜索
+/// @param v 起点
+/// @param block 回调
+- (void)dfsWithBegin:(VertexType)v block:(void(^)(VertexType v, BOOL *stop))block;
+
+/// 拓扑排序
+- (NSArray<VertexType> *)topologicalSort;
+
+
+/// 最小生成树
+- (NSArray<JKREdgeInfo *> *)minimumSpanningTree;
 
 @end
 

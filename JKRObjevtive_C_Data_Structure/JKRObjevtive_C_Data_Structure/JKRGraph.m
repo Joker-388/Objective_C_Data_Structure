@@ -10,6 +10,8 @@
 
 @implementation JKRGraph
 
+@end
 
+@implementation JKREdgeInfo
 
 @end

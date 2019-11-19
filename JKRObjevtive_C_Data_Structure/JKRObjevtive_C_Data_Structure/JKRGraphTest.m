@@ -20,8 +20,8 @@
 //    [graph addEdgeFrom:@"V2" to:@"V3" weight:@5];
 //    [graph addEdgeFrom:@"V3" to:@"V4" weight:@1];
 //    [graph addEdgeFrom:@"V0" to:@"V4" weight:@6];
-    
-    
+//
+//
 //    [graph removeEdgeFrom:@"V1" to:@"V0"];
 //    [graph removeEdgeFrom:@"V1" to:@"V2"];
 //    [graph removeEdgeFrom:@"V2" to:@"V0"];
@@ -54,8 +54,8 @@
     
 //    NSLog(@"%@", graph);
 //    [self testBfs];
-//    [self testDfs];
-    [self testTop];
+    [self testDfs];
+//    [self testTop];
 }
 
 - (void)testBfs {
@@ -69,7 +69,7 @@
 }
 
 - (void)testDfs {
-    JKRGraph *graph = [JKRListGraph undirctedGraphWithDataArray:[JKRGraphData DFS_02]];
+    JKRGraph *graph = [JKRListGraph dirctedGraphWithDataArray:[JKRGraphData DFS_02]];
     [graph dfsWithBegin:@"a" block:^(id  _Nonnull v, BOOL * _Nonnull stop) {
         if ([v isEqual:@"b"]) {
             *stop = YES;

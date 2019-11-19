@@ -51,7 +51,7 @@
 }
 
 - (void)addVertex:(id)v {
-    if ([self.vertices containsKey:v]) return;
+    if ([[self.vertices allKeys] containsObject:v]) return;
     [self.vertices setObject:[[JKRVertex alloc] initWithValue:v]  forKey:v];
 }
 
@@ -87,7 +87,7 @@
 - (void)removeVertex:(id)v {
     JKRVertex *vertex = self.vertices[v];
     if (!vertex) return;
-    JKRArrayList<JKREdge *> *removeEdges = [JKRArrayList array];
+    NSMutableArray<JKREdge *> *removeEdges = [NSMutableArray array];
     [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull stop) {
         [removeEdges addObject:obj];
     }];
@@ -113,16 +113,16 @@
     }
 }
 
-- (JKRHashMap_RedBlackTree *)vertices {
+- (NSMutableDictionary *)vertices {
     if (!_vertices) {
-        _vertices = [JKRHashMap_RedBlackTree new];
+        _vertices = [NSMutableDictionary new];
     }
     return _vertices;
 }
 
-- (JKRHashSet *)edges {
+- (NSMutableSet *)edges {
     if (!_edges) {
-        _edges = [JKRHashSet new];
+        _edges = [NSMutableSet set];
     }
     return _edges;
 }
@@ -147,7 +147,7 @@
     JKRVertex *vertex = self.vertices[v];
     if (!vertex) return;
     
-    JKRHashSet<JKRVertex *> *visitedVertices = [JKRHashSet new];
+    NSMutableSet<JKRVertex *> *visitedVertices = [NSMutableSet set];
     
     JKRQueue<JKRVertex *> *queue = [JKRQueue new];
     [queue enQueue:vertex];
@@ -157,7 +157,7 @@
     
     while (queue.count) {
         JKRVertex *vertex = [queue deQueue];
-        block(vertex.value, &stop);
+        if(block) block(vertex.value, &stop);
         if (stop) return;
 
         [vertex.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull s) {
@@ -172,7 +172,7 @@
 - (void)dfsWithBegin:(id)v block:(void (^)(id _Nonnull, BOOL * _Nonnull))block {
     JKRVertex *vertex = self.vertices[v];
     if (!vertex) return;
-    JKRHashSet<JKRVertex *> *visitedVertices = [JKRHashSet new];
+    NSMutableSet<JKRVertex *> *visitedVertices = [NSMutableSet set];
     __block BOOL stop = NO;
     
 //    [self dfsTraversal:vertex visitedVertices:visitedVertices block:block];
@@ -180,25 +180,21 @@
     JKRStack<JKRVertex *> *stack = [JKRStack new];
     [stack push:vertex];
     [visitedVertices addObject:vertex];
-    block(vertex.value, &stop);
+    if (block) block(vertex.value, &stop);
     if (stop) return;
     
     while (stack.count) {
         JKRVertex *v = stack.pop;
 
-        [v.outEdges enumerateObjectsUsingBlock:^(JKREdge *  _Nonnull obj, BOOL * _Nonnull s) {
-            if (stop) {
-                *s = YES;
-                return;
-            }
-            if (![visitedVertices containsObject:obj.to]) {
-                [stack push:obj.from];
-                [stack push:obj.to];
-                [visitedVertices addObject:obj.to];
-                block(obj.to.value, &stop);
-                *s = YES;
-            }
-        }];
+        for (JKREdge *edge in v.outEdges) {
+            if ([visitedVertices containsObject:edge.to]) continue;
+            [stack push:edge.from];
+            [stack push:edge.to];
+            [visitedVertices addObject:edge.to];
+            if (block) block(edge.to.value, &stop);
+            if (stop) return;
+            break;
+        }
     }
 }
 
@@ -215,7 +211,7 @@
 - (NSArray *)topologicalSort {
     NSMutableArray *array = [NSMutableArray array];
     JKRQueue<JKRVertex *> *queue = [JKRQueue new];
-    JKRHashMap_RedBlackTree<JKRVertex *, NSNumber *> *inCountMap = [JKRHashMap_RedBlackTree new];
+    NSMutableDictionary<JKRVertex *, NSNumber *> *inCountMap = [NSMutableDictionary dictionary];
     
     [self.vertices enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull v, JKRVertex *  _Nonnull vertex, BOOL * _Nonnull stop) {
         NSInteger inEdgeCount = vertex.inEdges.count;
@@ -253,16 +249,21 @@
     return self;
 }
 
-- (JKRHashSet *)inEdges {
+- (id)copyWithZone:(NSZone *)zone {
+    JKRVertex *vertex = [[JKRVertex alloc] initWithValue:self.value];
+    return vertex;
+}
+
+- (NSMutableSet *)inEdges {
     if (!_inEdges) {
-        _inEdges = [JKRHashSet new];
+        _inEdges = [NSMutableSet set];
     }
     return _inEdges;
 }
 
-- (JKRHashSet *)outEdges {
+- (NSMutableSet *)outEdges {
     if (!_outEdges) {
-        _outEdges = [JKRHashSet new];
+        _outEdges = [NSMutableSet set];
     }
     return _outEdges;
 }

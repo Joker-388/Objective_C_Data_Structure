@@ -7,39 +7,36 @@
 //
 
 #import "JKRGraph.h"
-#import "JKRHashMap_RedBlackTree.h"
-#import "JKRHashSet.h"
-#import "JKRArrayList.h"
 
-@class JKRVertex<V, E>;
-@class JKREdge<V, E>;
+@class JKRVertex<VertexType, EdgeWeightType>;
+@class JKREdge<VertexType, EdgeWeightType>;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRListGraph<V, E> : JKRGraph<V, E>
+@interface JKRListGraph<VertexType, EdgeWeightType> : JKRGraph<VertexType, EdgeWeightType>
 
-@property (nonatomic, strong) JKRHashMap_RedBlackTree<V, JKRVertex<V, E> *> *vertices;
-@property (nonatomic, strong) JKRHashSet<JKREdge<V, E> *> *edges;
+@property (nonatomic, strong) NSMutableDictionary<VertexType, JKRVertex<VertexType, EdgeWeightType> *> *vertices;
+@property (nonatomic, strong) NSMutableSet<JKREdge<VertexType, EdgeWeightType> *> *edges;
 + (instancetype)dirctedGraphWithDataArray:(NSArray<NSArray *> *)array;
 + (instancetype)undirctedGraphWithDataArray:(NSArray<NSArray *> *)array;
 
 @end
 
-@interface JKRVertex<V, E> : NSObject
+@interface JKRVertex<VertexType, EdgeWeightType> : NSObject<NSCopying>
 
-@property (nonatomic, strong) V value;
-@property (nonatomic, strong) JKRHashSet<JKREdge<V, E> *> *inEdges;
-@property (nonatomic, strong) JKRHashSet<JKREdge<V, E> *> *outEdges;
-- (instancetype) initWithValue:(V) value;
+@property (nonatomic, strong) VertexType value;
+@property (nonatomic, strong) NSMutableSet<JKREdge<VertexType, EdgeWeightType> *> *inEdges;
+@property (nonatomic, strong) NSMutableSet<JKREdge<VertexType, EdgeWeightType> *> *outEdges;
+- (instancetype) initWithValue:(VertexType) value;
 
 @end
 
-@interface JKREdge<V, E> : NSObject
+@interface JKREdge<VertexType, EdgeWeightType> : NSObject
 
-@property (nonatomic, weak) JKRVertex<V, E> *from;
-@property (nonatomic, weak) JKRVertex<V, E> *to;
-@property (nonatomic, strong) id weight;
-- (instancetype)initWithFrom:(JKRVertex<V, E> *)from to:(JKRVertex<V, E> *)to;
+@property (nonatomic, weak) JKRVertex<VertexType, EdgeWeightType> *from;
+@property (nonatomic, weak) JKRVertex<VertexType, EdgeWeightType> *to;
+@property (nonatomic, strong) EdgeWeightType weight;
+- (instancetype)initWithFrom:(JKRVertex<VertexType, EdgeWeightType> *)from to:(JKRVertex<VertexType, EdgeWeightType> *)to;
 
 @end
 
