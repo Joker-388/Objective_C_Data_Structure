@@ -2,29 +2,23 @@
 //  JKRUnionFind.h
 //  JKRObjevtive_C_Data_Structure
 //
-//  Created by Joker on 2019/10/24.
+//  Created by Joker on 2019/11/20.
 //  Copyright © 2019 Joker. All rights reserved.
 //
+
 #import <Foundation/Foundation.h>
-#import "JKRArray.h"
+
+//@class JKRUnionNode<ObjectType>;
+
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRUnionFind : NSObject {
-@protected
-    JKRArray<NSNumber *> *_parents;
-}
+@interface JKRUnionFind<ObjectType: id<NSCopying>> : NSObject
 
-- (instancetype)initWithCapacity:(NSUInteger)capacity;
-- (BOOL)isSameWithValue1:(NSInteger)value1 value2:(NSInteger)value2;
-- (void)rangeCheckWithValue:(NSInteger)value;
-
-@end
-
-@interface JKRUnionFind (JKRUnionFind)
-
-- (NSInteger)findValue:(NSInteger)value;
-- (void)unionWithValue1:(NSInteger)value1 value2:(NSInteger)value2;
+- (void)makeSetWithValue:(ObjectType)value;
+- (ObjectType)findWithValue:(ObjectType)value;
+- (void)unionWithValue1:(ObjectType)value1 value2:(ObjectType)value2;
+- (BOOL)isSameWithValue1:(ObjectType)value1 value2:(ObjectType)value2;
 
 @end
 

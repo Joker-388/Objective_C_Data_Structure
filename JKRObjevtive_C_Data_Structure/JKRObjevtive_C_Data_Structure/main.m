@@ -35,8 +35,8 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [[JKRGraphTest new] test];
-
+//        [[JKRGraphTest new] test];
+        [[UnionFindTest new] runTest];
     }
     return 0;
 }

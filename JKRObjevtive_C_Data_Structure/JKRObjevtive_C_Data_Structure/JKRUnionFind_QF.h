@@ -6,11 +6,11 @@
 //  Copyright © 2019 Joker. All rights reserved.
 //
 
-#import "JKRUnionFind.h"
+#import "JKRUnionFindBase.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKRUnionFind_QF : JKRUnionFind
+@interface JKRUnionFind_QF : JKRUnionFindBase
 
 @end
 
