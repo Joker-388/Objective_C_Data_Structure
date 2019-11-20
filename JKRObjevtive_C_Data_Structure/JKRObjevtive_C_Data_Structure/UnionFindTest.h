@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UnionFindTest : NSObject
 
-- (void)runTest;
+- (void)test;
 
 @end
 

@@ -10,6 +10,7 @@
 #import "JKRQueue.h"
 #import "JKRStack.h"
 #import "JKRBinaryHeap.h"
+#import "JKRUnionFind.h"
 
 @implementation JKRListGraph
 
@@ -240,6 +241,11 @@
 }
 
 - (NSSet<JKREdgeInfo *> *)minimumSpanningTree {
+//    return [self _minimumSpanningTree_prim];
+    return [self _minimumSpanningTree_kruskal];
+}
+
+- (NSSet<JKREdgeInfo *> *)_minimumSpanningTree_prim {
     JKRVertex *vertex = self.vertices.allValues[0];
     
     NSMutableSet<JKREdgeInfo *> *edgeInfos = [NSMutableSet set];
@@ -268,6 +274,35 @@
             [heap addObject:e];
         }
     }
+    return edgeInfos;
+}
+
+- (NSSet<JKREdgeInfo *> *)_minimumSpanningTree_kruskal {
+    NSMutableSet *edgeInfos = [NSMutableSet set];
+    NSInteger edgeSize = self.vertices.count - 1;
+    if (edgeSize == -1) return edgeInfos;
+    
+    JKRBinaryHeap *heap = [[JKRBinaryHeap alloc] initWithArray:self.edges.allObjects compare:^NSInteger(JKREdge<JKRCompare> *  _Nonnull e1, JKREdge<JKRCompare> *  _Nonnull e2) {
+        return [e2 compare:e1];
+    }];
+    
+    JKRUnionFind *uf = [JKRUnionFind new];
+    [self.vertices enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, JKRVertex * _Nonnull obj, BOOL * _Nonnull stop) {
+        [uf makeSetWithValue:obj];
+    }];
+    
+    while (heap.count && edgeInfos.count < edgeSize) {
+        JKREdge *edge = heap.top;
+        [heap removeTop];
+        if ([uf isSameWithValue1:edge.from value2:edge.to]) continue;
+        JKREdgeInfo *edgeInfo = [[JKREdgeInfo alloc] init];
+        edgeInfo.from = edge.from.value;
+        edgeInfo.to = edge.to.value;
+        edgeInfo.weight = edge.weight;
+        [edgeInfos addObject:edgeInfo];
+        [uf unionWithValue1:edge.from value2:edge.to];
+    }
+
     return edgeInfos;
 }
 

@@ -49,7 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// 拓扑排序
 - (NSArray<VertexType> *)topologicalSort;
 
-
 /// 最小生成树
 - (NSSet<JKREdgeInfo *> *)minimumSpanningTree;
 

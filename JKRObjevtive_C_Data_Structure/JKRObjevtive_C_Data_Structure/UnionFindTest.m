@@ -18,7 +18,7 @@
 
 @implementation UnionFindTest
 
-- (void)runTest {
+- (void)test {
 //    [self testWithUnionFind:[[JKRUnionFind_QF alloc] initWithCapacity:14]];
 //    [self testWithUnionFind:[[JKRUnionFind_QU alloc] initWithCapacity:14]];
 //    [self testWithUnionFind:[[JKRUnionFind_QU_S alloc] initWithCapacity:14]];
