@@ -17,15 +17,20 @@ typedef NSInteger(^jkrbinaryheap_compareBlock)(id e1, id e2);
     jkrbinaryheap_compareBlock _compareBlock;
 }
 
-/*
- 二叉堆添加的元素必须具备可比较性
- 1，通过初始化方法传入比较的代码块, 大顶堆 return e1 - e2 小顶堆 return e2 - e1
- 2，加入的对象是系统默认的带有compare:方法的类的实例，例如：NSNumber、NSString类的实例对象(内部默认比较逻辑为大顶堆)
- */
+/// 初始化二叉堆
+/// @discussion 加入的对象是系统默认的带有compare:方法的类的实例
+/// @param compare 比较方案 大顶堆 return e1 - e2 小顶堆 return e2 - e1
 - (instancetype)initWithCompare:(nullable jkrbinaryheap_compareBlock)compare;
 
+
+/// 快速建大顶堆
+/// @param array 数组
 - (instancetype)initWithArray:(nullable NSArray *)array;
 
+
+/// 快速建堆
+/// @param array 数组
+/// @param compare 比较方案 大顶堆 return e1 - e2 小顶堆 return e2 - e1
 - (instancetype)initWithArray:(nullable NSArray *)array compare:(nullable jkrbinaryheap_compareBlock)compare;
 
 @end

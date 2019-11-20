@@ -233,9 +233,7 @@
 		F315020B2361A5A200C99CAA /* 并查集 */ = {
 			isa = PBXGroup;
 			children = (
-				F3EF66482362D75A00D7B7E5 /* UnionFindTest.h */,
-				F3EF66492362D75A00D7B7E5 /* UnionFindTest.m */,
-				F3EF664B2362D75F00D7B7E5 /* 并查集 */,
+				F3EF664B2362D75F00D7B7E5 /* 并查集-Interger */,
 			);
 			name = "并查集";
 			sourceTree = "<group>";
@@ -597,6 +595,7 @@
 		F3A6FBE5229D416C00B9A4E8 /* 测试 */ = {
 			isa = PBXGroup;
 			children = (
+				F3D53C9C2384E73C002131FC /* 并查集 */,
 				F3D1302F237D40B8008A9FC4 /* 排序 */,
 				F3D1302E237D40A8008A9FC4 /* 图 */,
 				F3A6FB80229D020A00B9A4E8 /* 测试模型 */,
@@ -792,7 +791,16 @@
 			name = "排序";
 			sourceTree = "<group>";
 		};
-		F3EF664B2362D75F00D7B7E5 /* 并查集 */ = {
+		F3D53C9C2384E73C002131FC /* 并查集 */ = {
+			isa = PBXGroup;
+			children = (
+				F3EF66482362D75A00D7B7E5 /* UnionFindTest.h */,
+				F3EF66492362D75A00D7B7E5 /* UnionFindTest.m */,
+			);
+			name = "并查集";
+			sourceTree = "<group>";
+		};
+		F3EF664B2362D75F00D7B7E5 /* 并查集-Interger */ = {
 			isa = PBXGroup;
 			children = (
 				F31502082361A59D00C99CAA /* JKRUnionFind.h */,
@@ -812,7 +820,7 @@
 				F3A2793D236692E4006A8F4E /* JKRUnionFind_QU_R_PH.h */,
 				F3A2793E236692E4006A8F4E /* JKRUnionFind_QU_R_PH.m */,
 			);
-			name = "并查集";
+			name = "并查集-Interger";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
