@@ -53,10 +53,11 @@
 //    [graph bfsWithBegin:@"V1"];
     
 //    NSLog(@"%@", graph);
-//    [self testBfs];
-//    [self testDfs];
-//    [self testTop];
+    [self testBfs];
+    [self testDfs];
+    [self testTop];
     [self testMst];
+    [self testSP];
 }
 
 - (void)testBfs {
@@ -85,8 +86,13 @@
 }
 
 - (void)testMst {
-    JKRGraph *graph = [JKRListGraph undirctedGraphWithDataArray:[JKRGraphData MST_02]];
+    JKRGraph *graph = [JKRListGraph undirctedGraphWithDataArray:[JKRGraphData MST_01]];
     NSLog(@"%@", [graph minimumSpanningTree]);
+}
+
+- (void)testSP {
+    JKRGraph *graph = [JKRListGraph undirctedGraphWithDataArray:[JKRGraphData SP]];
+    NSLog(@"%@", [graph shortestPathWithBegin:@"A"]);
 }
 
 @end

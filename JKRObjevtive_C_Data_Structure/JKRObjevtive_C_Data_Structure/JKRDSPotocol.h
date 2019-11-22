@@ -9,7 +9,7 @@
 #ifndef JKRDSPotocol_h
 #define JKRDSPotocol_h
 
-@protocol JKRCompare
+@protocol JKRDSCompare <NSObject>
 
 - (NSInteger)compare:(id)object;
 

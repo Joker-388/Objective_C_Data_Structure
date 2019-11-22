@@ -28,5 +28,6 @@
 #import "JKRTreeSet.h"
 #import "JKRBinaryHeap.h"
 #import "JKRListGraph.h"
+#import "JKRDSPotocol.h"
 
 #endif /* JKRDataStructure_h */

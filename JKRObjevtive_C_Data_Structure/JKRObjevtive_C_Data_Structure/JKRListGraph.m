@@ -61,7 +61,7 @@
     [self addEdgeFrom:from to:to weight:nil];
 }
 
-- (void)addEdgeFrom:(id)from to:(id)to weight:(id)weight {
+- (void)addEdgeFrom:(id)from to:(id)to weight:(NSNumber *)weight {
     JKRVertex *fromVertex = self.vertices[from];
     if (!fromVertex) {
         fromVertex = [[JKRVertex alloc] initWithValue:from];
@@ -253,7 +253,7 @@
     
     [addedVertices addObject:vertex];
     
-    JKRBinaryHeap *heap = [[JKRBinaryHeap alloc] initWithArray:vertex.outEdges.allObjects compare:^NSInteger(JKREdge<JKRCompare> *  _Nonnull e1, JKREdge<JKRCompare> *  _Nonnull e2) {
+    JKRBinaryHeap *heap = [[JKRBinaryHeap alloc] initWithArray:vertex.outEdges.allObjects compare:^NSInteger(JKREdge *  _Nonnull e1, JKREdge *  _Nonnull e2) {
         return [e2 compare:e1];
     }];
     
@@ -277,23 +277,26 @@
     return edgeInfos;
 }
 
+// 时间复杂度 E(logE)
 - (NSSet<JKREdgeInfo *> *)_minimumSpanningTree_kruskal {
     NSMutableSet *edgeInfos = [NSMutableSet set];
     NSInteger edgeSize = self.vertices.count - 1;
     if (edgeSize == -1) return edgeInfos;
     
-    JKRBinaryHeap *heap = [[JKRBinaryHeap alloc] initWithArray:self.edges.allObjects compare:^NSInteger(JKREdge<JKRCompare> *  _Nonnull e1, JKREdge<JKRCompare> *  _Nonnull e2) {
+    // O(E)
+    JKRBinaryHeap *heap = [[JKRBinaryHeap alloc] initWithArray:self.edges.allObjects compare:^NSInteger(JKREdge *  _Nonnull e1, JKREdge *  _Nonnull e2) {
         return [e2 compare:e1];
     }];
     
+    // O(V)
     JKRUnionFind *uf = [JKRUnionFind new];
     [self.vertices enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, JKRVertex * _Nonnull obj, BOOL * _Nonnull stop) {
         [uf makeSetWithValue:obj];
     }];
     
-    while (heap.count && edgeInfos.count < edgeSize) {
+    while (heap.count && edgeInfos.count < edgeSize) { // E
         JKREdge *edge = heap.top;
-        [heap removeTop];
+        [heap removeTop]; // O(logE)
         if ([uf isSameWithValue1:edge.from value2:edge.to]) continue;
         JKREdgeInfo *edgeInfo = [[JKREdgeInfo alloc] init];
         edgeInfo.from = edge.from.value;
@@ -304,6 +307,51 @@
     }
 
     return edgeInfos;
+}
+
+- (NSDictionary *)shortestPathWithBegin:(id)v {
+    // key: vertexValue value: weight
+    NSMutableDictionary<id, NSNumber *> *selectedPaths = [NSMutableDictionary dictionary];
+    JKRVertex *beginVertex = self.vertices[v];
+    if (!beginVertex) return selectedPaths;
+    // key: vertex value: weight
+    NSMutableDictionary<JKRVertex *, NSNumber *> *paths = [NSMutableDictionary dictionary];
+    
+    for (JKREdge *edge in beginVertex.outEdges.allObjects) {
+        paths[edge.to] = edge.weight;
+    }
+    
+    while (paths.count) {
+        JKRVertex *minVertex;
+        NSNumber *minWeight;
+        [self getMinPathWithPaths:paths minPathVertex:&minVertex minPathEdgeWeight:&minWeight];
+        selectedPaths[minVertex.value] = minWeight;
+        [paths removeObjectForKey:minVertex];
+        for (JKREdge *edge in minVertex.outEdges.allObjects) {
+            if ([[selectedPaths allKeys] containsObject:edge.to.value]) {
+                continue;
+            }
+            NSNumber *newWeight = [NSNumber numberWithInteger:[edge.weight integerValue] + [minWeight integerValue]];
+            NSNumber *oldWeight = paths[edge.to];
+            if (!oldWeight || newWeight.integerValue < oldWeight.integerValue) {
+                paths[edge.to] = newWeight;
+            }
+        }
+    }
+    [selectedPaths removeObjectForKey:beginVertex.value];
+    return selectedPaths;
+}
+
+- (void)getMinPathWithPaths:(NSMutableDictionary<JKRVertex *, NSNumber *> *)paths minPathVertex:(JKRVertex **)vertex minPathEdgeWeight:(NSNumber **)minPathWeight {
+    *minPathWeight = [NSNumber numberWithInteger:NSIntegerMax];
+    NSArray<JKRVertex *> *keys = paths.allKeys;
+    for (JKRVertex *v in keys) {
+        NSNumber *weight = paths[v];
+        if ([weight integerValue] < [*minPathWeight integerValue]) {
+            *minPathWeight = weight;
+            *vertex = v;
+        }
+    }
 }
 
 @end
@@ -318,6 +366,8 @@
 
 - (id)copyWithZone:(NSZone *)zone {
     JKRVertex *vertex = [[JKRVertex alloc] initWithValue:self.value];
+    vertex.inEdges = self.inEdges;
+    vertex.outEdges = self.outEdges;
     return vertex;
 }
 
@@ -375,14 +425,22 @@
     return [object.from isEqual:self.from] && [object.to isEqual:self.to];
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+    JKREdge *edge = [JKREdge new];
+    edge.from = self.from;
+    edge.to = self.to;
+    edge.weight = self.weight;
+    return edge;
+}
+
 - (NSUInteger)hash {
     NSNumber *fromCode = [NSNumber numberWithInteger:self.from.hash];
     NSNumber *toCode = [NSNumber numberWithInteger:self.to.hash];
     return fromCode.hash + toCode.hash;
 }
 
-- (NSInteger)compare:(JKREdge *)object {
-    return [self.weight compare:object.weight];
+- (NSInteger)compare:(id)object {
+    return [self.weight compare:((JKREdge *)object).weight];
 }
 
 - (NSString *)description {

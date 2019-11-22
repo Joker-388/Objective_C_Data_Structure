@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray *)TOP_01;
 + (NSArray *)MST_01;
 + (NSArray *)MST_02;
++ (NSArray *)SP;
 
 @end
 
