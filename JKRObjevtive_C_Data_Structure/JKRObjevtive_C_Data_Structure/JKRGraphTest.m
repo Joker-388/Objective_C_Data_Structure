@@ -53,10 +53,10 @@
 //    [graph bfsWithBegin:@"V1"];
     
 //    NSLog(@"%@", graph);
-    [self testBfs];
-    [self testDfs];
-    [self testTop];
-    [self testMst];
+//    [self testBfs];
+//    [self testDfs];
+//    [self testTop];
+//    [self testMst];
     [self testSP];
 }
 
@@ -92,7 +92,9 @@
 
 - (void)testSP {
     JKRGraph *graph = [JKRListGraph undirctedGraphWithDataArray:[JKRGraphData SP]];
-    NSLog(@"%@", [graph shortestPathWithBegin:@"A"]);
+    [[graph shortestPathWithBegin:@"A"] enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSLog(@"%@ %@", key, obj);
+    }];
 }
 
 @end

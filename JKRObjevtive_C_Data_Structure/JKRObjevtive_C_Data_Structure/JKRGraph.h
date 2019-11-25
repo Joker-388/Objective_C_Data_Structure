@@ -22,6 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface JKRPathInfo<VertexType> : NSObject
+
+@property (nonatomic, strong) NSNumber *weight;
+@property (nonatomic, strong) NSArray<JKREdgeInfo *> *edgeInfos;
+
+@end
+
 @interface JKRGraph<VertexType> (JKRGraph)
 
 - (NSInteger)edgesSize;
@@ -52,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 最小生成树
 - (NSSet<JKREdgeInfo *> *)minimumSpanningTree;
 
-- (NSDictionary<VertexType, NSNumber *> *)shortestPathWithBegin:(VertexType)v;
+- (NSDictionary<VertexType, JKRPathInfo<VertexType> *> *)shortestPathWithBegin:(VertexType)v;
 
 @end
 

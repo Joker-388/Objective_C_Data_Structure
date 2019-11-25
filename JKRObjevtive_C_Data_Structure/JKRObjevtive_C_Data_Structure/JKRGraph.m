@@ -21,3 +21,19 @@
 }
 
 @end
+
+
+@implementation JKRPathInfo
+
+- (NSString *)description {
+    NSMutableString *str = [NSMutableString string];
+    [str appendString:[NSString stringWithFormat:@"%@ (\n",  self.weight]];
+    for (JKREdgeInfo *edgeInfo in self.edgeInfos) {
+        [str appendString:[NSString stringWithFormat:@"   [From: %@] -- [To: %@] == [Weight: %@]\n", edgeInfo.from, edgeInfo.to, edgeInfo.weight]];
+    }
+    [str appendString:@")"];
+    
+    return str;
+}
+
+@end
