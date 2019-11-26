@@ -91,7 +91,7 @@
 }
 
 - (void)testSP {
-    JKRGraph *graph = [JKRListGraph undirctedGraphWithDataArray:[JKRGraphData SP]];
+    JKRGraph *graph = [JKRListGraph dirctedGraphWithDataArray:[JKRGraphData NEGAVIVE_WEIGHT_1]];
     [[graph shortestPathWithBegin:@"A"] enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         NSLog(@"%@ %@", key, obj);
     }];

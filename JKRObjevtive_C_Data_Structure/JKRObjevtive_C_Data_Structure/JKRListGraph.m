@@ -261,9 +261,7 @@
     while (heap.count && addedVertices.count < verticesSize) {
         JKREdge *edge = heap.top;
         [heap removeTop];
-        if ([addedVertices containsObject:edge.to]) {
-            continue;
-        }
+        if ([addedVertices containsObject:edge.to]) continue;
         JKREdgeInfo *edgeInfo = [JKREdgeInfo new];
         edgeInfo.from = edge.from.value;
         edgeInfo.to = edge.to.value;
@@ -310,6 +308,65 @@
 }
 
 - (NSDictionary *)shortestPathWithBegin:(id)v {
+//    return [self _shortestPathWithBegin_Dijkstra:v];
+    return [self _shortestPathWithBegin_BellmanFord:v];
+}
+
+- (NSDictionary *)_shortestPathWithBegin_BellmanFord:(id)v {
+    NSMutableDictionary<id, JKRPathInfo *> *selectedPaths = [NSMutableDictionary dictionary];
+    JKRVertex *beginVertex = self.vertices[v];
+    if(!beginVertex) return selectedPaths;
+    
+    NSInteger count = self.edges.count - 1;
+
+    JKRPathInfo *beginPathInfo = [[JKRPathInfo alloc] init];
+    beginPathInfo.weight = [NSNumber numberWithInteger:0];
+    selectedPaths[beginVertex.value] = beginPathInfo;
+    
+    for (NSInteger i = 0; i < count; i++) {
+        for (JKREdge *edge in self.edges) {
+            JKRPathInfo *fromPathInfo = selectedPaths[edge.from.value];
+            if (!fromPathInfo) continue;
+            [self relexEdgeWithEdge:edge fromPathInfo:fromPathInfo selectedPaths:selectedPaths];
+        }
+    }
+    for (JKREdge *edge in self.edges) {
+        JKRPathInfo *fromPathInfo = selectedPaths[edge.from.value];
+        if (!fromPathInfo) continue;
+        if ([self relexEdgeWithEdge:edge fromPathInfo:fromPathInfo selectedPaths:selectedPaths]) {
+            NSLog(@"有负权环");
+            [selectedPaths removeAllObjects];
+            return selectedPaths;
+        }
+    }
+    [selectedPaths removeObjectForKey:beginVertex.value];
+    return selectedPaths;
+}
+
+- (BOOL)relexEdgeWithEdge:(JKREdge *)edge fromPathInfo:(JKRPathInfo *)fromPathInfo selectedPaths:(NSMutableDictionary<id, JKRPathInfo *> *)selectedPaths {
+    NSNumber *newWeight = [NSNumber numberWithInteger:[edge.weight integerValue] + [fromPathInfo.weight integerValue]];
+    JKRPathInfo *oldPathInfo = selectedPaths[edge.to.value];
+
+    if (!oldPathInfo) {
+        oldPathInfo = [[JKRPathInfo alloc] init];
+        selectedPaths[edge.to.value] = oldPathInfo;
+    } else if(newWeight.integerValue >= oldPathInfo.weight.integerValue) {
+        return false;
+    }
+
+    oldPathInfo.weight = newWeight;
+    NSMutableArray *newPaths = [NSMutableArray array];
+    [newPaths addObjectsFromArray:fromPathInfo.edgeInfos];
+    JKREdgeInfo *newEdgeInfo = [[JKREdgeInfo alloc] init];
+    newEdgeInfo.weight = edge.weight;
+    newEdgeInfo.from = edge.from.value;
+    newEdgeInfo.to = edge.to.value;
+    [newPaths addObject:newEdgeInfo];
+    oldPathInfo.edgeInfos = newPaths;
+    return true;
+}
+
+- (NSDictionary *)_shortestPathWithBegin_Dijkstra:(id)v {
     // key: vertexValue value: weight
     NSMutableDictionary<id, JKRPathInfo *> *selectedPaths = [NSMutableDictionary dictionary];
     JKRVertex *beginVertex = self.vertices[v];
@@ -320,21 +377,19 @@
 
     while (paths.count) {
         JKRVertex *minVertex;
-        JKRPathInfo *minWeight;
-        [self getMinPathWithPaths:paths minPathVertex:&minVertex minPathEdgeWeight:&minWeight];
-        selectedPaths[minVertex.value] = minWeight;
+        JKRPathInfo *minPathInfo;
+        [self getMinPathWithPaths:paths minPathVertex:&minVertex minPathEdgeWeight:&minPathInfo];
+        selectedPaths[minVertex.value] = minPathInfo;
         [paths removeObjectForKey:minVertex];
         for (JKREdge *edge in minVertex.outEdges.allObjects) {
-            if ([[selectedPaths allKeys] containsObject:edge.to.value]) {
-                continue;
-            }
-            NSNumber *newWeight = [NSNumber numberWithInteger:[edge.weight integerValue] + [minWeight.weight integerValue]];
+            if ([[selectedPaths allKeys] containsObject:edge.to.value]) continue;
+            NSNumber *newWeight = [NSNumber numberWithInteger:[edge.weight integerValue] + [minPathInfo.weight integerValue]];
             NSNumber *oldWeight = paths[edge.to] ? paths[edge.to].weight : nil;
             if (!oldWeight || newWeight.integerValue < oldWeight.integerValue) {
                 JKRPathInfo *newPathInfo = [[JKRPathInfo alloc] init];
                 newPathInfo.weight = newWeight;
                 NSMutableArray *newPaths = [NSMutableArray array];
-                [newPaths addObjectsFromArray:minWeight.edgeInfos];
+                [newPaths addObjectsFromArray:minPathInfo.edgeInfos];
                 JKREdgeInfo *newEdgeInfo = [[JKREdgeInfo alloc] init];
                 newEdgeInfo.weight = edge.weight;
                 newEdgeInfo.from = edge.from.value;

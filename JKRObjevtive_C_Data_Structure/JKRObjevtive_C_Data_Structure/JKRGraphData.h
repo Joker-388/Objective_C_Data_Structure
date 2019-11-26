@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray *)MST_01;
 + (NSArray *)MST_02;
 + (NSArray *)SP;
++ (NSArray *)NEGAVIVE_WEIGHT_1;
 
 @end
 
