@@ -116,14 +116,14 @@
 
 - (NSString *)description {
     NSMutableString *string = [NSMutableString string];
-    [string appendString:[NSString stringWithFormat:@"[%@, %p]: size=%zd \n{ ", [self class], self, _size]];
+    [string appendString:[NSString stringWithFormat:@"[%@, %p]: size=%zd \n{ \n", [self class], self, _size]];
     [self enumerateObjectsUsingBlock:^(id  _Nullable obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (idx) {
-            [string appendString:@", "];
+            [string appendString:@",\n"];
         }
-        [string appendString:[NSString stringWithFormat:@"%@", obj]];
+        [string appendString:[NSString stringWithFormat:@"   %@", obj]];
     }];
-    [string appendString:@" }"];
+    [string appendString:@"\n}"];
     return string;
 }
 

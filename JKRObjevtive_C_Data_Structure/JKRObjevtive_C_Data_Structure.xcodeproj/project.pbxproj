@@ -60,6 +60,8 @@
 		F3A6FBF6229D486700B9A4E8 /* JKRTreeSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBF4229D486700B9A4E8 /* JKRTreeSet.m */; };
 		F3A6FBFF229E16FC00B9A4E8 /* JKRBaseHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBFE229E16FC00B9A4E8 /* JKRBaseHeap.m */; };
 		F3A6FC04229E1A0500B9A4E8 /* JKRBinaryHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FC03229E1A0500B9A4E8 /* JKRBinaryHeap.m */; };
+		F3B7F3F0239F9FEC00610129 /* ArrayListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B7F3EF239F9FEC00610129 /* ArrayListTest.m */; };
+		F3B7F3F4239FA7CB00610129 /* TreeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B7F3F3239FA7CB00610129 /* TreeTest.m */; };
 		F3C866A12356FFB0002CA4F6 /* JKRShellSort.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C866A02356FFB0002CA4F6 /* JKRShellSort.m */; };
 		F3C866A8235850AD002CA4F6 /* JKRCountingSort.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C866A7235850AD002CA4F6 /* JKRCountingSort.m */; };
 		F3C866AC23585DA1002CA4F6 /* TestSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C866AB23585DA1002CA4F6 /* TestSortModel.m */; };
@@ -194,6 +196,10 @@
 		F3A6FBFE229E16FC00B9A4E8 /* JKRBaseHeap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRBaseHeap.m; sourceTree = "<group>"; };
 		F3A6FC02229E1A0500B9A4E8 /* JKRBinaryHeap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRBinaryHeap.h; sourceTree = "<group>"; };
 		F3A6FC03229E1A0500B9A4E8 /* JKRBinaryHeap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRBinaryHeap.m; sourceTree = "<group>"; };
+		F3B7F3EE239F9FEC00610129 /* ArrayListTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrayListTest.h; sourceTree = "<group>"; };
+		F3B7F3EF239F9FEC00610129 /* ArrayListTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrayListTest.m; sourceTree = "<group>"; };
+		F3B7F3F2239FA7CB00610129 /* TreeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeTest.h; sourceTree = "<group>"; };
+		F3B7F3F3239FA7CB00610129 /* TreeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreeTest.m; sourceTree = "<group>"; };
 		F3C8669F2356FFB0002CA4F6 /* JKRShellSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRShellSort.h; sourceTree = "<group>"; };
 		F3C866A02356FFB0002CA4F6 /* JKRShellSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRShellSort.m; sourceTree = "<group>"; };
 		F3C866A6235850AD002CA4F6 /* JKRCountingSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRCountingSort.h; sourceTree = "<group>"; };
@@ -600,6 +606,8 @@
 		F3A6FBE5229D416C00B9A4E8 /* 测试 */ = {
 			isa = PBXGroup;
 			children = (
+				F3B7F3F5239FA7D100610129 /* 二叉树 */,
+				F3B7F3F1239F9FEF00610129 /* 线性表测试 */,
 				F3D53C9C2384E73C002131FC /* 并查集 */,
 				F3D1302F237D40B8008A9FC4 /* 排序 */,
 				F3D1302E237D40A8008A9FC4 /* 图 */,
@@ -712,6 +720,24 @@
 			name = "二叉堆";
 			sourceTree = "<group>";
 		};
+		F3B7F3F1239F9FEF00610129 /* 线性表测试 */ = {
+			isa = PBXGroup;
+			children = (
+				F3B7F3EE239F9FEC00610129 /* ArrayListTest.h */,
+				F3B7F3EF239F9FEC00610129 /* ArrayListTest.m */,
+			);
+			name = "线性表测试";
+			sourceTree = "<group>";
+		};
+		F3B7F3F5239FA7D100610129 /* 二叉树 */ = {
+			isa = PBXGroup;
+			children = (
+				F3B7F3F2239FA7CB00610129 /* TreeTest.h */,
+				F3B7F3F3239FA7CB00610129 /* TreeTest.m */,
+			);
+			name = "二叉树";
+			sourceTree = "<group>";
+		};
 		F3C866A22356FFB4002CA4F6 /* 希尔排序 */ = {
 			isa = PBXGroup;
 			children = (
@@ -754,8 +780,8 @@
 		F3C866B22359AD25002CA4F6 /* 非基于比较的排序 */ = {
 			isa = PBXGroup;
 			children = (
-				F3C866B0235957D5002CA4F6 /* 基数排序 */,
 				F3C866A923585975002CA4F6 /* 计数排序 */,
+				F3C866B0235957D5002CA4F6 /* 基数排序 */,
 			);
 			name = "非基于比较的排序";
 			sourceTree = "<group>";
@@ -763,13 +789,13 @@
 		F3C866B42359AD43002CA4F6 /* 基于比较的排序 */ = {
 			isa = PBXGroup;
 			children = (
-				F360710F2341F092005A3744 /* 选择排序 */,
 				F36071052341DE5E005A3744 /* 冒泡排序 */,
-				F37CB85A234C82A00082802F /* 归并排序 */,
-				F37CB84D234C3AEE0082802F /* 插入排序 */,
+				F360710F2341F092005A3744 /* 选择排序 */,
 				F36071142341F1E9005A3744 /* 堆排序 */,
-				F3C866A22356FFB4002CA4F6 /* 希尔排序 */,
+				F37CB84D234C3AEE0082802F /* 插入排序 */,
+				F37CB85A234C82A00082802F /* 归并排序 */,
 				F39E49C723507FE700625DB4 /* 快速排序 */,
+				F3C866A22356FFB4002CA4F6 /* 希尔排序 */,
 			);
 			name = "基于比较的排序";
 			sourceTree = "<group>";
@@ -886,6 +912,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C866AC23585DA1002CA4F6 /* TestSortModel.m in Sources */,
+				F3B7F3F0239F9FEC00610129 /* ArrayListTest.m in Sources */,
 				F3D53C9F238509D8002131FC /* JKRUnionFind.m in Sources */,
 				F3A6FBAC229D2B3000B9A4E8 /* JKRLinkedList.m in Sources */,
 				F37CB84C234C3AEA0082802F /* JKRInsertionSort1.m in Sources */,
@@ -931,6 +958,7 @@
 				F3C866A8235850AD002CA4F6 /* JKRCountingSort.m in Sources */,
 				F36070B023408BC3005A3744 /* JKRSort.m in Sources */,
 				F360710B2341E4C3005A3744 /* SortTest.m in Sources */,
+				F3B7F3F4239FA7CB00610129 /* TreeTest.m in Sources */,
 				F3A2793923668729006A8F4E /* JKRUnionFind_QU_R_PC.m in Sources */,
 				F3C866AF235957C0002CA4F6 /* JKRRadixSort1.m in Sources */,
 				F3A6FB7B229D01FD00B9A4E8 /* Student.m in Sources */,

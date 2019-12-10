@@ -28,15 +28,20 @@
 #import "JKRBinaryHeap.h"
 #import "JKRArray.h"
 
+#import "ArrayListTest.h"
 
 #import "SortTest.h"
 #import "UnionFindTest.h"
 #import "JKRGraphTest.h"
+#import "TreeTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+//        [[ArrayListTest new] test];
+        [[TreeTest new] test];
         //        [[UnionFindTest new] test];
-        [[JKRGraphTest new] test];
+//        [[JKRGraphTest new] test];
+//        testRedBlackTree();
     }
     return 0;
 }
